@@ -22,7 +22,7 @@ Um site rápido, bonito e trilíngue (PT/EN/ES) que:
 - 🌊 Vista para a Baía de Todos os Santos
 - ⛵ Píer Mahi Mahi exclusivo, com restaurante, tobogã e acesso por bondinho
 - 📍 Corredor da Vitória, pertinho da Praia do Porto da Barra, do Centro Histórico e do Teatro Castro Alves
-- 🛏️ Quartos triplos e quádruplos, todos para até 5 hóspedes (vista mar ou vista avenida)
+- 🛏️ Quartos de casal e triplos, todos para até 5 hóspedes (vista mar ou vista avenida)
 
 ## Status
 
