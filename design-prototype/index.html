@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sol Vitória Marina · Flats à beira da Baía · Corredor da Vitória, Salvador</title>
+  <title data-i18n="doc.title">Sol Vitória Marina · Flats à beira da Baía · Corredor da Vitória, Salvador</title>
   <meta name="description" content="Flats de temporada com vista para a Baía de Todos os Santos, no Corredor da Vitória, Salvador-BA. Conforto, localização privilegiada e atendimento próximo." />
 
   <!-- PROTÓTIPO: Tailwind via Play CDN (apenas para o mockup; na versão real entra no build do Next.js) -->
@@ -47,6 +47,7 @@
     .underline-grow { background-image: linear-gradient(currentColor, currentColor); background-size: 0% 1.5px; background-position: 0 100%; background-repeat: no-repeat; transition: background-size .35s ease; }
     .underline-grow:hover { background-size: 100% 1.5px; }
     .edge { clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%); }
+    .lang-btn.is-active { background-color: #0e3a44; color: #faf6ee; }
   </style>
 </head>
 
@@ -54,27 +55,27 @@
 
   <!-- ===================== HEADER ===================== -->
   <header class="sticky top-0 z-50 bg-sand-soft/85 backdrop-blur-md border-b border-ink/5">
-    <div class="mx-auto max-w-7xl px-5 sm:px-8 h-16 flex items-center justify-between gap-4">
-      <a href="#topo" class="flex items-baseline gap-2 group">
+    <div class="mx-auto max-w-7xl px-5 sm:px-8 h-16 flex items-center justify-between gap-3">
+      <a href="#topo" class="flex items-baseline gap-2 group shrink-0">
         <span class="font-display text-xl sm:text-2xl tracking-tightest text-sea">Sol Vitória <span class="text-sun-deep italic">Marina</span></span>
       </a>
 
       <nav class="hidden md:flex items-center gap-6 text-[15px] text-ink/80">
-        <a href="#quartos" class="underline-grow">Tipos de Quartos</a>
-        <a href="galeria.html" class="underline-grow">Galeria</a>
-        <a href="#pier" class="underline-grow">O Píer</a>
-        <a href="#localizacao" class="underline-grow">Localização</a>
-        <a href="#contato" class="underline-grow">Contato</a>
+        <a href="#quartos" class="underline-grow" data-i18n="nav.rooms">Tipos de Quartos</a>
+        <a href="galeria.html" class="underline-grow" data-i18n="nav.gallery">Galeria</a>
+        <a href="#pier" class="underline-grow" data-i18n="nav.pier">O Píer</a>
+        <a href="#localizacao" class="underline-grow" data-i18n="nav.location">Localização</a>
+        <a href="#contato" class="underline-grow" data-i18n="nav.contact">Contato</a>
       </nav>
 
-      <div class="flex items-center gap-3 sm:gap-4">
-        <!-- Seletor de idioma (visual no protótipo) -->
-        <div class="hidden sm:flex items-center text-[13px] text-ink/60 border border-ink/15 rounded-full overflow-hidden">
-          <button class="px-2.5 py-1 bg-sea text-sand-soft">PT</button>
-          <button class="px-2.5 py-1 hover:bg-ink/5">EN</button>
-          <button class="px-2.5 py-1 hover:bg-ink/5">ES</button>
+      <div class="flex items-center gap-2 sm:gap-4">
+        <!-- Seletor de idioma (funcional) -->
+        <div class="flex items-center text-[13px] text-ink/60 border border-ink/15 rounded-full overflow-hidden">
+          <button type="button" class="lang-btn px-2.5 py-1 hover:bg-ink/5" data-lang-btn="pt">PT</button>
+          <button type="button" class="lang-btn px-2.5 py-1 hover:bg-ink/5" data-lang-btn="en">EN</button>
+          <button type="button" class="lang-btn px-2.5 py-1 hover:bg-ink/5" data-lang-btn="es">ES</button>
         </div>
-        <a href="#contato" class="inline-flex items-center gap-2 bg-sun text-sea-deep font-semibold text-sm px-4 py-2 rounded-full hover:bg-sun-light transition-colors">
+        <a href="#contato" class="hidden sm:inline-flex items-center gap-2 bg-sun text-sea-deep font-semibold text-sm px-4 py-2 rounded-full hover:bg-sun-light transition-colors">
           <svg viewBox="0 0 24 24" class="w-4 h-4" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.477-.911z"/></svg>
           WhatsApp
         </a>
@@ -89,16 +90,16 @@
       <div class="absolute inset-0 bg-gradient-to-b from-sea-deep/55 via-sea-deep/25 to-sea-deep/80"></div>
 
       <div class="relative h-full mx-auto max-w-7xl px-5 sm:px-8 flex flex-col justify-end pb-16 sm:pb-20">
-        <p class="reveal text-sand/90 tracking-[0.25em] text-xs sm:text-sm uppercase mb-4">Corredor da Vitória · Salvador — Bahia</p>
-        <h1 class="reveal font-display text-sand-soft leading-[0.98] tracking-tightest text-[clamp(2.6rem,7vw,5.5rem)] max-w-4xl">
+        <p class="reveal text-sand/90 tracking-[0.25em] text-xs sm:text-sm uppercase mb-4" data-i18n="hero.tag">Corredor da Vitória · Salvador — Bahia</p>
+        <h1 class="reveal font-display text-sand-soft leading-[0.98] tracking-tightest text-[clamp(2.6rem,7vw,5.5rem)] max-w-4xl" data-i18n="hero.title">
           Acorde com a <span class="italic text-sun-light">Baía de Todos os Santos</span> na sua janela
         </h1>
-        <p class="reveal mt-6 text-sand/85 text-lg sm:text-xl max-w-xl font-light">
+        <p class="reveal mt-6 text-sand/85 text-lg sm:text-xl max-w-xl font-light" data-i18n="hero.subtitle">
           Flats de temporada com conforto, vista e a melhor localização de Salvador — a poucos minutos da Barra e do Centro.
         </p>
         <div class="reveal mt-9 flex flex-wrap items-center gap-4">
-          <a href="#quartos" class="bg-sand-soft text-sea-deep font-semibold px-7 py-3.5 rounded-full hover:bg-white transition-colors">Saber mais</a>
-          <a href="#contato" class="inline-flex items-center gap-1.5 border border-sand-soft/50 text-sand-soft font-semibold px-6 py-3.5 rounded-full hover:bg-sand-soft/10 transition-colors">Reserve agora →</a>
+          <a href="#quartos" class="bg-sand-soft text-sea-deep font-semibold px-7 py-3.5 rounded-full hover:bg-white transition-colors" data-i18n="hero.cta1">Saber mais</a>
+          <a href="#contato" class="inline-flex items-center gap-1.5 border border-sand-soft/50 text-sand-soft font-semibold px-6 py-3.5 rounded-full hover:bg-sand-soft/10 transition-colors" data-i18n="hero.cta2">Reserve agora →</a>
         </div>
       </div>
     </div>
@@ -108,19 +109,19 @@
   <section class="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-28">
     <div class="grid md:grid-cols-12 gap-10 items-start">
       <div class="md:col-span-7 reveal">
-        <p class="text-sun-deep font-medium tracking-widest text-xs uppercase mb-5">Bem-vindo</p>
-        <h2 class="font-display text-[clamp(1.9rem,4vw,3rem)] leading-tight tracking-tightest text-sea max-w-2xl">
+        <p class="text-sun-deep font-medium tracking-widest text-xs uppercase mb-5" data-i18n="welcome.label">Bem-vindo</p>
+        <h2 class="font-display text-[clamp(1.9rem,4vw,3rem)] leading-tight tracking-tightest text-sea max-w-2xl" data-i18n="welcome.title">
           Um pedaço tranquilo de Salvador, à beira-mar e perto de tudo.
         </h2>
       </div>
       <div class="md:col-span-5 reveal md:pt-4">
-        <p class="text-ink/75 text-lg leading-relaxed font-light">
+        <p class="text-ink/75 text-lg leading-relaxed font-light" data-i18n="welcome.body">
           No coração do Corredor da Vitória, o <strong class="font-medium text-ink">Sol Vitória Marina</strong> reúne o que importa em uma viagem: vista para a baía, segurança, conforto e a cidade ao seu redor. Cada unidade é preparada para você se sentir em casa — seja a lazer ou a trabalho.
         </p>
         <div class="mt-7 flex flex-wrap gap-x-8 gap-y-3 text-sm text-ink/70">
-          <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-sun"></span> Vista para a baía</span>
-          <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-sun"></span> Recepção 24h</span>
-          <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-sun"></span> A 5 min da Barra</span>
+          <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-sun"></span> <span data-i18n="welcome.chip1">Vista para a baía</span></span>
+          <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-sun"></span> <span data-i18n="welcome.chip2">Recepção 24h</span></span>
+          <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-sun"></span> <span data-i18n="welcome.chip3">A 5 min da Barra</span></span>
         </div>
       </div>
     </div>
@@ -128,28 +129,41 @@
 
   <!-- ===================== A VISTA / LOCALIZAÇÃO ===================== -->
   <section id="localizacao" class="bg-sand">
-    <div class="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-28 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-      <div class="reveal order-2 lg:order-1">
-        <p class="text-sun-deep font-medium tracking-widest text-xs uppercase mb-5">A localização</p>
-        <h2 class="font-display text-[clamp(1.9rem,4vw,3rem)] leading-tight tracking-tightest text-sea">
-          Onde a cidade encontra o mar
-        </h2>
-        <p class="mt-6 text-ink/75 text-lg leading-relaxed font-light max-w-xl">
-          O Corredor da Vitória é um dos endereços mais nobres de Salvador: arborizado, seguro e debruçado sobre a Baía de Todos os Santos. Você fica perto do Farol da Barra, da Bahia Marina, de museus, restaurantes e shoppings.
-        </p>
-        <ul class="mt-8 grid sm:grid-cols-2 gap-x-8 gap-y-4 text-ink/80">
-          <li class="flex items-start gap-3"><span class="mt-1 text-sun-deep">⟡</span><span><strong class="font-medium">Praia do Porto da Barra</strong><br><span class="text-sm text-ink/55">~2 km · uma das melhores da cidade</span></span></li>
-          <li class="flex items-start gap-3"><span class="mt-1 text-sun-deep">⟡</span><span><strong class="font-medium">Teatro Castro Alves</strong><br><span class="text-sm text-ink/55">a poucos passos</span></span></li>
-          <li class="flex items-start gap-3"><span class="mt-1 text-sun-deep">⟡</span><span><strong class="font-medium">Pelourinho & Centro Histórico</strong><br><span class="text-sm text-ink/55">~3,5 km</span></span></li>
-          <li class="flex items-start gap-3"><span class="mt-1 text-sun-deep">⟡</span><span><strong class="font-medium">Mercado Modelo</strong><br><span class="text-sm text-ink/55">~3 km</span></span></li>
-        </ul>
-      </div>
-      <div class="reveal order-1 lg:order-2">
-        <div class="relative">
-          <img src="images/piscina-mar.jpg" alt="Piscina com vista para a Baía de Todos os Santos" class="w-full h-[420px] sm:h-[520px] object-cover rounded-[2rem]" />
-          <div class="absolute -bottom-5 -left-3 sm:-left-6 bg-sea text-sand-soft px-6 py-4 rounded-2xl shadow-xl max-w-[240px]">
-            <p class="font-display italic text-lg leading-snug">"A vista que vende a viagem sozinha."</p>
+    <div class="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-28">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div class="reveal order-2 lg:order-1">
+          <p class="text-sun-deep font-medium tracking-widest text-xs uppercase mb-5" data-i18n="loc.label">A localização</p>
+          <h2 class="font-display text-[clamp(1.9rem,4vw,3rem)] leading-tight tracking-tightest text-sea" data-i18n="loc.title">
+            Onde a cidade encontra o mar
+          </h2>
+          <p class="mt-6 text-ink/75 text-lg leading-relaxed font-light max-w-xl" data-i18n="loc.body">
+            O Corredor da Vitória é um dos endereços mais nobres de Salvador: arborizado, seguro e debruçado sobre a Baía de Todos os Santos. Você fica perto do Farol da Barra, da Bahia Marina, de museus, restaurantes e shoppings.
+          </p>
+          <ul class="mt-8 grid sm:grid-cols-2 gap-x-8 gap-y-4 text-ink/80">
+            <li class="flex items-start gap-3"><span class="mt-1 text-sun-deep">⟡</span><span><strong class="font-medium" data-i18n="loc.poi1t">Praia do Porto da Barra</strong><br><span class="text-sm text-ink/55" data-i18n="loc.poi1s">~2 km · uma das melhores da cidade</span></span></li>
+            <li class="flex items-start gap-3"><span class="mt-1 text-sun-deep">⟡</span><span><strong class="font-medium" data-i18n="loc.poi2t">Teatro Castro Alves</strong><br><span class="text-sm text-ink/55" data-i18n="loc.poi2s">a poucos passos</span></span></li>
+            <li class="flex items-start gap-3"><span class="mt-1 text-sun-deep">⟡</span><span><strong class="font-medium" data-i18n="loc.poi3t">Pelourinho & Centro Histórico</strong><br><span class="text-sm text-ink/55" data-i18n="loc.poi3s">~3,5 km</span></span></li>
+            <li class="flex items-start gap-3"><span class="mt-1 text-sun-deep">⟡</span><span><strong class="font-medium" data-i18n="loc.poi4t">Mercado Modelo</strong><br><span class="text-sm text-ink/55" data-i18n="loc.poi4s">~3 km</span></span></li>
+          </ul>
+        </div>
+        <div class="reveal order-1 lg:order-2">
+          <div class="relative">
+            <img src="images/piscina-mar.jpg" alt="Piscina com vista para a Baía de Todos os Santos" class="w-full h-[420px] sm:h-[520px] object-cover rounded-[2rem]" />
+            <div class="absolute -bottom-5 -left-3 sm:-left-6 bg-sea text-sand-soft px-6 py-4 rounded-2xl shadow-xl max-w-[240px]">
+              <p class="font-display italic text-lg leading-snug" data-i18n="loc.quote">"A vista que vende a viagem sozinha."</p>
+            </div>
           </div>
+        </div>
+      </div>
+
+      <!-- Mapa (Google Maps embed, sem chave de API) -->
+      <div class="reveal mt-14 lg:mt-16">
+        <div class="rounded-[2rem] overflow-hidden border border-ink/10 shadow-sm">
+          <iframe title="Mapa da localização do Sol Vitória Marina" src="https://www.google.com/maps?q=Sol%20Victoria%20Marina%2C%20Av.%20Sete%20de%20Setembro%202068%2C%20Salvador%20-%20BA&output=embed" width="100%" height="380" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+        <div class="mt-4 flex flex-wrap items-center justify-between gap-3 text-sm">
+          <p class="text-ink/70">Av. Sete de Setembro, 2068 · Corredor da Vitória, Salvador-BA</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=Sol%20Victoria%20Marina%2C%20Av.%20Sete%20de%20Setembro%202068%2C%20Salvador%20-%20BA" target="_blank" rel="noopener" class="text-sea font-semibold underline-grow" data-i18n="loc.maps">Ver no Google Maps →</a>
         </div>
       </div>
     </div>
@@ -163,9 +177,9 @@
         <img src="images/pier-panoramica.jpg" alt="Píer Mahi Mahi ao pôr do sol" class="absolute inset-0 w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-sea-deep/80 via-sea-deep/15 to-transparent"></div>
         <div class="relative h-full flex flex-col justify-end p-8 sm:p-10">
-          <p class="text-sand/90 tracking-[0.22em] text-xs uppercase mb-3">Píer Mahi Mahi · exclusivo</p>
-          <h2 class="font-display text-sand-soft text-[clamp(2rem,4.2vw,3.2rem)] leading-[1.02] tracking-tightest max-w-md">Um píer só seu, sobre a baía</h2>
-          <p class="mt-4 text-sand/85 font-light max-w-md">Tobogã, atracadouro, jet ski e um restaurante com os pés quase na água.</p>
+          <p class="text-sand/90 tracking-[0.22em] text-xs uppercase mb-3" data-i18n="pier.label">Píer Mahi Mahi · exclusivo</p>
+          <h2 class="font-display text-sand-soft text-[clamp(2rem,4.2vw,3.2rem)] leading-[1.02] tracking-tightest max-w-md" data-i18n="pier.title">Um píer só seu, sobre a baía</h2>
+          <p class="mt-4 text-sand/85 font-light max-w-md" data-i18n="pier.subtitle">Tobogã, atracadouro, jet ski e um restaurante com os pés quase na água.</p>
         </div>
       </div>
 
@@ -175,20 +189,20 @@
           <img src="images/bondinho.jpg" alt="Bondinho descendo a encosta até o píer" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
           <div class="absolute inset-0 bg-sea-deep/35"></div>
           <div class="relative p-6 flex items-end h-full">
-            <p class="text-sand-soft font-display text-xl leading-snug">Descida de <span class="italic text-sun-light">bondinho</span> até o píer</p>
+            <p class="text-sand-soft font-display text-xl leading-snug" data-i18n="pier.bondinho">Descida de <span class="italic text-sun-light">bondinho</span> até o píer</p>
           </div>
         </div>
         <div class="reveal relative overflow-hidden rounded-[2rem] min-h-[180px] group">
           <img src="images/mahi-mahi-letreiro.jpg" alt="Letreiro do Mahi Mahi Bar e Restaurante no píer" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
           <div class="absolute inset-0 bg-gradient-to-t from-sea-deep/85 via-sea-deep/30 to-transparent"></div>
           <div class="relative p-6 flex items-end h-full">
-            <p class="text-sand-soft font-display text-xl leading-snug">Mahi Mahi Bar e Restaurante</p>
+            <p class="text-sand-soft font-display text-xl leading-snug" data-i18n="pier.restaurant">Mahi Mahi Bar e Restaurante</p>
           </div>
         </div>
       </div>
     </div>
 
-    <p class="reveal mt-7 text-ink/70 text-lg font-light max-w-3xl">
+    <p class="reveal mt-7 text-ink/70 text-lg font-light max-w-3xl" data-i18n="pier.body">
       Do alto do Corredor da Vitória, um <strong class="font-medium text-ink">bondinho</strong> leva você até o <strong class="font-medium text-ink">Píer Mahi Mahi</strong> — com tobogã, atracadouro e jet ski —, onde o <strong class="font-medium text-ink">Mahi Mahi Bar e Restaurante</strong> serve com a baía na sua frente. Considerado por muitos o melhor píer de Salvador.
     </p>
   </section>
@@ -197,11 +211,11 @@
   <section id="quartos" class="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-28">
     <div class="flex flex-wrap items-end justify-between gap-6 mb-12">
       <div class="reveal max-w-xl">
-        <p class="text-sun-deep font-medium tracking-widest text-xs uppercase mb-5">Tipos de quartos</p>
-        <h2 class="font-display text-[clamp(1.9rem,4vw,3rem)] leading-tight tracking-tightest text-sea">Escolha o seu quarto</h2>
-        <p class="mt-4 text-ink/65 font-light">Triplos e quádruplos, todos para até 5 hóspedes — disponíveis em <strong class="font-medium text-ink">vista mar</strong> ou <strong class="font-medium text-ink">vista avenida</strong>.</p>
+        <p class="text-sun-deep font-medium tracking-widest text-xs uppercase mb-5" data-i18n="rooms.label">Tipos de quartos</p>
+        <h2 class="font-display text-[clamp(1.9rem,4vw,3rem)] leading-tight tracking-tightest text-sea" data-i18n="rooms.title">Escolha o seu quarto</h2>
+        <p class="mt-4 text-ink/65 font-light" data-i18n="rooms.intro">Triplos e quádruplos, todos para até 5 hóspedes — disponíveis em <strong class="font-medium text-ink">vista mar</strong> ou <strong class="font-medium text-ink">vista avenida</strong>.</p>
       </div>
-      <a href="galeria.html" class="reveal text-sea font-semibold underline-grow">Ver galeria de fotos →</a>
+      <a href="galeria.html" class="reveal text-sea font-semibold underline-grow" data-i18n="rooms.gallery_link">Ver galeria de fotos →</a>
     </div>
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -209,94 +223,94 @@
       <article class="reveal group">
         <div class="relative overflow-hidden rounded-3xl">
           <img src="images/quarto-quadruplo-mar.jpg" alt="Quarto quádruplo com vista para o mar" class="w-full h-60 object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
-          <span class="absolute top-3 left-3 bg-sun text-sea-deep text-xs font-semibold px-3 py-1.5 rounded-full">Vista mar</span>
+          <span class="absolute top-3 left-3 bg-sun text-sea-deep text-xs font-semibold px-3 py-1.5 rounded-full" data-i18n="rooms.badge_sea">Vista mar</span>
         </div>
-        <h3 class="mt-4 font-display text-xl text-sea tracking-tight">Quádruplo</h3>
-        <p class="text-ink/60 text-sm mt-1.5 flex items-center gap-2"><svg class="w-4 h-4 text-sun-deep" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7v11M3 13h18v5M21 18v-5a3 3 0 00-3-3H10v3M7 11.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/></svg> até 5 hóspedes</p>
-        <a href="#contato" class="mt-4 inline-flex items-center gap-1.5 bg-sea text-sand-soft text-sm font-semibold px-4 py-2.5 rounded-full hover:bg-sea-light transition-colors">Reserve agora →</a>
+        <h3 class="mt-4 font-display text-xl text-sea tracking-tight" data-i18n="rooms.quad">Quádruplo</h3>
+        <p class="text-ink/60 text-sm mt-1.5 flex items-center gap-2"><svg class="w-4 h-4 text-sun-deep" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7v11M3 13h18v5M21 18v-5a3 3 0 00-3-3H10v3M7 11.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/></svg> <span data-i18n="rooms.guests">até 5 hóspedes</span></p>
+        <a href="#contato" class="mt-4 inline-flex items-center gap-1.5 bg-sea text-sand-soft text-sm font-semibold px-4 py-2.5 rounded-full hover:bg-sea-light transition-colors" data-i18n="rooms.cta">Reserve agora →</a>
       </article>
 
       <!-- Quádruplo · Vista avenida -->
       <article class="reveal group">
         <div class="relative overflow-hidden rounded-3xl">
           <img src="images/quarto-quadruplo-avenida.jpg" alt="Quarto quádruplo com vista para a avenida" class="w-full h-60 object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
-          <span class="absolute top-3 left-3 bg-sand-soft/95 text-sea text-xs font-semibold px-3 py-1.5 rounded-full">Vista avenida</span>
+          <span class="absolute top-3 left-3 bg-sand-soft/95 text-sea text-xs font-semibold px-3 py-1.5 rounded-full" data-i18n="rooms.badge_avenue">Vista avenida</span>
         </div>
-        <h3 class="mt-4 font-display text-xl text-sea tracking-tight">Quádruplo</h3>
-        <p class="text-ink/60 text-sm mt-1.5 flex items-center gap-2"><svg class="w-4 h-4 text-sun-deep" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7v11M3 13h18v5M21 18v-5a3 3 0 00-3-3H10v3M7 11.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/></svg> até 5 hóspedes</p>
-        <a href="#contato" class="mt-4 inline-flex items-center gap-1.5 bg-sea text-sand-soft text-sm font-semibold px-4 py-2.5 rounded-full hover:bg-sea-light transition-colors">Reserve agora →</a>
+        <h3 class="mt-4 font-display text-xl text-sea tracking-tight" data-i18n="rooms.quad">Quádruplo</h3>
+        <p class="text-ink/60 text-sm mt-1.5 flex items-center gap-2"><svg class="w-4 h-4 text-sun-deep" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7v11M3 13h18v5M21 18v-5a3 3 0 00-3-3H10v3M7 11.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/></svg> <span data-i18n="rooms.guests">até 5 hóspedes</span></p>
+        <a href="#contato" class="mt-4 inline-flex items-center gap-1.5 bg-sea text-sand-soft text-sm font-semibold px-4 py-2.5 rounded-full hover:bg-sea-light transition-colors" data-i18n="rooms.cta">Reserve agora →</a>
       </article>
 
       <!-- Triplo · Vista mar -->
       <article class="reveal group">
         <div class="relative overflow-hidden rounded-3xl">
           <img src="images/quarto-triplo-mar.jpg" alt="Quarto triplo com vista para o mar" class="w-full h-60 object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
-          <span class="absolute top-3 left-3 bg-sun text-sea-deep text-xs font-semibold px-3 py-1.5 rounded-full">Vista mar</span>
+          <span class="absolute top-3 left-3 bg-sun text-sea-deep text-xs font-semibold px-3 py-1.5 rounded-full" data-i18n="rooms.badge_sea">Vista mar</span>
         </div>
-        <h3 class="mt-4 font-display text-xl text-sea tracking-tight">Triplo</h3>
-        <p class="text-ink/60 text-sm mt-1.5 flex items-center gap-2"><svg class="w-4 h-4 text-sun-deep" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7v11M3 13h18v5M21 18v-5a3 3 0 00-3-3H10v3M7 11.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/></svg> até 5 hóspedes</p>
-        <a href="#contato" class="mt-4 inline-flex items-center gap-1.5 bg-sea text-sand-soft text-sm font-semibold px-4 py-2.5 rounded-full hover:bg-sea-light transition-colors">Reserve agora →</a>
+        <h3 class="mt-4 font-display text-xl text-sea tracking-tight" data-i18n="rooms.triple">Triplo</h3>
+        <p class="text-ink/60 text-sm mt-1.5 flex items-center gap-2"><svg class="w-4 h-4 text-sun-deep" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7v11M3 13h18v5M21 18v-5a3 3 0 00-3-3H10v3M7 11.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/></svg> <span data-i18n="rooms.guests">até 5 hóspedes</span></p>
+        <a href="#contato" class="mt-4 inline-flex items-center gap-1.5 bg-sea text-sand-soft text-sm font-semibold px-4 py-2.5 rounded-full hover:bg-sea-light transition-colors" data-i18n="rooms.cta">Reserve agora →</a>
       </article>
 
       <!-- Triplo · Vista avenida -->
       <article class="reveal group">
         <div class="relative overflow-hidden rounded-3xl">
           <img src="images/quarto-triplo-avenida.jpg" alt="Quarto triplo com vista para a avenida" class="w-full h-60 object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
-          <span class="absolute top-3 left-3 bg-sand-soft/95 text-sea text-xs font-semibold px-3 py-1.5 rounded-full">Vista avenida</span>
+          <span class="absolute top-3 left-3 bg-sand-soft/95 text-sea text-xs font-semibold px-3 py-1.5 rounded-full" data-i18n="rooms.badge_avenue">Vista avenida</span>
         </div>
-        <h3 class="mt-4 font-display text-xl text-sea tracking-tight">Triplo</h3>
-        <p class="text-ink/60 text-sm mt-1.5 flex items-center gap-2"><svg class="w-4 h-4 text-sun-deep" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7v11M3 13h18v5M21 18v-5a3 3 0 00-3-3H10v3M7 11.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/></svg> até 5 hóspedes</p>
-        <a href="#contato" class="mt-4 inline-flex items-center gap-1.5 bg-sea text-sand-soft text-sm font-semibold px-4 py-2.5 rounded-full hover:bg-sea-light transition-colors">Reserve agora →</a>
+        <h3 class="mt-4 font-display text-xl text-sea tracking-tight" data-i18n="rooms.triple">Triplo</h3>
+        <p class="text-ink/60 text-sm mt-1.5 flex items-center gap-2"><svg class="w-4 h-4 text-sun-deep" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7v11M3 13h18v5M21 18v-5a3 3 0 00-3-3H10v3M7 11.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/></svg> <span data-i18n="rooms.guests">até 5 hóspedes</span></p>
+        <a href="#contato" class="mt-4 inline-flex items-center gap-1.5 bg-sea text-sand-soft text-sm font-semibold px-4 py-2.5 rounded-full hover:bg-sea-light transition-colors" data-i18n="rooms.cta">Reserve agora →</a>
       </article>
     </div>
 
-    <p class="reveal mt-8 text-sm text-ink/45">Uma foto por tipo. As demais ficam na <a href="galeria.html" class="text-sea underline-grow font-medium">galeria</a>.</p>
+    <p class="reveal mt-8 text-sm text-ink/45" data-i18n="rooms.note">Uma foto por tipo. As demais ficam na <a href="galeria.html" class="text-sea underline-grow font-medium">galeria</a>.</p>
   </section>
 
   <!-- ===================== COMODIDADES (seção escura para contraste) ===================== -->
   <section id="comodidades" class="bg-sea text-sand-soft edge">
     <div class="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-28">
       <div class="max-w-2xl reveal">
-        <p class="text-sun-light font-medium tracking-widest text-xs uppercase mb-5">No prédio e na unidade</p>
-        <h2 class="font-display text-[clamp(1.9rem,4vw,3rem)] leading-tight tracking-tightest">Tudo pronto para a sua estadia</h2>
+        <p class="text-sun-light font-medium tracking-widest text-xs uppercase mb-5" data-i18n="amen.label">No prédio e na unidade</p>
+        <h2 class="font-display text-[clamp(1.9rem,4vw,3rem)] leading-tight tracking-tightest" data-i18n="amen.title">Tudo pronto para a sua estadia</h2>
       </div>
 
       <div class="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-10">
         <!-- Cada item: ícone + label -->
-        <div class="reveal flex flex-col gap-3"><svg class="w-7 h-7 text-sun-light" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13s2-2 7-2 7 2 7 2M2 9s4-3 10-3 10 3 10 3M8 17s1.5-1 4-1 4 1 4 1"/></svg><span class="text-sand/85 text-sm">Wi-Fi rápido</span></div>
-        <div class="reveal flex flex-col gap-3"><svg class="w-7 h-7 text-sun-light" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12h18M5 12a7 7 0 0114 0M8 17a4 4 0 018 0"/></svg><span class="text-sand/85 text-sm">Ar-condicionado</span></div>
-        <div class="reveal flex flex-col gap-3"><svg class="w-7 h-7 text-sun-light" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16c2-2 4-2 6 0s4 2 6 0 4-2 4 0M3 11c2-2 4-2 6 0s4 2 6 0 4-2 4 0"/></svg><span class="text-sand/85 text-sm">Piscina (hotel e píer)</span></div>
-        <div class="reveal flex flex-col gap-3"><svg class="w-7 h-7 text-sun-light" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z"/></svg><span class="text-sand/85 text-sm">Píer Mahi Mahi</span></div>
-        <div class="reveal flex flex-col gap-3"><svg class="w-7 h-7 text-sun-light" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 7v5l3 2M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><span class="text-sand/85 text-sm">Recepção 24h</span></div>
-        <div class="reveal flex flex-col gap-3"><svg class="w-7 h-7 text-sun-light" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 21V5a1 1 0 011-1h9l-1 4h6v9H5M9 4v5"/></svg><span class="text-sand/85 text-sm">Conveniência 24h</span></div>
-        <div class="reveal flex flex-col gap-3"><svg class="w-7 h-7 text-sun-light" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7h13v8H3zM16 10h3l2 2v3h-5M6 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM18 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/></svg><span class="text-sand/85 text-sm">Garagem com manobrista</span></div>
-        <div class="reveal flex flex-col gap-3"><svg class="w-7 h-7 text-sun-light" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 18h18M12 9a6 6 0 016 6H6a6 6 0 016-6zM12 9V6.5M10.5 6.5h3"/></svg><span class="text-sand/85 text-sm">Serviço de quarto</span></div>
+        <div class="reveal flex flex-col gap-3"><svg class="w-7 h-7 text-sun-light" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13s2-2 7-2 7 2 7 2M2 9s4-3 10-3 10 3 10 3M8 17s1.5-1 4-1 4 1 4 1"/></svg><span class="text-sand/85 text-sm" data-i18n="amen.wifi">Wi-Fi rápido</span></div>
+        <div class="reveal flex flex-col gap-3"><svg class="w-7 h-7 text-sun-light" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12h18M5 12a7 7 0 0114 0M8 17a4 4 0 018 0"/></svg><span class="text-sand/85 text-sm" data-i18n="amen.ac">Ar-condicionado</span></div>
+        <div class="reveal flex flex-col gap-3"><svg class="w-7 h-7 text-sun-light" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16c2-2 4-2 6 0s4 2 6 0 4-2 4 0M3 11c2-2 4-2 6 0s4 2 6 0 4-2 4 0"/></svg><span class="text-sand/85 text-sm" data-i18n="amen.pool">Piscina (hotel e píer)</span></div>
+        <div class="reveal flex flex-col gap-3"><svg class="w-7 h-7 text-sun-light" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z"/></svg><span class="text-sand/85 text-sm" data-i18n="amen.pier">Píer Mahi Mahi</span></div>
+        <div class="reveal flex flex-col gap-3"><svg class="w-7 h-7 text-sun-light" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 7v5l3 2M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><span class="text-sand/85 text-sm" data-i18n="amen.reception">Recepção 24h</span></div>
+        <div class="reveal flex flex-col gap-3"><svg class="w-7 h-7 text-sun-light" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 21V5a1 1 0 011-1h9l-1 4h6v9H5M9 4v5"/></svg><span class="text-sand/85 text-sm" data-i18n="amen.store">Conveniência 24h</span></div>
+        <div class="reveal flex flex-col gap-3"><svg class="w-7 h-7 text-sun-light" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7h13v8H3zM16 10h3l2 2v3h-5M6 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM18 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/></svg><span class="text-sand/85 text-sm" data-i18n="amen.garage">Garagem com manobrista</span></div>
+        <div class="reveal flex flex-col gap-3"><svg class="w-7 h-7 text-sun-light" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 18h18M12 9a6 6 0 016 6H6a6 6 0 016-6zM12 9V6.5M10.5 6.5h3"/></svg><span class="text-sand/85 text-sm" data-i18n="amen.roomservice">Serviço de quarto</span></div>
       </div>
 
-      <p class="reveal mt-10 text-sand/70 text-sm">Toalhas e lençóis inclusos · <span class="text-sand/90 font-medium">café da manhã não incluso</span>.</p>
+      <p class="reveal mt-10 text-sand/70 text-sm" data-i18n="amen.note">Toalhas e lençóis inclusos · <span class="text-sand/90 font-medium">café da manhã não incluso</span>.</p>
     </div>
   </section>
 
   <!-- ===================== DEPOIMENTOS ===================== -->
   <section class="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-28">
     <div class="reveal max-w-2xl mb-12">
-      <p class="text-sun-deep font-medium tracking-widest text-xs uppercase mb-5">Quem ficou, recomenda</p>
-      <h2 class="font-display text-[clamp(1.9rem,4vw,3rem)] leading-tight tracking-tightest text-sea">Histórias de quem se hospedou</h2>
+      <p class="text-sun-deep font-medium tracking-widest text-xs uppercase mb-5" data-i18n="testi.label">Quem ficou, recomenda</p>
+      <h2 class="font-display text-[clamp(1.9rem,4vw,3rem)] leading-tight tracking-tightest text-sea" data-i18n="testi.title">Histórias de quem se hospedou</h2>
     </div>
     <div class="grid md:grid-cols-3 gap-6">
       <figure class="reveal bg-sand rounded-3xl p-7">
         <div class="text-sun text-lg" aria-hidden="true">★★★★★</div>
-        <blockquote class="mt-4 font-display text-xl text-sea leading-snug">"A vista é surreal e o apartamento muito bem cuidado. Voltaremos!"</blockquote>
+        <blockquote class="mt-4 font-display text-xl text-sea leading-snug" data-i18n="testi.q1">"A vista é surreal e o apartamento muito bem cuidado. Voltaremos!"</blockquote>
         <figcaption class="mt-5 text-sm text-ink/60">Marina A. · São Paulo, BR</figcaption>
       </figure>
       <figure class="reveal bg-sand rounded-3xl p-7 md:translate-y-5">
         <div class="text-sun text-lg" aria-hidden="true">★★★★★</div>
-        <blockquote class="mt-4 font-display text-xl text-sea leading-snug">"Perfect location, very safe, and the host replied in minutes."</blockquote>
+        <blockquote class="mt-4 font-display text-xl text-sea leading-snug" data-i18n="testi.q2">"Perfect location, very safe, and the host replied in minutes."</blockquote>
         <figcaption class="mt-5 text-sm text-ink/60">James P. · London, UK</figcaption>
       </figure>
       <figure class="reveal bg-sand rounded-3xl p-7">
         <div class="text-sun text-lg" aria-hidden="true">★★★★★</div>
-        <blockquote class="mt-4 font-display text-xl text-sea leading-snug">"Ubicación inmejorable y atención muy cercana. Todo impecable."</blockquote>
+        <blockquote class="mt-4 font-display text-xl text-sea leading-snug" data-i18n="testi.q3">"Ubicación inmejorable y atención muy cercana. Todo impecable."</blockquote>
         <figcaption class="mt-5 text-sm text-ink/60">Lucía G. · Buenos Aires, AR</figcaption>
       </figure>
     </div>
@@ -306,16 +320,16 @@
   <section id="contato" class="bg-sand-deep/60">
     <div class="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-28 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
       <div class="reveal">
-        <p class="text-sun-deep font-medium tracking-widest text-xs uppercase mb-5">Reserve com a gente</p>
-        <h2 class="font-display text-[clamp(2rem,4.4vw,3.2rem)] leading-tight tracking-tightest text-sea">
+        <p class="text-sun-deep font-medium tracking-widest text-xs uppercase mb-5" data-i18n="contact.label">Reserve com a gente</p>
+        <h2 class="font-display text-[clamp(2rem,4.4vw,3.2rem)] leading-tight tracking-tightest text-sea" data-i18n="contact.title">
           Diga o que procura — a gente continua no WhatsApp
         </h2>
-        <p class="mt-6 text-ink/75 text-lg font-light max-w-md">
+        <p class="mt-6 text-ink/75 text-lg font-light max-w-md" data-i18n="contact.body">
           Conte as datas e quantas pessoas. Ao enviar, abrimos o WhatsApp já com tudo preenchido — sem repetir nada. Você também pode reservar direto pelo Booking ou Airbnb.
         </p>
         <div class="mt-8 flex flex-wrap gap-3">
-          <span class="text-sm text-ink/60 flex items-center gap-2 bg-sand-soft px-4 py-2 rounded-full">Resposta rápida</span>
-          <span class="text-sm text-ink/60 flex items-center gap-2 bg-sand-soft px-4 py-2 rounded-full">Atendimento PT · EN · ES</span>
+          <span class="text-sm text-ink/60 flex items-center gap-2 bg-sand-soft px-4 py-2 rounded-full" data-i18n="contact.chip1">Resposta rápida</span>
+          <span class="text-sm text-ink/60 flex items-center gap-2 bg-sand-soft px-4 py-2 rounded-full" data-i18n="contact.chip2">Atendimento PT · EN · ES</span>
         </div>
       </div>
 
@@ -323,28 +337,28 @@
       <form class="reveal bg-sand-soft rounded-[1.75rem] p-7 sm:p-9 shadow-sm" onsubmit="return false;">
         <div class="grid gap-5">
           <label class="block">
-            <span class="text-sm font-medium text-ink/70">Unidade de interesse</span>
+            <span class="text-sm font-medium text-ink/70" data-i18n="form.unit">Unidade de interesse</span>
             <select class="mt-1.5 w-full rounded-xl border border-ink/15 bg-white/70 px-4 py-3 text-ink focus:border-sea focus:ring-2 focus:ring-sea/20 outline-none">
-              <option>Quádruplo · vista mar</option>
-              <option>Quádruplo · vista avenida</option>
-              <option>Triplo · vista mar</option>
-              <option>Triplo · vista avenida</option>
-              <option>Ainda não sei / ver opções</option>
+              <option data-i18n="form.opt1">Quádruplo · vista mar</option>
+              <option data-i18n="form.opt2">Quádruplo · vista avenida</option>
+              <option data-i18n="form.opt3">Triplo · vista mar</option>
+              <option data-i18n="form.opt4">Triplo · vista avenida</option>
+              <option data-i18n="form.opt5">Ainda não sei / ver opções</option>
             </select>
           </label>
           <div class="grid grid-cols-2 gap-4">
-            <label class="block"><span class="text-sm font-medium text-ink/70">Check-in</span><input type="date" class="mt-1.5 w-full rounded-xl border border-ink/15 bg-white/70 px-4 py-3 text-ink focus:border-sea focus:ring-2 focus:ring-sea/20 outline-none" /></label>
-            <label class="block"><span class="text-sm font-medium text-ink/70">Check-out</span><input type="date" class="mt-1.5 w-full rounded-xl border border-ink/15 bg-white/70 px-4 py-3 text-ink focus:border-sea focus:ring-2 focus:ring-sea/20 outline-none" /></label>
+            <label class="block"><span class="text-sm font-medium text-ink/70" data-i18n="form.checkin">Check-in</span><input type="date" class="mt-1.5 w-full rounded-xl border border-ink/15 bg-white/70 px-4 py-3 text-ink focus:border-sea focus:ring-2 focus:ring-sea/20 outline-none" /></label>
+            <label class="block"><span class="text-sm font-medium text-ink/70" data-i18n="form.checkout">Check-out</span><input type="date" class="mt-1.5 w-full rounded-xl border border-ink/15 bg-white/70 px-4 py-3 text-ink focus:border-sea focus:ring-2 focus:ring-sea/20 outline-none" /></label>
           </div>
           <div class="grid grid-cols-2 gap-4">
-            <label class="block"><span class="text-sm font-medium text-ink/70">Hóspedes</span><input type="number" min="1" value="2" class="mt-1.5 w-full rounded-xl border border-ink/15 bg-white/70 px-4 py-3 text-ink focus:border-sea focus:ring-2 focus:ring-sea/20 outline-none" /></label>
-            <label class="block"><span class="text-sm font-medium text-ink/70">Seu nome</span><input type="text" placeholder="Como te chamamos?" class="mt-1.5 w-full rounded-xl border border-ink/15 bg-white/70 px-4 py-3 text-ink focus:border-sea focus:ring-2 focus:ring-sea/20 outline-none" /></label>
+            <label class="block"><span class="text-sm font-medium text-ink/70" data-i18n="form.guests">Hóspedes</span><input type="number" min="1" value="2" class="mt-1.5 w-full rounded-xl border border-ink/15 bg-white/70 px-4 py-3 text-ink focus:border-sea focus:ring-2 focus:ring-sea/20 outline-none" /></label>
+            <label class="block"><span class="text-sm font-medium text-ink/70" data-i18n="form.name">Seu nome</span><input type="text" data-i18n-ph="form.name_ph" placeholder="Como te chamamos?" class="mt-1.5 w-full rounded-xl border border-ink/15 bg-white/70 px-4 py-3 text-ink focus:border-sea focus:ring-2 focus:ring-sea/20 outline-none" /></label>
           </div>
-          <button class="mt-1 inline-flex items-center justify-center gap-2 bg-sun text-sea-deep font-semibold px-6 py-3.5 rounded-xl hover:bg-sun-light transition-colors">
+          <button class="mt-1 inline-flex items-center justify-center gap-2 bg-sun text-sea-deep font-semibold px-6 py-3.5 rounded-xl hover:bg-sun-light transition-colors" data-i18n="form.submit">
             <svg viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.477-.911z"/></svg>
-            Continuar no WhatsApp
+            <span data-i18n="form.submit_label">Continuar no WhatsApp</span>
           </button>
-          <p class="text-xs text-ink/45 text-center">Ao continuar, você concorda com nosso aviso de privacidade. <span class="text-ink/30">(protótipo — sem envio real)</span></p>
+          <p class="text-xs text-ink/45 text-center" data-i18n="form.privacy">Ao continuar, você concorda com nosso aviso de privacidade. <span class="text-ink/30">(protótipo — sem envio real)</span></p>
         </div>
       </form>
     </div>
@@ -355,20 +369,20 @@
     <div class="mx-auto max-w-7xl px-5 sm:px-8 py-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
       <div class="lg:col-span-2">
         <p class="font-display text-2xl text-sand-soft">Sol Vitória <span class="italic text-sun-light">Marina</span></p>
-        <p class="mt-4 max-w-sm text-sand/60 font-light">Flats de temporada no Corredor da Vitória, com vista para a Baía de Todos os Santos. Salvador — Bahia.</p>
+        <p class="mt-4 max-w-sm text-sand/60 font-light" data-i18n="footer.tagline">Flats de temporada no Corredor da Vitória, com vista para a Baía de Todos os Santos. Salvador — Bahia.</p>
       </div>
       <div>
-        <p class="text-sand-soft font-medium mb-4 text-sm tracking-wide uppercase">Navegação</p>
+        <p class="text-sand-soft font-medium mb-4 text-sm tracking-wide uppercase" data-i18n="footer.nav">Navegação</p>
         <ul class="space-y-2.5 text-sm">
-          <li><a href="#quartos" class="hover:text-sand-soft">Tipos de Quartos</a></li>
-          <li><a href="galeria.html" class="hover:text-sand-soft">Galeria</a></li>
-          <li><a href="#pier" class="hover:text-sand-soft">O Píer</a></li>
-          <li><a href="#localizacao" class="hover:text-sand-soft">Localização</a></li>
-          <li><a href="#contato" class="hover:text-sand-soft">Contato</a></li>
+          <li><a href="#quartos" class="hover:text-sand-soft" data-i18n="nav.rooms">Tipos de Quartos</a></li>
+          <li><a href="galeria.html" class="hover:text-sand-soft" data-i18n="nav.gallery">Galeria</a></li>
+          <li><a href="#pier" class="hover:text-sand-soft" data-i18n="nav.pier">O Píer</a></li>
+          <li><a href="#localizacao" class="hover:text-sand-soft" data-i18n="nav.location">Localização</a></li>
+          <li><a href="#contato" class="hover:text-sand-soft" data-i18n="nav.contact">Contato</a></li>
         </ul>
       </div>
       <div>
-        <p class="text-sand-soft font-medium mb-4 text-sm tracking-wide uppercase">Fale com a gente</p>
+        <p class="text-sand-soft font-medium mb-4 text-sm tracking-wide uppercase" data-i18n="footer.contact_col">Fale com a gente</p>
         <ul class="space-y-2.5 text-sm">
           <li><a href="#contato" class="hover:text-sand-soft">WhatsApp</a></li>
           <li><a href="#" class="hover:text-sand-soft">Instagram</a></li>
@@ -379,14 +393,187 @@
     </div>
     <div class="border-t border-sand/10">
       <div class="mx-auto max-w-7xl px-5 sm:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-sand/45">
-        <p>© 2026 Sol Vitória Marina · Protótipo de design</p>
+        <p>© 2026 Sol Vitória Marina</p>
         <p>Corredor da Vitória · Salvador-BA</p>
       </div>
     </div>
   </footer>
 
   <script>
-    // Reveal on scroll
+    // ===================== i18n (PT / EN / ES) =====================
+    const I18N = {
+      pt: {
+        'doc.title': 'Sol Vitória Marina · Flats à beira da Baía · Corredor da Vitória, Salvador',
+        'nav.rooms': 'Tipos de Quartos', 'nav.gallery': 'Galeria', 'nav.pier': 'O Píer', 'nav.location': 'Localização', 'nav.contact': 'Contato',
+        'hero.tag': 'Corredor da Vitória · Salvador — Bahia',
+        'hero.title': 'Acorde com a <span class="italic text-sun-light">Baía de Todos os Santos</span> na sua janela',
+        'hero.subtitle': 'Flats de temporada com conforto, vista e a melhor localização de Salvador — a poucos minutos da Barra e do Centro.',
+        'hero.cta1': 'Saber mais', 'hero.cta2': 'Reserve agora →',
+        'welcome.label': 'Bem-vindo',
+        'welcome.title': 'Um pedaço tranquilo de Salvador, à beira-mar e perto de tudo.',
+        'welcome.body': 'No coração do Corredor da Vitória, o <strong class="font-medium text-ink">Sol Vitória Marina</strong> reúne o que importa em uma viagem: vista para a baía, segurança, conforto e a cidade ao seu redor. Cada unidade é preparada para você se sentir em casa — seja a lazer ou a trabalho.',
+        'welcome.chip1': 'Vista para a baía', 'welcome.chip2': 'Recepção 24h', 'welcome.chip3': 'A 5 min da Barra',
+        'loc.label': 'A localização', 'loc.title': 'Onde a cidade encontra o mar',
+        'loc.body': 'O Corredor da Vitória é um dos endereços mais nobres de Salvador: arborizado, seguro e debruçado sobre a Baía de Todos os Santos. Você fica perto do Farol da Barra, da Bahia Marina, de museus, restaurantes e shoppings.',
+        'loc.poi1t': 'Praia do Porto da Barra', 'loc.poi1s': '~2 km · uma das melhores da cidade',
+        'loc.poi2t': 'Teatro Castro Alves', 'loc.poi2s': 'a poucos passos',
+        'loc.poi3t': 'Pelourinho & Centro Histórico', 'loc.poi3s': '~3,5 km',
+        'loc.poi4t': 'Mercado Modelo', 'loc.poi4s': '~3 km',
+        'loc.quote': '"A vista que vende a viagem sozinha."', 'loc.maps': 'Ver no Google Maps →',
+        'pier.label': 'Píer Mahi Mahi · exclusivo', 'pier.title': 'Um píer só seu, sobre a baía',
+        'pier.subtitle': 'Tobogã, atracadouro, jet ski e um restaurante com os pés quase na água.',
+        'pier.bondinho': 'Descida de <span class="italic text-sun-light">bondinho</span> até o píer',
+        'pier.restaurant': 'Mahi Mahi Bar e Restaurante',
+        'pier.body': 'Do alto do Corredor da Vitória, um <strong class="font-medium text-ink">bondinho</strong> leva você até o <strong class="font-medium text-ink">Píer Mahi Mahi</strong> — com tobogã, atracadouro e jet ski —, onde o <strong class="font-medium text-ink">Mahi Mahi Bar e Restaurante</strong> serve com a baía na sua frente. Considerado por muitos o melhor píer de Salvador.',
+        'rooms.label': 'Tipos de quartos', 'rooms.title': 'Escolha o seu quarto',
+        'rooms.intro': 'Triplos e quádruplos, todos para até 5 hóspedes — disponíveis em <strong class="font-medium text-ink">vista mar</strong> ou <strong class="font-medium text-ink">vista avenida</strong>.',
+        'rooms.gallery_link': 'Ver galeria de fotos →', 'rooms.badge_sea': 'Vista mar', 'rooms.badge_avenue': 'Vista avenida',
+        'rooms.quad': 'Quádruplo', 'rooms.triple': 'Triplo', 'rooms.guests': 'até 5 hóspedes', 'rooms.cta': 'Reserve agora →',
+        'rooms.note': 'Uma foto por tipo. As demais ficam na <a href="galeria.html" class="text-sea underline-grow font-medium">galeria</a>.',
+        'amen.label': 'No prédio e na unidade', 'amen.title': 'Tudo pronto para a sua estadia',
+        'amen.wifi': 'Wi-Fi rápido', 'amen.ac': 'Ar-condicionado', 'amen.pool': 'Piscina (hotel e píer)', 'amen.pier': 'Píer Mahi Mahi',
+        'amen.reception': 'Recepção 24h', 'amen.store': 'Conveniência 24h', 'amen.garage': 'Garagem com manobrista', 'amen.roomservice': 'Serviço de quarto',
+        'amen.note': 'Toalhas e lençóis inclusos · <span class="text-sand/90 font-medium">café da manhã não incluso</span>.',
+        'testi.label': 'Quem ficou, recomenda', 'testi.title': 'Histórias de quem se hospedou',
+        'testi.q1': '"A vista é surreal e o apartamento muito bem cuidado. Voltaremos!"',
+        'testi.q2': '"Localização perfeita, muito seguro, e a anfitriã respondeu em minutos."',
+        'testi.q3': '"Localização imbatível e atendimento muito próximo. Tudo impecável."',
+        'contact.label': 'Reserve com a gente', 'contact.title': 'Diga o que procura — a gente continua no WhatsApp',
+        'contact.body': 'Conte as datas e quantas pessoas. Ao enviar, abrimos o WhatsApp já com tudo preenchido — sem repetir nada. Você também pode reservar direto pelo Booking ou Airbnb.',
+        'contact.chip1': 'Resposta rápida', 'contact.chip2': 'Atendimento PT · EN · ES',
+        'form.unit': 'Unidade de interesse',
+        'form.opt1': 'Quádruplo · vista mar', 'form.opt2': 'Quádruplo · vista avenida', 'form.opt3': 'Triplo · vista mar', 'form.opt4': 'Triplo · vista avenida', 'form.opt5': 'Ainda não sei / ver opções',
+        'form.checkin': 'Check-in', 'form.checkout': 'Check-out', 'form.guests': 'Hóspedes', 'form.name': 'Seu nome', 'form.name_ph': 'Como te chamamos?',
+        'form.submit_label': 'Continuar no WhatsApp',
+        'form.privacy': 'Ao continuar, você concorda com nosso aviso de privacidade. <span class="text-ink/30">(protótipo — sem envio real)</span>',
+        'footer.tagline': 'Flats de temporada no Corredor da Vitória, com vista para a Baía de Todos os Santos. Salvador — Bahia.',
+        'footer.nav': 'Navegação', 'footer.contact_col': 'Fale com a gente',
+      },
+      en: {
+        'doc.title': 'Sol Vitória Marina · Bayfront Flats · Corredor da Vitória, Salvador',
+        'nav.rooms': 'Room Types', 'nav.gallery': 'Gallery', 'nav.pier': 'The Pier', 'nav.location': 'Location', 'nav.contact': 'Contact',
+        'hero.tag': 'Corredor da Vitória · Salvador — Bahia',
+        'hero.title': "Wake up to <span class=\"italic text-sun-light\">All Saints' Bay</span> right at your window",
+        'hero.subtitle': 'Holiday flats with comfort, a view, and the best location in Salvador — minutes from Barra and downtown.',
+        'hero.cta1': 'Learn more', 'hero.cta2': 'Book now →',
+        'welcome.label': 'Welcome',
+        'welcome.title': 'A peaceful corner of Salvador, by the sea and close to everything.',
+        'welcome.body': 'In the heart of Corredor da Vitória, <strong class="font-medium text-ink">Sol Vitória Marina</strong> brings together what matters on a trip: bay views, safety, comfort and the city all around you. Every unit is set up to feel like home — whether for leisure or work.',
+        'welcome.chip1': 'Bay view', 'welcome.chip2': '24h reception', 'welcome.chip3': '5 min from Barra',
+        'loc.label': 'The location', 'loc.title': 'Where the city meets the sea',
+        'loc.body': "Corredor da Vitória is one of Salvador's most upscale addresses: leafy, safe and overlooking All Saints' Bay. You're close to the Barra Lighthouse, Bahia Marina, museums, restaurants and malls.",
+        'loc.poi1t': 'Porto da Barra Beach', 'loc.poi1s': "~2 km · one of the city's best",
+        'loc.poi2t': 'Castro Alves Theater', 'loc.poi2s': 'a short walk away',
+        'loc.poi3t': 'Pelourinho & Historic Center', 'loc.poi3s': '~3.5 km',
+        'loc.poi4t': 'Mercado Modelo', 'loc.poi4s': '~3 km',
+        'loc.quote': '"The view that sells the trip on its own."', 'loc.maps': 'View on Google Maps →',
+        'pier.label': 'Mahi Mahi Pier · exclusive', 'pier.title': 'A pier of your own, over the bay',
+        'pier.subtitle': "Water slide, boat dock, jet ski and a restaurant almost at the water's edge.",
+        'pier.bondinho': 'A <span class="italic text-sun-light">funicular</span> ride down to the pier',
+        'pier.restaurant': 'Mahi Mahi Bar & Restaurant',
+        'pier.body': 'From the top of Corredor da Vitória, a <strong class="font-medium text-ink">funicular</strong> takes you down to the <strong class="font-medium text-ink">Mahi Mahi Pier</strong> — with a water slide, boat dock and jet ski — where the <strong class="font-medium text-ink">Mahi Mahi Bar &amp; Restaurant</strong> serves with the bay right in front of you. Many call it the best pier in Salvador.',
+        'rooms.label': 'Room types', 'rooms.title': 'Choose your room',
+        'rooms.intro': 'Triple and quadruple rooms, all for up to 5 guests — available with <strong class="font-medium text-ink">sea view</strong> or <strong class="font-medium text-ink">avenue view</strong>.',
+        'rooms.gallery_link': 'See photo gallery →', 'rooms.badge_sea': 'Sea view', 'rooms.badge_avenue': 'Avenue view',
+        'rooms.quad': 'Quadruple', 'rooms.triple': 'Triple', 'rooms.guests': 'up to 5 guests', 'rooms.cta': 'Book now →',
+        'rooms.note': 'One photo per type. The rest are in the <a href="galeria.html" class="text-sea underline-grow font-medium">gallery</a>.',
+        'amen.label': 'In the building and the unit', 'amen.title': 'Everything ready for your stay',
+        'amen.wifi': 'Fast Wi-Fi', 'amen.ac': 'Air conditioning', 'amen.pool': 'Pool (hotel and pier)', 'amen.pier': 'Mahi Mahi Pier',
+        'amen.reception': '24h reception', 'amen.store': '24h convenience store', 'amen.garage': 'Valet parking', 'amen.roomservice': 'Room service',
+        'amen.note': 'Towels and linens included · <span class="text-sand/90 font-medium">breakfast not included</span>.',
+        'testi.label': 'Guests recommend', 'testi.title': 'Stories from our guests',
+        'testi.q1': '"The view is unreal and the apartment is impeccably kept. We\'ll be back!"',
+        'testi.q2': '"Perfect location, very safe, and the host replied in minutes."',
+        'testi.q3': '"Unbeatable location and very attentive service. Everything was flawless."',
+        'contact.label': 'Book with us', 'contact.title': "Tell us what you're looking for — we'll continue on WhatsApp",
+        'contact.body': 'Tell us your dates and how many people. When you send it, WhatsApp opens already filled in — no need to repeat anything. You can also book directly on Booking or Airbnb.',
+        'contact.chip1': 'Quick reply', 'contact.chip2': 'Service in PT · EN · ES',
+        'form.unit': 'Room of interest',
+        'form.opt1': 'Quadruple · sea view', 'form.opt2': 'Quadruple · avenue view', 'form.opt3': 'Triple · sea view', 'form.opt4': 'Triple · avenue view', 'form.opt5': 'Not sure yet / see options',
+        'form.checkin': 'Check-in', 'form.checkout': 'Check-out', 'form.guests': 'Guests', 'form.name': 'Your name', 'form.name_ph': 'What should we call you?',
+        'form.submit_label': 'Continue on WhatsApp',
+        'form.privacy': 'By continuing, you agree to our privacy notice. <span class="text-ink/30">(prototype — no real submission)</span>',
+        'footer.tagline': "Holiday flats in Corredor da Vitória, overlooking All Saints' Bay. Salvador — Bahia.",
+        'footer.nav': 'Navigation', 'footer.contact_col': 'Get in touch',
+      },
+      es: {
+        'doc.title': 'Sol Vitória Marina · Flats frente a la Bahía · Corredor da Vitória, Salvador',
+        'nav.rooms': 'Tipos de Habitación', 'nav.gallery': 'Galería', 'nav.pier': 'El Muelle', 'nav.location': 'Ubicación', 'nav.contact': 'Contacto',
+        'hero.tag': 'Corredor da Vitória · Salvador — Bahía',
+        'hero.title': 'Despierta con la <span class="italic text-sun-light">Bahía de Todos los Santos</span> en tu ventana',
+        'hero.subtitle': 'Flats de temporada con confort, vistas y la mejor ubicación de Salvador — a pocos minutos de Barra y del Centro.',
+        'hero.cta1': 'Saber más', 'hero.cta2': 'Reserva ahora →',
+        'welcome.label': 'Bienvenido',
+        'welcome.title': 'Un rincón tranquilo de Salvador, junto al mar y cerca de todo.',
+        'welcome.body': 'En el corazón del Corredor da Vitória, el <strong class="font-medium text-ink">Sol Vitória Marina</strong> reúne lo que importa en un viaje: vistas a la bahía, seguridad, confort y la ciudad a tu alrededor. Cada unidad está preparada para que te sientas como en casa — sea por placer o por trabajo.',
+        'welcome.chip1': 'Vista a la bahía', 'welcome.chip2': 'Recepción 24h', 'welcome.chip3': 'A 5 min de Barra',
+        'loc.label': 'La ubicación', 'loc.title': 'Donde la ciudad se encuentra con el mar',
+        'loc.body': 'El Corredor da Vitória es una de las direcciones más nobles de Salvador: arbolado, seguro y asomado a la Bahía de Todos los Santos. Estás cerca del Faro de Barra, de Bahia Marina, de museos, restaurantes y centros comerciales.',
+        'loc.poi1t': 'Playa de Porto da Barra', 'loc.poi1s': '~2 km · una de las mejores de la ciudad',
+        'loc.poi2t': 'Teatro Castro Alves', 'loc.poi2s': 'a pocos pasos',
+        'loc.poi3t': 'Pelourinho y Centro Histórico', 'loc.poi3s': '~3,5 km',
+        'loc.poi4t': 'Mercado Modelo', 'loc.poi4s': '~3 km',
+        'loc.quote': '"La vista que vende el viaje por sí sola."', 'loc.maps': 'Ver en Google Maps →',
+        'pier.label': 'Muelle Mahi Mahi · exclusivo', 'pier.title': 'Un muelle solo para ti, sobre la bahía',
+        'pier.subtitle': 'Tobogán, atracadero, jet ski y un restaurante casi sobre el agua.',
+        'pier.bondinho': 'Bajada en <span class="italic text-sun-light">funicular</span> hasta el muelle',
+        'pier.restaurant': 'Mahi Mahi Bar y Restaurante',
+        'pier.body': 'Desde lo alto del Corredor da Vitória, un <strong class="font-medium text-ink">funicular</strong> te lleva hasta el <strong class="font-medium text-ink">Muelle Mahi Mahi</strong> — con tobogán, atracadero y jet ski —, donde el <strong class="font-medium text-ink">Mahi Mahi Bar y Restaurante</strong> sirve con la bahía frente a ti. Para muchos, el mejor muelle de Salvador.',
+        'rooms.label': 'Tipos de habitación', 'rooms.title': 'Elige tu habitación',
+        'rooms.intro': 'Triples y cuádruples, todos para hasta 5 huéspedes — disponibles con <strong class="font-medium text-ink">vista al mar</strong> o <strong class="font-medium text-ink">vista a la avenida</strong>.',
+        'rooms.gallery_link': 'Ver galería de fotos →', 'rooms.badge_sea': 'Vista al mar', 'rooms.badge_avenue': 'Vista a la avenida',
+        'rooms.quad': 'Cuádruple', 'rooms.triple': 'Triple', 'rooms.guests': 'hasta 5 huéspedes', 'rooms.cta': 'Reserva ahora →',
+        'rooms.note': 'Una foto por tipo. Las demás están en la <a href="galeria.html" class="text-sea underline-grow font-medium">galería</a>.',
+        'amen.label': 'En el edificio y la unidad', 'amen.title': 'Todo listo para tu estancia',
+        'amen.wifi': 'Wi-Fi rápido', 'amen.ac': 'Aire acondicionado', 'amen.pool': 'Piscina (hotel y muelle)', 'amen.pier': 'Muelle Mahi Mahi',
+        'amen.reception': 'Recepción 24h', 'amen.store': 'Tienda 24h', 'amen.garage': 'Garaje con valet', 'amen.roomservice': 'Servicio de habitación',
+        'amen.note': 'Toallas y sábanas incluidas · <span class="text-sand/90 font-medium">desayuno no incluido</span>.',
+        'testi.label': 'Quienes se hospedaron, recomiendan', 'testi.title': 'Historias de quienes se hospedaron',
+        'testi.q1': '"La vista es increíble y el apartamento muy bien cuidado. ¡Volveremos!"',
+        'testi.q2': '"Ubicación perfecta, muy seguro, y la anfitriona respondió en minutos."',
+        'testi.q3': '"Ubicación inmejorable y atención muy cercana. Todo impecable."',
+        'contact.label': 'Reserva con nosotros', 'contact.title': 'Cuéntanos lo que buscas — seguimos por WhatsApp',
+        'contact.body': 'Indícanos las fechas y cuántas personas. Al enviar, abrimos WhatsApp ya con todo completado — sin repetir nada. También puedes reservar directamente en Booking o Airbnb.',
+        'contact.chip1': 'Respuesta rápida', 'contact.chip2': 'Atención PT · EN · ES',
+        'form.unit': 'Habitación de interés',
+        'form.opt1': 'Cuádruple · vista al mar', 'form.opt2': 'Cuádruple · vista a la avenida', 'form.opt3': 'Triple · vista al mar', 'form.opt4': 'Triple · vista a la avenida', 'form.opt5': 'Aún no lo sé / ver opciones',
+        'form.checkin': 'Entrada', 'form.checkout': 'Salida', 'form.guests': 'Huéspedes', 'form.name': 'Tu nombre', 'form.name_ph': '¿Cómo te llamamos?',
+        'form.submit_label': 'Seguir por WhatsApp',
+        'form.privacy': 'Al continuar, aceptas nuestro aviso de privacidad. <span class="text-ink/30">(prototipo — sin envío real)</span>',
+        'footer.tagline': 'Flats de temporada en el Corredor da Vitória, con vistas a la Bahía de Todos los Santos. Salvador — Bahía.',
+        'footer.nav': 'Navegación', 'footer.contact_col': 'Contáctanos',
+      },
+    };
+    const HTML_LANG = { pt: 'pt-BR', en: 'en', es: 'es' };
+
+    function setLang(lang) {
+      if (!I18N[lang]) lang = 'pt';
+      const dict = I18N[lang];
+      document.documentElement.lang = HTML_LANG[lang] || lang;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const v = dict[el.getAttribute('data-i18n')];
+        if (v != null) el.innerHTML = v;
+      });
+      document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+        const v = dict[el.getAttribute('data-i18n-ph')];
+        if (v != null) el.setAttribute('placeholder', v);
+      });
+      const t = dict['doc.title']; if (t) document.title = t;
+      document.querySelectorAll('[data-lang-btn]').forEach(b =>
+        b.classList.toggle('is-active', b.getAttribute('data-lang-btn') === lang));
+      try { localStorage.setItem('svm-lang', lang); } catch (e) {}
+    }
+
+    document.querySelectorAll('[data-lang-btn]').forEach(b =>
+      b.addEventListener('click', () => setLang(b.getAttribute('data-lang-btn'))));
+
+    (function initLang() {
+      let saved; try { saved = localStorage.getItem('svm-lang'); } catch (e) {}
+      const nav = (navigator.language || 'pt').slice(0, 2);
+      setLang(saved || (I18N[nav] ? nav : 'pt'));
+    })();
+
+    // ===================== Reveal on scroll =====================
     const io = new IntersectionObserver((entries) => {
       for (const e of entries) {
         if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Galeria — Sol Vitória Marina</title>
+  <title data-i18n="doc.title">Galeria — Sol Vitória Marina</title>
   <meta name="description" content="Galeria de fotos do Sol Vitória Marina: vista mar, Píer Mahi Mahi, áreas comuns e os quartos." />
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -29,6 +29,7 @@
     .underline-grow:hover{background-size:100% 1.5px}
     .masonry{column-gap:1rem}
     .masonry > * {break-inside:avoid;margin-bottom:1rem}
+    .lang-btn.is-active { background-color: #0e3a44; color: #faf6ee; }
   </style>
 </head>
 
@@ -36,34 +37,41 @@
 
   <!-- HEADER -->
   <header class="sticky top-0 z-50 bg-sand-soft/85 backdrop-blur-md border-b border-ink/5">
-    <div class="mx-auto max-w-7xl px-5 sm:px-8 h-16 flex items-center justify-between gap-4">
-      <a href="index.html" class="font-display text-xl sm:text-2xl tracking-tightest text-sea">Sol Vitória <span class="text-sun-deep italic">Marina</span></a>
+    <div class="mx-auto max-w-7xl px-5 sm:px-8 h-16 flex items-center justify-between gap-3">
+      <a href="index.html" class="font-display text-xl sm:text-2xl tracking-tightest text-sea shrink-0">Sol Vitória <span class="text-sun-deep italic">Marina</span></a>
       <nav class="hidden md:flex items-center gap-6 text-[15px] text-ink/80">
-        <a href="index.html#quartos" class="underline-grow">Tipos de Quartos</a>
-        <a href="galeria.html" class="text-sea font-medium underline-grow">Galeria</a>
-        <a href="index.html#pier" class="underline-grow">O Píer</a>
-        <a href="index.html#localizacao" class="underline-grow">Localização</a>
-        <a href="index.html#contato" class="underline-grow">Contato</a>
+        <a href="index.html#quartos" class="underline-grow" data-i18n="nav.rooms">Tipos de Quartos</a>
+        <a href="galeria.html" class="text-sea font-medium underline-grow" data-i18n="nav.gallery">Galeria</a>
+        <a href="index.html#pier" class="underline-grow" data-i18n="nav.pier">O Píer</a>
+        <a href="index.html#localizacao" class="underline-grow" data-i18n="nav.location">Localização</a>
+        <a href="index.html#contato" class="underline-grow" data-i18n="nav.contact">Contato</a>
       </nav>
-      <a href="index.html#contato" class="inline-flex items-center gap-2 bg-sun text-sea-deep font-semibold text-sm px-4 py-2 rounded-full hover:bg-sun-light transition-colors">WhatsApp</a>
+      <div class="flex items-center gap-2 sm:gap-4">
+        <div class="flex items-center text-[13px] text-ink/60 border border-ink/15 rounded-full overflow-hidden">
+          <button type="button" class="lang-btn px-2.5 py-1 hover:bg-ink/5" data-lang-btn="pt">PT</button>
+          <button type="button" class="lang-btn px-2.5 py-1 hover:bg-ink/5" data-lang-btn="en">EN</button>
+          <button type="button" class="lang-btn px-2.5 py-1 hover:bg-ink/5" data-lang-btn="es">ES</button>
+        </div>
+        <a href="index.html#contato" class="hidden sm:inline-flex items-center gap-2 bg-sun text-sea-deep font-semibold text-sm px-4 py-2 rounded-full hover:bg-sun-light transition-colors">WhatsApp</a>
+      </div>
     </div>
   </header>
 
   <main class="mx-auto max-w-7xl px-5 sm:px-8 py-12 sm:py-16">
     <!-- Título -->
     <div class="max-w-2xl mb-10">
-      <p class="text-sun-deep font-medium tracking-widest text-xs uppercase mb-4">Galeria</p>
-      <h1 class="font-display text-[clamp(2rem,5vw,3.4rem)] leading-[1.02] tracking-tightest text-sea">Cada canto, em detalhe</h1>
-      <p class="mt-4 text-ink/65 text-lg font-light">Vista mar, o Píer Mahi Mahi, as áreas comuns e os quartos.</p>
+      <p class="text-sun-deep font-medium tracking-widest text-xs uppercase mb-4" data-i18n="g.label">Galeria</p>
+      <h1 class="font-display text-[clamp(2rem,5vw,3.4rem)] leading-[1.02] tracking-tightest text-sea" data-i18n="g.title">Cada canto, em detalhe</h1>
+      <p class="mt-4 text-ink/65 text-lg font-light" data-i18n="g.intro">Vista mar, o Píer Mahi Mahi, as áreas comuns e os quartos.</p>
     </div>
 
     <!-- Filtros (visuais no protótipo) -->
     <div class="flex flex-wrap gap-2.5 mb-10">
-      <button class="px-4 py-2 rounded-full text-sm bg-sea text-sand-soft">Tudo</button>
-      <button class="px-4 py-2 rounded-full text-sm border border-ink/15 hover:border-sea text-ink/70">Vista mar</button>
-      <button class="px-4 py-2 rounded-full text-sm border border-ink/15 hover:border-sea text-ink/70">Píer & restaurante</button>
-      <button class="px-4 py-2 rounded-full text-sm border border-ink/15 hover:border-sea text-ink/70">Quartos</button>
-      <button class="px-4 py-2 rounded-full text-sm border border-ink/15 hover:border-sea text-ink/70">Áreas comuns</button>
+      <button class="px-4 py-2 rounded-full text-sm bg-sea text-sand-soft" data-i18n="g.f_all">Tudo</button>
+      <button class="px-4 py-2 rounded-full text-sm border border-ink/15 hover:border-sea text-ink/70" data-i18n="g.f_sea">Vista mar</button>
+      <button class="px-4 py-2 rounded-full text-sm border border-ink/15 hover:border-sea text-ink/70" data-i18n="g.f_pier">Píer & restaurante</button>
+      <button class="px-4 py-2 rounded-full text-sm border border-ink/15 hover:border-sea text-ink/70" data-i18n="g.f_rooms">Quartos</button>
+      <button class="px-4 py-2 rounded-full text-sm border border-ink/15 hover:border-sea text-ink/70" data-i18n="g.f_common">Áreas comuns</button>
     </div>
 
     <!-- Grid masonry -->
@@ -86,8 +94,8 @@
 
     <!-- CTA final -->
     <div class="mt-14 text-center">
-      <p class="font-display text-2xl text-sea mb-5">Gostou do que viu?</p>
-      <a href="index.html#contato" class="inline-flex items-center gap-2 bg-sun text-sea-deep font-semibold px-6 py-3.5 rounded-full hover:bg-sun-light transition-colors">Tenho interesse · WhatsApp</a>
+      <p class="font-display text-2xl text-sea mb-5" data-i18n="g.cta_title">Gostou do que viu?</p>
+      <a href="index.html#contato" class="inline-flex items-center gap-2 bg-sun text-sea-deep font-semibold px-6 py-3.5 rounded-full hover:bg-sun-light transition-colors" data-i18n="g.cta">Tenho interesse · WhatsApp</a>
     </div>
   </main>
 
@@ -95,8 +103,56 @@
   <footer class="bg-sea-deep text-sand/70">
     <div class="mx-auto max-w-7xl px-5 sm:px-8 py-12 flex flex-col sm:flex-row items-center justify-between gap-4">
       <a href="index.html" class="font-display text-2xl text-sand-soft">Sol Vitória <span class="italic text-sun-light">Marina</span></a>
-      <p class="text-xs text-sand/45">© 2026 Sol Vitória Marina · Protótipo · Corredor da Vitória, Salvador-BA</p>
+      <p class="text-xs text-sand/45">© 2026 Sol Vitória Marina · Corredor da Vitória, Salvador-BA</p>
     </div>
   </footer>
+
+  <script>
+    const I18N = {
+      pt: {
+        'doc.title': 'Galeria — Sol Vitória Marina',
+        'nav.rooms': 'Tipos de Quartos', 'nav.gallery': 'Galeria', 'nav.pier': 'O Píer', 'nav.location': 'Localização', 'nav.contact': 'Contato',
+        'g.label': 'Galeria', 'g.title': 'Cada canto, em detalhe', 'g.intro': 'Vista mar, o Píer Mahi Mahi, as áreas comuns e os quartos.',
+        'g.f_all': 'Tudo', 'g.f_sea': 'Vista mar', 'g.f_pier': 'Píer & restaurante', 'g.f_rooms': 'Quartos', 'g.f_common': 'Áreas comuns',
+        'g.cta_title': 'Gostou do que viu?', 'g.cta': 'Tenho interesse · WhatsApp',
+      },
+      en: {
+        'doc.title': 'Gallery — Sol Vitória Marina',
+        'nav.rooms': 'Room Types', 'nav.gallery': 'Gallery', 'nav.pier': 'The Pier', 'nav.location': 'Location', 'nav.contact': 'Contact',
+        'g.label': 'Gallery', 'g.title': 'Every corner, in detail', 'g.intro': 'Sea views, the Mahi Mahi Pier, the common areas and the rooms.',
+        'g.f_all': 'All', 'g.f_sea': 'Sea view', 'g.f_pier': 'Pier & restaurant', 'g.f_rooms': 'Rooms', 'g.f_common': 'Common areas',
+        'g.cta_title': 'Like what you see?', 'g.cta': "I'm interested · WhatsApp",
+      },
+      es: {
+        'doc.title': 'Galería — Sol Vitória Marina',
+        'nav.rooms': 'Tipos de Habitación', 'nav.gallery': 'Galería', 'nav.pier': 'El Muelle', 'nav.location': 'Ubicación', 'nav.contact': 'Contacto',
+        'g.label': 'Galería', 'g.title': 'Cada rincón, en detalle', 'g.intro': 'Vista al mar, el Muelle Mahi Mahi, las áreas comunes y las habitaciones.',
+        'g.f_all': 'Todo', 'g.f_sea': 'Vista al mar', 'g.f_pier': 'Muelle y restaurante', 'g.f_rooms': 'Habitaciones', 'g.f_common': 'Áreas comunes',
+        'g.cta_title': '¿Te gustó lo que viste?', 'g.cta': 'Me interesa · WhatsApp',
+      },
+    };
+    const HTML_LANG = { pt: 'pt-BR', en: 'en', es: 'es' };
+
+    function setLang(lang) {
+      if (!I18N[lang]) lang = 'pt';
+      const dict = I18N[lang];
+      document.documentElement.lang = HTML_LANG[lang] || lang;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const v = dict[el.getAttribute('data-i18n')];
+        if (v != null) el.innerHTML = v;
+      });
+      const t = dict['doc.title']; if (t) document.title = t;
+      document.querySelectorAll('[data-lang-btn]').forEach(b =>
+        b.classList.toggle('is-active', b.getAttribute('data-lang-btn') === lang));
+      try { localStorage.setItem('svm-lang', lang); } catch (e) {}
+    }
+    document.querySelectorAll('[data-lang-btn]').forEach(b =>
+      b.addEventListener('click', () => setLang(b.getAttribute('data-lang-btn'))));
+    (function initLang() {
+      let saved; try { saved = localStorage.getItem('svm-lang'); } catch (e) {}
+      const nav = (navigator.language || 'pt').slice(0, 2);
+      setLang(saved || (I18N[nav] ? nav : 'pt'));
+    })();
+  </script>
 </body>
 </html>
