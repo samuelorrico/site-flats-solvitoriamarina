@@ -2,6 +2,8 @@
 
 Site de divulgação dos flats **Sol Vitória Marina**, no **Corredor da Vitória, Salvador-BA** — com vista para a **Baía de Todos os Santos** e acesso ao exclusivo **Píer Mahi Mahi**.
 
+🔗 **Demo online:** <https://site-flats-solvitoriamarina.vercel.app>
+
 ## O problema
 
 Hoje a divulgação dos flats está espalhada entre Booking, Airbnb e Instagram, sem um endereço próprio que reúna tudo, transmita confiança e transforme o interesse em reserva. E boa parte do tempo da proprietária vai em responder, manualmente, as mesmas perguntas.
@@ -24,9 +26,7 @@ Um site rápido, bonito e **trilíngue (PT/EN/ES)** que:
 
 ## Status
 
-🟡 Em desenvolvimento. Há um **protótipo visual** navegável em [`design-prototype/`](design-prototype/) (abra o `index.html`).
-
-<!-- 🔗 Demo online: (link da hospedagem em breve) -->
+🟡 Em desenvolvimento. O **protótipo visual** já está no ar (veja a demo acima). O código do protótipo está em [`design-prototype/`](design-prototype/).
 
 ## Tecnologia
 
