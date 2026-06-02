@@ -75,7 +75,7 @@
           <button type="button" class="lang-btn px-2.5 py-1 hover:bg-ink/5" data-lang-btn="en">EN</button>
           <button type="button" class="lang-btn px-2.5 py-1 hover:bg-ink/5" data-lang-btn="es">ES</button>
         </div>
-        <a href="#contato" class="hidden sm:inline-flex items-center gap-2 bg-sun text-sea-deep font-semibold text-sm px-4 py-2 rounded-full hover:bg-sun-light transition-colors">
+        <a href="https://wa.me/5571991159858" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center gap-2 bg-sun text-sea-deep font-semibold text-sm px-4 py-2 rounded-full hover:bg-sun-light transition-colors">
           <svg viewBox="0 0 24 24" class="w-4 h-4" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.477-.911z"/></svg>
           WhatsApp
         </a>
@@ -222,10 +222,10 @@
       <!-- Quádruplo · Vista mar -->
       <article class="reveal group">
         <div class="relative overflow-hidden rounded-3xl">
-          <img src="images/quarto-quadruplo-mar.jpg" alt="Quarto quádruplo com vista para o mar" class="w-full h-60 object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
+          <img src="images/quarto-quadruplo-mar.jpg" alt="Quarto de casal com vista para o mar" class="w-full h-60 object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
           <span class="absolute top-3 left-3 bg-sun text-sea-deep text-xs font-semibold px-3 py-1.5 rounded-full" data-i18n="rooms.badge_sea">Vista mar</span>
         </div>
-        <h3 class="mt-4 font-display text-xl text-sea tracking-tight" data-i18n="rooms.quad">Quádruplo</h3>
+        <h3 class="mt-4 font-display text-xl text-sea tracking-tight" data-i18n="rooms.quad">Casal</h3>
         <p class="text-ink/60 text-sm mt-1.5 flex items-center gap-2"><svg class="w-4 h-4 text-sun-deep" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7v11M3 13h18v5M21 18v-5a3 3 0 00-3-3H10v3M7 11.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/></svg> <span data-i18n="rooms.guests">até 5 hóspedes</span></p>
         <a href="#contato" class="mt-4 inline-flex items-center gap-1.5 bg-sea text-sand-soft text-sm font-semibold px-4 py-2.5 rounded-full hover:bg-sea-light transition-colors" data-i18n="rooms.cta">Reserve agora →</a>
       </article>
@@ -233,10 +233,10 @@
       <!-- Quádruplo · Vista avenida -->
       <article class="reveal group">
         <div class="relative overflow-hidden rounded-3xl">
-          <img src="images/quarto-quadruplo-avenida.jpg" alt="Quarto quádruplo com vista para a avenida" class="w-full h-60 object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
+          <img src="images/quarto-quadruplo-avenida.jpg" alt="Quarto de casal com vista para a avenida" class="w-full h-60 object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
           <span class="absolute top-3 left-3 bg-sand-soft/95 text-sea text-xs font-semibold px-3 py-1.5 rounded-full" data-i18n="rooms.badge_avenue">Vista avenida</span>
         </div>
-        <h3 class="mt-4 font-display text-xl text-sea tracking-tight" data-i18n="rooms.quad">Quádruplo</h3>
+        <h3 class="mt-4 font-display text-xl text-sea tracking-tight" data-i18n="rooms.quad">Casal</h3>
         <p class="text-ink/60 text-sm mt-1.5 flex items-center gap-2"><svg class="w-4 h-4 text-sun-deep" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7v11M3 13h18v5M21 18v-5a3 3 0 00-3-3H10v3M7 11.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/></svg> <span data-i18n="rooms.guests">até 5 hóspedes</span></p>
         <a href="#contato" class="mt-4 inline-flex items-center gap-1.5 bg-sea text-sand-soft text-sm font-semibold px-4 py-2.5 rounded-full hover:bg-sea-light transition-colors" data-i18n="rooms.cta">Reserve agora →</a>
       </article>
@@ -334,31 +334,31 @@
       </div>
 
       <!-- Formulário (visual no protótipo) -->
-      <form class="reveal bg-sand-soft rounded-[1.75rem] p-7 sm:p-9 shadow-sm" onsubmit="return false;">
+      <form id="qualForm" class="reveal bg-sand-soft rounded-[1.75rem] p-7 sm:p-9 shadow-sm" onsubmit="return openWA(event);">
         <div class="grid gap-5">
           <label class="block">
             <span class="text-sm font-medium text-ink/70" data-i18n="form.unit">Unidade de interesse</span>
-            <select class="mt-1.5 w-full rounded-xl border border-ink/15 bg-white/70 px-4 py-3 text-ink focus:border-sea focus:ring-2 focus:ring-sea/20 outline-none">
-              <option data-i18n="form.opt1">Quádruplo · vista mar</option>
-              <option data-i18n="form.opt2">Quádruplo · vista avenida</option>
+            <select id="qUnit" class="mt-1.5 w-full rounded-xl border border-ink/15 bg-white/70 px-4 py-3 text-ink focus:border-sea focus:ring-2 focus:ring-sea/20 outline-none">
+              <option data-i18n="form.opt1">Casal · vista mar</option>
+              <option data-i18n="form.opt2">Casal · vista avenida</option>
               <option data-i18n="form.opt3">Triplo · vista mar</option>
               <option data-i18n="form.opt4">Triplo · vista avenida</option>
               <option data-i18n="form.opt5">Ainda não sei, quero ver as opções</option>
             </select>
           </label>
           <div class="grid grid-cols-2 gap-4">
-            <label class="block"><span class="text-sm font-medium text-ink/70" data-i18n="form.checkin">Check-in</span><input type="date" class="mt-1.5 w-full rounded-xl border border-ink/15 bg-white/70 px-4 py-3 text-ink focus:border-sea focus:ring-2 focus:ring-sea/20 outline-none" /></label>
-            <label class="block"><span class="text-sm font-medium text-ink/70" data-i18n="form.checkout">Check-out</span><input type="date" class="mt-1.5 w-full rounded-xl border border-ink/15 bg-white/70 px-4 py-3 text-ink focus:border-sea focus:ring-2 focus:ring-sea/20 outline-none" /></label>
+            <label class="block"><span class="text-sm font-medium text-ink/70" data-i18n="form.checkin">Check-in</span><input id="qIn" type="date" class="mt-1.5 w-full rounded-xl border border-ink/15 bg-white/70 px-4 py-3 text-ink focus:border-sea focus:ring-2 focus:ring-sea/20 outline-none" /></label>
+            <label class="block"><span class="text-sm font-medium text-ink/70" data-i18n="form.checkout">Check-out</span><input id="qOut" type="date" class="mt-1.5 w-full rounded-xl border border-ink/15 bg-white/70 px-4 py-3 text-ink focus:border-sea focus:ring-2 focus:ring-sea/20 outline-none" /></label>
           </div>
           <div class="grid grid-cols-2 gap-4">
-            <label class="block"><span class="text-sm font-medium text-ink/70" data-i18n="form.guests">Hóspedes</span><input type="number" min="1" value="2" class="mt-1.5 w-full rounded-xl border border-ink/15 bg-white/70 px-4 py-3 text-ink focus:border-sea focus:ring-2 focus:ring-sea/20 outline-none" /></label>
-            <label class="block"><span class="text-sm font-medium text-ink/70" data-i18n="form.name">Seu nome</span><input type="text" data-i18n-ph="form.name_ph" placeholder="Como te chamamos?" class="mt-1.5 w-full rounded-xl border border-ink/15 bg-white/70 px-4 py-3 text-ink focus:border-sea focus:ring-2 focus:ring-sea/20 outline-none" /></label>
+            <label class="block"><span class="text-sm font-medium text-ink/70" data-i18n="form.guests">Hóspedes</span><input id="qGuests" type="number" min="1" value="2" class="mt-1.5 w-full rounded-xl border border-ink/15 bg-white/70 px-4 py-3 text-ink focus:border-sea focus:ring-2 focus:ring-sea/20 outline-none" /></label>
+            <label class="block"><span class="text-sm font-medium text-ink/70" data-i18n="form.name">Seu nome</span><input id="qName" type="text" data-i18n-ph="form.name_ph" placeholder="Como te chamamos?" class="mt-1.5 w-full rounded-xl border border-ink/15 bg-white/70 px-4 py-3 text-ink focus:border-sea focus:ring-2 focus:ring-sea/20 outline-none" /></label>
           </div>
           <button class="mt-1 inline-flex items-center justify-center gap-2 bg-sun text-sea-deep font-semibold px-6 py-3.5 rounded-xl hover:bg-sun-light transition-colors">
             <svg viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.477-.911z"/></svg>
             <span data-i18n="form.submit_label">Continuar no WhatsApp</span>
           </button>
-          <p class="text-xs text-ink/45 text-center" data-i18n="form.privacy">Ao continuar, você concorda com nosso aviso de privacidade. <span class="text-ink/30">(protótipo, sem envio real)</span></p>
+          <p class="text-xs text-ink/45 text-center" data-i18n="form.privacy">Ao continuar, você concorda com nosso aviso de privacidade.</p>
         </div>
       </form>
     </div>
@@ -384,8 +384,8 @@
       <div>
         <p class="text-sand-soft font-medium mb-4 text-sm tracking-wide uppercase" data-i18n="footer.contact_col">Fale com a gente</p>
         <ul class="space-y-2.5 text-sm">
-          <li><a href="#contato" class="hover:text-sand-soft">WhatsApp</a></li>
-          <li><a href="#" class="hover:text-sand-soft">Instagram</a></li>
+          <li><a href="https://wa.me/5571991159858" target="_blank" rel="noopener" class="hover:text-sand-soft">WhatsApp</a></li>
+          <li><a href="https://www.instagram.com/solvitoriamarinaflats" target="_blank" rel="noopener" class="hover:text-sand-soft">Instagram</a></li>
           <li><a href="#" class="hover:text-sand-soft">Booking</a></li>
           <li><a href="#" class="hover:text-sand-soft">Airbnb</a></li>
         </ul>
@@ -428,7 +428,7 @@
         'rooms.label': 'Tipos de quartos', 'rooms.title': 'Escolha o seu quarto',
         'rooms.intro': 'Triplos e quádruplos, todos para até 5 hóspedes. Você escolhe entre <strong class="font-medium text-ink">vista mar</strong> e <strong class="font-medium text-ink">vista avenida</strong>.',
         'rooms.gallery_link': 'Ver galeria de fotos →', 'rooms.badge_sea': 'Vista mar', 'rooms.badge_avenue': 'Vista avenida',
-        'rooms.quad': 'Quádruplo', 'rooms.triple': 'Triplo', 'rooms.guests': 'até 5 hóspedes', 'rooms.cta': 'Reserve agora →',
+        'rooms.quad': 'Casal', 'rooms.triple': 'Triplo', 'rooms.guests': 'até 5 hóspedes', 'rooms.cta': 'Reserve agora →',
         'rooms.note': 'Uma foto por tipo. As demais ficam na <a href="galeria.html" class="text-sea underline-grow font-medium">galeria</a>.',
         'amen.label': 'No prédio e na unidade', 'amen.title': 'Tudo pronto para a sua estadia',
         'amen.wifi': 'Wi-Fi rápido', 'amen.ac': 'Ar-condicionado', 'amen.pool': 'Piscina (hotel e píer)', 'amen.pier': 'Píer Mahi Mahi',
@@ -442,10 +442,10 @@
         'contact.body': 'É só dizer as datas e quantas pessoas. Quando você enviar, a gente já abre o WhatsApp com tudo preenchido, sem precisar repetir nada. Se preferir, dá para reservar direto pelo Booking ou Airbnb.',
         'contact.chip1': 'Resposta rápida', 'contact.chip2': 'Atendimento PT · EN · ES',
         'form.unit': 'Unidade de interesse',
-        'form.opt1': 'Quádruplo · vista mar', 'form.opt2': 'Quádruplo · vista avenida', 'form.opt3': 'Triplo · vista mar', 'form.opt4': 'Triplo · vista avenida', 'form.opt5': 'Ainda não sei, quero ver as opções',
+        'form.opt1': 'Casal · vista mar', 'form.opt2': 'Casal · vista avenida', 'form.opt3': 'Triplo · vista mar', 'form.opt4': 'Triplo · vista avenida', 'form.opt5': 'Ainda não sei, quero ver as opções',
         'form.checkin': 'Check-in', 'form.checkout': 'Check-out', 'form.guests': 'Hóspedes', 'form.name': 'Seu nome', 'form.name_ph': 'Como te chamamos?',
         'form.submit_label': 'Continuar no WhatsApp',
-        'form.privacy': 'Ao continuar, você concorda com nosso aviso de privacidade. <span class="text-ink/30">(protótipo, sem envio real)</span>',
+        'form.privacy': 'Ao continuar, você concorda com nosso aviso de privacidade.',
         'footer.tagline': 'Flats de temporada no Corredor da Vitória, com vista para a Baía de Todos os Santos. Salvador, Bahia.',
         'footer.nav': 'Navegação', 'footer.contact_col': 'Fale com a gente',
       },
@@ -475,7 +475,7 @@
         'rooms.label': 'Room types', 'rooms.title': 'Choose your room',
         'rooms.intro': 'Triple and quadruple rooms, all for up to 5 guests. You choose between a <strong class="font-medium text-ink">sea view</strong> and an <strong class="font-medium text-ink">avenue view</strong>.',
         'rooms.gallery_link': 'See photo gallery →', 'rooms.badge_sea': 'Sea view', 'rooms.badge_avenue': 'Avenue view',
-        'rooms.quad': 'Quadruple', 'rooms.triple': 'Triple', 'rooms.guests': 'up to 5 guests', 'rooms.cta': 'Book now →',
+        'rooms.quad': 'Double', 'rooms.triple': 'Triple', 'rooms.guests': 'up to 5 guests', 'rooms.cta': 'Book now →',
         'rooms.note': 'One photo per type. The rest are in the <a href="galeria.html" class="text-sea underline-grow font-medium">gallery</a>.',
         'amen.label': 'In the building and the flat', 'amen.title': 'Everything ready for your stay',
         'amen.wifi': 'Fast Wi-Fi', 'amen.ac': 'Air conditioning', 'amen.pool': 'Pool (hotel and pier)', 'amen.pier': 'Mahi Mahi Pier',
@@ -489,10 +489,10 @@
         'contact.body': 'Just tell us your dates and how many people. When you send it, we open WhatsApp already filled in, with no need to repeat anything. If you prefer, you can book directly on Booking or Airbnb.',
         'contact.chip1': 'Quick reply', 'contact.chip2': 'Service in PT · EN · ES',
         'form.unit': 'Room of interest',
-        'form.opt1': 'Quadruple · sea view', 'form.opt2': 'Quadruple · avenue view', 'form.opt3': 'Triple · sea view', 'form.opt4': 'Triple · avenue view', 'form.opt5': "Not sure yet, I'd like to see the options",
+        'form.opt1': 'Double · sea view', 'form.opt2': 'Double · avenue view', 'form.opt3': 'Triple · sea view', 'form.opt4': 'Triple · avenue view', 'form.opt5': "Not sure yet, I'd like to see the options",
         'form.checkin': 'Check-in', 'form.checkout': 'Check-out', 'form.guests': 'Guests', 'form.name': 'Your name', 'form.name_ph': 'What should we call you?',
         'form.submit_label': 'Continue on WhatsApp',
-        'form.privacy': 'By continuing, you agree to our privacy notice. <span class="text-ink/30">(prototype, no real submission)</span>',
+        'form.privacy': 'By continuing, you agree to our privacy notice.',
         'footer.tagline': "Holiday flats in Corredor da Vitória, overlooking All Saints' Bay. Salvador, Bahia.",
         'footer.nav': 'Navigation', 'footer.contact_col': 'Get in touch',
       },
@@ -522,7 +522,7 @@
         'rooms.label': 'Tipos de habitación', 'rooms.title': 'Elige tu habitación',
         'rooms.intro': 'Triples y cuádruples, todos para hasta 5 huéspedes. Tú eliges entre <strong class="font-medium text-ink">vista al mar</strong> y <strong class="font-medium text-ink">vista a la avenida</strong>.',
         'rooms.gallery_link': 'Ver galería de fotos →', 'rooms.badge_sea': 'Vista al mar', 'rooms.badge_avenue': 'Vista a la avenida',
-        'rooms.quad': 'Cuádruple', 'rooms.triple': 'Triple', 'rooms.guests': 'hasta 5 huéspedes', 'rooms.cta': 'Reserva ahora →',
+        'rooms.quad': 'Doble', 'rooms.triple': 'Triple', 'rooms.guests': 'hasta 5 huéspedes', 'rooms.cta': 'Reserva ahora →',
         'rooms.note': 'Una foto por tipo. Las demás están en la <a href="galeria.html" class="text-sea underline-grow font-medium">galería</a>.',
         'amen.label': 'En el edificio y la unidad', 'amen.title': 'Todo listo para tu estancia',
         'amen.wifi': 'Wi-Fi rápido', 'amen.ac': 'Aire acondicionado', 'amen.pool': 'Piscina (hotel y muelle)', 'amen.pier': 'Muelle Mahi Mahi',
@@ -536,18 +536,42 @@
         'contact.body': 'Solo dinos las fechas y cuántas personas. Al enviarlo, abrimos WhatsApp ya con todo completado, sin tener que repetir nada. Si lo prefieres, puedes reservar directamente en Booking o Airbnb.',
         'contact.chip1': 'Respuesta rápida', 'contact.chip2': 'Atención PT · EN · ES',
         'form.unit': 'Habitación de interés',
-        'form.opt1': 'Cuádruple · vista al mar', 'form.opt2': 'Cuádruple · vista a la avenida', 'form.opt3': 'Triple · vista al mar', 'form.opt4': 'Triple · vista a la avenida', 'form.opt5': 'Aún no lo sé, quiero ver las opciones',
+        'form.opt1': 'Doble · vista al mar', 'form.opt2': 'Doble · vista a la avenida', 'form.opt3': 'Triple · vista al mar', 'form.opt4': 'Triple · vista a la avenida', 'form.opt5': 'Aún no lo sé, quiero ver las opciones',
         'form.checkin': 'Entrada', 'form.checkout': 'Salida', 'form.guests': 'Huéspedes', 'form.name': 'Tu nombre', 'form.name_ph': '¿Cómo te llamamos?',
         'form.submit_label': 'Seguir por WhatsApp',
-        'form.privacy': 'Al continuar, aceptas nuestro aviso de privacidad. <span class="text-ink/30">(prototipo, sin envío real)</span>',
+        'form.privacy': 'Al continuar, aceptas nuestro aviso de privacidad.',
         'footer.tagline': 'Flats de temporada en el Corredor da Vitória, con vistas a la Bahía de Todos los Santos. Salvador, Bahía.',
         'footer.nav': 'Navegación', 'footer.contact_col': 'Contáctanos',
       },
     };
     const HTML_LANG = { pt: 'pt-BR', en: 'en', es: 'es' };
 
+    // WhatsApp (número temporário, trocar só aqui quando tiver o definitivo)
+    const WA_PHONE = '5571991159858';
+    let currentLang = 'pt';
+    const WA_T = {
+      pt: { intro: 'Olá! Tenho interesse em um flat no Vitória Marina Flats.', type: 'Tipo', cin: 'Check-in', cout: 'Check-out', guests: 'Hóspedes', name: 'Nome', tbd: 'a confirmar' },
+      en: { intro: 'Hi! I am interested in a flat at Vitória Marina Flats.', type: 'Type', cin: 'Check-in', cout: 'Check-out', guests: 'Guests', name: 'Name', tbd: 'to be confirmed' },
+      es: { intro: '¡Hola! Me interesa un flat en Vitória Marina Flats.', type: 'Tipo', cin: 'Entrada', cout: 'Salida', guests: 'Huéspedes', name: 'Nombre', tbd: 'a confirmar' },
+    };
+    function openWA(e) {
+      if (e && e.preventDefault) e.preventDefault();
+      const t = WA_T[currentLang] || WA_T.pt;
+      const v = (id, fb) => { const el = document.getElementById(id); const val = el && el.value ? el.value.trim() : ''; return val || fb; };
+      const unit = (document.getElementById('qUnit') || {}).value || '';
+      const msg = t.intro
+        + '\n• ' + t.type + ': ' + unit
+        + '\n• ' + t.cin + ': ' + v('qIn', t.tbd)
+        + '\n• ' + t.cout + ': ' + v('qOut', t.tbd)
+        + '\n• ' + t.guests + ': ' + v('qGuests', t.tbd)
+        + '\n• ' + t.name + ': ' + v('qName', t.tbd);
+      window.open('https://wa.me/' + WA_PHONE + '?text=' + encodeURIComponent(msg), '_blank');
+      return false;
+    }
+
     function setLang(lang) {
       if (!I18N[lang]) lang = 'pt';
+      currentLang = lang;
       const dict = I18N[lang];
       document.documentElement.lang = HTML_LANG[lang] || lang;
       document.querySelectorAll('[data-i18n]').forEach(el => {
