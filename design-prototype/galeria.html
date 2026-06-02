@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galeria — Sol Vitória Marina</title>
+  <meta name="description" content="Galeria de fotos do Sol Vitória Marina: vista mar, Píer Mahi Mahi, áreas comuns e os quartos." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,400&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        fontFamily: { display: ['Fraunces','serif'], sans: ['"Hanken Grotesk"','system-ui','sans-serif'] },
+        colors: {
+          sea:{deep:'#0a2b33',DEFAULT:'#0e3a44',light:'#1d5c6b'}, bay:'#2a7d8c',
+          sun:{deep:'#b9772f',DEFAULT:'#d6973f',light:'#e7b873'},
+          sand:{soft:'#faf6ee',DEFAULT:'#f3eadb',deep:'#e6d7bf'}, ink:'#15252a',
+        },
+        letterSpacing:{tightest:'-0.04em'},
+      } },
+    }
+  </script>
+  <style>
+    body{-webkit-font-smoothing:antialiased}
+    .underline-grow{background-image:linear-gradient(currentColor,currentColor);background-size:0% 1.5px;background-position:0 100%;background-repeat:no-repeat;transition:background-size .35s ease}
+    .underline-grow:hover{background-size:100% 1.5px}
+    .masonry{column-gap:1rem}
+    .masonry > * {break-inside:avoid;margin-bottom:1rem}
+  </style>
+</head>
+
+<body class="bg-sand-soft text-ink font-sans antialiased selection:bg-sun/30">
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-50 bg-sand-soft/85 backdrop-blur-md border-b border-ink/5">
+    <div class="mx-auto max-w-7xl px-5 sm:px-8 h-16 flex items-center justify-between gap-4">
+      <a href="index.html" class="font-display text-xl sm:text-2xl tracking-tightest text-sea">Sol Vitória <span class="text-sun-deep italic">Marina</span></a>
+      <nav class="hidden md:flex items-center gap-6 text-[15px] text-ink/80">
+        <a href="index.html#quartos" class="underline-grow">Tipos de Quartos</a>
+        <a href="galeria.html" class="text-sea font-medium underline-grow">Galeria</a>
+        <a href="index.html#pier" class="underline-grow">O Píer</a>
+        <a href="index.html#localizacao" class="underline-grow">Localização</a>
+        <a href="index.html#contato" class="underline-grow">Contato</a>
+      </nav>
+      <a href="index.html#contato" class="inline-flex items-center gap-2 bg-sun text-sea-deep font-semibold text-sm px-4 py-2 rounded-full hover:bg-sun-light transition-colors">WhatsApp</a>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-7xl px-5 sm:px-8 py-12 sm:py-16">
+    <!-- Título -->
+    <div class="max-w-2xl mb-10">
+      <p class="text-sun-deep font-medium tracking-widest text-xs uppercase mb-4">Galeria</p>
+      <h1 class="font-display text-[clamp(2rem,5vw,3.4rem)] leading-[1.02] tracking-tightest text-sea">Cada canto, em detalhe</h1>
+      <p class="mt-4 text-ink/65 text-lg font-light">Vista mar, o Píer Mahi Mahi, as áreas comuns e os quartos.</p>
+    </div>
+
+    <!-- Filtros (visuais no protótipo) -->
+    <div class="flex flex-wrap gap-2.5 mb-10">
+      <button class="px-4 py-2 rounded-full text-sm bg-sea text-sand-soft">Tudo</button>
+      <button class="px-4 py-2 rounded-full text-sm border border-ink/15 hover:border-sea text-ink/70">Vista mar</button>
+      <button class="px-4 py-2 rounded-full text-sm border border-ink/15 hover:border-sea text-ink/70">Píer & restaurante</button>
+      <button class="px-4 py-2 rounded-full text-sm border border-ink/15 hover:border-sea text-ink/70">Quartos</button>
+      <button class="px-4 py-2 rounded-full text-sm border border-ink/15 hover:border-sea text-ink/70">Áreas comuns</button>
+    </div>
+
+    <!-- Grid masonry -->
+    <div class="masonry columns-2 md:columns-3">
+      <img src="images/vista-baia.jpg" alt="Vista aérea da Baía de Todos os Santos" class="w-full rounded-2xl" loading="lazy" />
+      <img src="images/mahi-mahi-letreiro.jpg" alt="Letreiro do Mahi Mahi no píer" class="w-full rounded-2xl" loading="lazy" />
+      <img src="images/piscina-cobertura.jpg" alt="Piscina na cobertura com vista para o mar" class="w-full rounded-2xl" loading="lazy" />
+      <img src="images/bondinho.jpg" alt="Bondinho descendo até o píer" class="w-full rounded-2xl" loading="lazy" />
+      <img src="images/pier-por-do-sol.jpg" alt="Píer ao pôr do sol com tobogã" class="w-full rounded-2xl" loading="lazy" />
+      <img src="images/quarto-quadruplo-mar.jpg" alt="Quarto com vista para o mar" class="w-full rounded-2xl" loading="lazy" />
+      <img src="images/pier-panoramica.jpg" alt="Vista panorâmica do píer Mahi Mahi" class="w-full rounded-2xl" loading="lazy" />
+      <img src="images/areas-comuns-aerea.jpg" alt="Áreas comuns: quadra e piscinas vistas de cima" class="w-full rounded-2xl" loading="lazy" />
+      <img src="images/piscina-mar.jpg" alt="Piscina com os píeres e o mar ao fundo" class="w-full rounded-2xl" loading="lazy" />
+      <img src="images/quarto-triplo-mar.jpg" alt="Quarto ao entardecer com vista para o mar" class="w-full rounded-2xl" loading="lazy" />
+      <img src="images/fachada.jpg" alt="Fachada do edifício Sol Vitória Marina" class="w-full rounded-2xl" loading="lazy" />
+      <img src="images/mar-vegetacao.jpg" alt="O mar visto por entre a vegetação" class="w-full rounded-2xl" loading="lazy" />
+      <img src="images/predios-encosta.jpg" alt="Os prédios do Corredor da Vitória na encosta" class="w-full rounded-2xl" loading="lazy" />
+      <img src="images/quarto-mar-entardecer.jpg" alt="Quarto com vista para o mar ao entardecer" class="w-full rounded-2xl" loading="lazy" />
+    </div>
+
+    <!-- CTA final -->
+    <div class="mt-14 text-center">
+      <p class="font-display text-2xl text-sea mb-5">Gostou do que viu?</p>
+      <a href="index.html#contato" class="inline-flex items-center gap-2 bg-sun text-sea-deep font-semibold px-6 py-3.5 rounded-full hover:bg-sun-light transition-colors">Tenho interesse · WhatsApp</a>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-sea-deep text-sand/70">
+    <div class="mx-auto max-w-7xl px-5 sm:px-8 py-12 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <a href="index.html" class="font-display text-2xl text-sand-soft">Sol Vitória <span class="italic text-sun-light">Marina</span></a>
+      <p class="text-xs text-sand/45">© 2026 Sol Vitória Marina · Protótipo · Corredor da Vitória, Salvador-BA</p>
+    </div>
+  </footer>
+</body>
+</html>

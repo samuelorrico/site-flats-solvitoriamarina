@@ -1,0 +1,22 @@
+# --- Planejamento e orientações internas (não publicar) ---
+/.specs/
+/CLAUDE.md
+/.claude/
+/.agents/
+design-prototype/README.md
+
+# --- Dependências / build (futuro app Next.js) ---
+node_modules/
+.next/
+out/
+dist/
+.vercel/
+
+# --- Variáveis de ambiente ---
+.env
+.env.*
+
+# --- Sistema / editor ---
+.DS_Store
+Thumbs.db
+*.log
