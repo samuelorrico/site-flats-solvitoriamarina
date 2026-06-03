@@ -45,6 +45,11 @@ const en: Record<string, string> = {
   'form.privacy': 'By continuing, you agree to our privacy notice.',
   'footer.tagline': "Holiday flats in Corredor da Vitória, overlooking All Saints' Bay. Salvador, Bahia.",
   'footer.nav': 'Navigation', 'footer.contact_col': 'Get in touch',
+  // Image alt text (Home)
+  'alt.hero': "View of All Saints' Bay from the flat",
+  'alt.loc': "Pool overlooking All Saints' Bay",
+  'alt.pier': 'Mahi Mahi Pier at sunset',
+  'alt.bondinho': 'Funicular going down the hillside to the pier',
   // Gallery
   'g.doc_title': 'Gallery · Vitória Marina Flats',
   'g.meta_description': 'Photo gallery: sea views, the Mahi Mahi Pier, the common areas and the rooms at Vitória Marina Flats.',

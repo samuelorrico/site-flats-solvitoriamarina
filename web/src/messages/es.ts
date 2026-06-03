@@ -45,6 +45,11 @@ const es: Record<string, string> = {
   'form.privacy': 'Al continuar, aceptas nuestro aviso de privacidad.',
   'footer.tagline': 'Flats de temporada en el Corredor da Vitória, con vistas a la Bahía de Todos los Santos. Salvador, Bahía.',
   'footer.nav': 'Navegación', 'footer.contact_col': 'Contáctanos',
+  // Alt de imágenes (Home)
+  'alt.hero': 'Vista de la Bahía de Todos los Santos desde el flat',
+  'alt.loc': 'Piscina con vista a la Bahía de Todos los Santos',
+  'alt.pier': 'Muelle Mahi Mahi al atardecer',
+  'alt.bondinho': 'Funicular bajando la ladera hasta el muelle',
   // Galería
   'g.doc_title': 'Galería · Vitória Marina Flats',
   'g.meta_description': 'Galería de fotos: vista al mar, el Muelle Mahi Mahi, las áreas comunes y las habitaciones del Vitória Marina Flats.',

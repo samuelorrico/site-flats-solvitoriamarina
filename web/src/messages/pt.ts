@@ -45,6 +45,11 @@ const pt: Record<string, string> = {
   'form.privacy': 'Ao continuar, você concorda com nosso aviso de privacidade.',
   'footer.tagline': 'Flats de temporada no Corredor da Vitória, com vista para a Baía de Todos os Santos. Salvador, Bahia.',
   'footer.nav': 'Navegação', 'footer.contact_col': 'Fale com a gente',
+  // Alt de imagens (Home)
+  'alt.hero': 'Vista da Baía de Todos os Santos a partir do flat',
+  'alt.loc': 'Piscina com vista para a Baía de Todos os Santos',
+  'alt.pier': 'Píer Mahi Mahi ao pôr do sol',
+  'alt.bondinho': 'Bondinho descendo a encosta até o píer',
   // Galeria
   'g.doc_title': 'Galeria · Vitória Marina Flats',
   'g.meta_description': 'Galeria de fotos: vista mar, Píer Mahi Mahi, áreas comuns e os quartos do Vitória Marina Flats.',
