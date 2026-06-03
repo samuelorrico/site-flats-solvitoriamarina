@@ -26,7 +26,7 @@ export default function QualForm({ dict }: { dict: Dict }) {
   }
 
   return (
-    <form onSubmit={onSubmit} className="reveal bg-sand-soft rounded-[1.75rem] p-7 sm:p-9 shadow-sm">
+    <form onSubmit={onSubmit} className="bg-sand-soft rounded-[1.75rem] p-7 sm:p-9 shadow-sm">
       <div className="grid gap-5">
         <label className="block">
           <span className="text-sm font-medium text-ink/70">{dict['form.unit']}</span>
