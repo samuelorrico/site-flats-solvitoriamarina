@@ -10,12 +10,9 @@ import Footer from '@/components/Footer';
 import Testimonials from '@/components/Testimonials';
 import QualForm from '@/components/QualForm';
 import RevealInit from '@/components/RevealInit';
-
-const guestsIcon = (
-  <svg className="w-4 h-4 text-sun-deep" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" d="M3 7v11M3 13h18v5M21 18v-5a3 3 0 00-3-3H10v3M7 11.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
-  </svg>
-);
+import HeroBackdrop from '@/components/HeroBackdrop';
+import ParallaxImage from '@/components/ParallaxImage';
+import RoomCard from '@/components/RoomCard';
 
 const amenityIcons: Record<string, React.ReactNode> = {
   wifi: <path strokeLinecap="round" strokeLinejoin="round" d="M5 13s2-2 7-2 7 2 7 2M2 9s4-3 10-3 10 3 10 3M8 17s1.5-1 4-1 4 1 4 1" />,
@@ -39,26 +36,17 @@ function Amenity({ k, label }: { k: string; label: string }) {
   );
 }
 
-function RoomCard({
-  img, alt, badge, badgeSea, title, guests, cta,
-}: { img: string; alt: string; badge: string; badgeSea: boolean; title: string; guests: string; cta: string }) {
-  return (
-    <article className="reveal group">
-      <div className="relative h-60 overflow-hidden rounded-3xl">
-        <Image src={img} alt={alt} fill sizes="(min-width:1024px) 25vw, (min-width:640px) 50vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
-        <span className={`absolute top-3 left-3 z-10 text-xs font-semibold px-3 py-1.5 rounded-full ${badgeSea ? 'bg-sun text-sea-deep' : 'bg-sand-soft/95 text-sea'}`}>{badge}</span>
-      </div>
-      <h3 className="mt-4 font-display text-xl text-sea tracking-tight">{title}</h3>
-      <p className="text-ink/60 text-sm mt-1.5 flex items-center gap-2">{guestsIcon} <span>{guests}</span></p>
-      <a href="#contato" className="mt-4 inline-flex items-center gap-1.5 bg-sea text-sand-soft text-sm font-semibold px-4 py-2.5 rounded-full hover:bg-sea-light transition-colors">{cta}</a>
-    </article>
-  );
-}
-
 export default async function Home({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
   if (!isLocale(lang)) notFound();
   const dict = getDictionary(lang);
+
+  const rooms = [
+    { img: '/images/quarto-quadruplo-mar.jpg', badge: dict['rooms.badge_sea'], badgeSea: true, title: dict['rooms.quad'] },
+    { img: '/images/quarto-quadruplo-avenida.jpg', badge: dict['rooms.badge_avenue'], badgeSea: false, title: dict['rooms.quad'] },
+    { img: '/images/quarto-triplo-mar.jpg', badge: dict['rooms.badge_sea'], badgeSea: true, title: dict['rooms.triple'] },
+    { img: '/images/quarto-triplo-avenida.jpg', badge: dict['rooms.badge_avenue'], badgeSea: false, title: dict['rooms.triple'] },
+  ];
 
   return (
     <>
@@ -67,7 +55,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
       {/* HERO */}
       <section id="topo" className="relative">
         <div className="relative h-[88vh] min-h-[560px] w-full overflow-hidden">
-          <Image src="/images/vista-baia.jpg" alt={dict['alt.hero']} fill priority sizes="100vw" className="hero-img object-cover" />
+          <HeroBackdrop alt={dict['alt.hero']} />
           <div className="absolute inset-0 bg-gradient-to-b from-sea-deep/55 via-sea-deep/25 to-sea-deep/80" />
           <div className="relative h-full mx-auto max-w-7xl px-5 sm:px-8 flex flex-col justify-end pb-16 sm:pb-20">
             <p className="reveal text-sand/90 tracking-[0.25em] text-xs sm:text-sm uppercase mb-4">{dict['hero.tag']}</p>
@@ -84,11 +72,11 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
       {/* BOAS-VINDAS */}
       <section className="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-28">
         <div className="grid md:grid-cols-12 gap-10 items-start">
-          <div className="reveal md:col-span-7">
+          <div className="reveal from-left md:col-span-7">
             <p className="text-sun-deep font-medium tracking-widest text-xs uppercase mb-5">{dict['welcome.label']}</p>
             <h2 className="font-display text-[clamp(1.9rem,4vw,3rem)] leading-tight tracking-tightest text-sea max-w-2xl">{dict['welcome.title']}</h2>
           </div>
-          <div className="reveal md:col-span-5 md:pt-4">
+          <div className="reveal from-right md:col-span-5 md:pt-4">
             <Rich as="p" html={dict['welcome.body']} className="text-ink/75 text-lg leading-relaxed font-light" />
             <div className="mt-7 flex flex-wrap gap-x-8 gap-y-3 text-sm text-ink/70">
               {['welcome.chip1', 'welcome.chip2', 'welcome.chip3'].map((k) => (
@@ -103,7 +91,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
       <section id="localizacao" className="bg-sand">
         <div className="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-28">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div className="reveal order-2 lg:order-1">
+            <div className="reveal from-left order-2 lg:order-1">
               <p className="text-sun-deep font-medium tracking-widest text-xs uppercase mb-5">{dict['loc.label']}</p>
               <h2 className="font-display text-[clamp(1.9rem,4vw,3rem)] leading-tight tracking-tightest text-sea">{dict['loc.title']}</h2>
               <p className="mt-6 text-ink/75 text-lg leading-relaxed font-light max-w-xl">{dict['loc.body']}</p>
@@ -116,11 +104,9 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
                 ))}
               </ul>
             </div>
-            <div className="reveal order-1 lg:order-2">
+            <div className="reveal from-right order-1 lg:order-2">
               <div className="relative">
-                <div className="relative h-[420px] sm:h-[520px] overflow-hidden rounded-[2rem]">
-                  <Image src="/images/piscina-mar.jpg" alt={dict['alt.loc']} fill sizes="(min-width:1024px) 50vw, 100vw" className="object-cover" />
-                </div>
+                <ParallaxImage src="/images/piscina-mar.jpg" alt={dict['alt.loc']} sizes="(min-width:1024px) 50vw, 100vw" className="h-[420px] sm:h-[520px] rounded-[2rem]" />
                 <div className="absolute -bottom-5 -left-3 sm:-left-6 bg-sea text-sand-soft px-6 py-4 rounded-2xl shadow-xl max-w-[240px]">
                   <p className="font-display italic text-lg leading-snug">{dict['loc.quote']}</p>
                 </div>
@@ -142,15 +128,19 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
       {/* PÍER & RESTAURANTE */}
       <section id="pier" className="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-28">
         <div className="grid lg:grid-cols-12 gap-6 items-stretch">
-          <div className="reveal lg:col-span-7 relative overflow-hidden rounded-[2rem] min-h-[360px]">
-            <Image src="/images/pier-panoramica.jpg" alt={dict['alt.pier']} fill sizes="(min-width:1024px) 58vw, 100vw" className="object-cover" />
+          <ParallaxImage
+            src="/images/pier-panoramica.jpg"
+            alt={dict['alt.pier']}
+            sizes="(min-width:1024px) 58vw, 100vw"
+            className="reveal lg:col-span-7 rounded-[2rem] min-h-[360px]"
+          >
             <div className="absolute inset-0 bg-gradient-to-t from-sea-deep/80 via-sea-deep/15 to-transparent" />
             <div className="relative h-full flex flex-col justify-end p-8 sm:p-10">
               <p className="text-sand/90 tracking-[0.22em] text-xs uppercase mb-3">{dict['pier.label']}</p>
               <h2 className="font-display text-sand-soft text-[clamp(2rem,4.2vw,3.2rem)] leading-[1.02] tracking-tightest max-w-md">{dict['pier.title']}</h2>
               <p className="mt-4 text-sand/85 font-light max-w-md">{dict['pier.subtitle']}</p>
             </div>
-          </div>
+          </ParallaxImage>
           <div className="lg:col-span-5 grid sm:grid-cols-2 lg:grid-cols-1 gap-6">
             <div className="reveal relative overflow-hidden rounded-[2rem] min-h-[180px] group">
               <Image src="/images/bondinho.jpg" alt={dict['alt.bondinho']} fill sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
@@ -182,10 +172,19 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           <Link href={`/${lang}/galeria`} className="reveal text-sea font-semibold underline-grow">{dict['rooms.gallery_link']}</Link>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <RoomCard img="/images/quarto-quadruplo-mar.jpg" alt={`${dict['rooms.quad']} · ${dict['rooms.badge_sea']}`} badge={dict['rooms.badge_sea']} badgeSea title={dict['rooms.quad']} guests={dict['rooms.guests']} cta={dict['rooms.cta']} />
-          <RoomCard img="/images/quarto-quadruplo-avenida.jpg" alt={`${dict['rooms.quad']} · ${dict['rooms.badge_avenue']}`} badge={dict['rooms.badge_avenue']} badgeSea={false} title={dict['rooms.quad']} guests={dict['rooms.guests']} cta={dict['rooms.cta']} />
-          <RoomCard img="/images/quarto-triplo-mar.jpg" alt={`${dict['rooms.triple']} · ${dict['rooms.badge_sea']}`} badge={dict['rooms.badge_sea']} badgeSea title={dict['rooms.triple']} guests={dict['rooms.guests']} cta={dict['rooms.cta']} />
-          <RoomCard img="/images/quarto-triplo-avenida.jpg" alt={`${dict['rooms.triple']} · ${dict['rooms.badge_avenue']}`} badge={dict['rooms.badge_avenue']} badgeSea={false} title={dict['rooms.triple']} guests={dict['rooms.guests']} cta={dict['rooms.cta']} />
+          {rooms.map((r) => (
+            <div key={r.img} className="reveal">
+              <RoomCard
+                img={r.img}
+                alt={`${r.title} · ${r.badge}`}
+                badge={r.badge}
+                badgeSea={r.badgeSea}
+                title={r.title}
+                guests={dict['rooms.guests']}
+                cta={dict['rooms.cta']}
+              />
+            </div>
+          ))}
         </div>
         <p className="reveal mt-8 text-sm text-ink/45">{dict['rooms.note']}</p>
       </section>
@@ -224,7 +223,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
       {/* CONTATO */}
       <section id="contato" className="bg-sand-deep/60">
         <div className="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-28 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <div className="reveal">
+          <div className="reveal from-left">
             <p className="text-sun-deep font-medium tracking-widest text-xs uppercase mb-5">{dict['contact.label']}</p>
             <h2 className="font-display text-[clamp(2rem,4.4vw,3.2rem)] leading-tight tracking-tightest text-sea">{dict['contact.title']}</h2>
             <p className="mt-6 text-ink/75 text-lg font-light max-w-md">{dict['contact.body']}</p>

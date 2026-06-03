@@ -1,14 +1,12 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import Image from 'next/image';
 import { isLocale } from '@/i18n-config';
 import { getDictionary } from '@/dictionaries';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import RevealInit from '@/components/RevealInit';
-
-type Photo = { src: string; alt: string; w: number; h: number };
+import GalleryGrid, { type Photo } from '@/components/GalleryGrid';
 
 const PHOTOS: Photo[] = [
   { src: '/images/vista-baia.jpg', alt: 'Vista aérea da Baía de Todos os Santos', w: 1600, h: 1200 },
@@ -80,20 +78,8 @@ export default async function Galeria({ params }: { params: Promise<{ lang: stri
           ))}
         </div>
 
-        {/* Grid masonry */}
-        <div className="columns-2 md:columns-3 gap-4">
-          {PHOTOS.map((p) => (
-            <Image
-              key={p.src}
-              src={p.src}
-              alt={p.alt}
-              width={p.w}
-              height={p.h}
-              sizes="(min-width:768px) 33vw, 50vw"
-              className="reveal w-full h-auto rounded-2xl mb-4 break-inside-avoid"
-            />
-          ))}
-        </div>
+        {/* Grid masonry + lightbox */}
+        <GalleryGrid photos={PHOTOS} />
 
         <div className="reveal mt-14 text-center">
           <p className="font-display text-2xl text-sea mb-5">{dict['g.cta_title']}</p>
