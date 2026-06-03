@@ -351,7 +351,7 @@
             <label class="block"><span class="text-sm font-medium text-ink/70" data-i18n="form.checkout">Check-out</span><input id="qOut" type="date" class="mt-1.5 w-full rounded-xl border border-ink/15 bg-white/70 px-4 py-3 text-ink focus:border-sea focus:ring-2 focus:ring-sea/20 outline-none" /></label>
           </div>
           <div class="grid grid-cols-2 gap-4">
-            <label class="block"><span class="text-sm font-medium text-ink/70" data-i18n="form.guests">Hóspedes</span><input id="qGuests" type="number" min="1" value="2" class="mt-1.5 w-full rounded-xl border border-ink/15 bg-white/70 px-4 py-3 text-ink focus:border-sea focus:ring-2 focus:ring-sea/20 outline-none" /></label>
+            <label class="block"><span class="text-sm font-medium text-ink/70" data-i18n="form.guests">Hóspedes</span><input id="qGuests" type="number" min="1" max="5" value="2" oninput="if(this.value>5)this.value=5; if(this.value<1&&this.value!=='')this.value=1;" class="mt-1.5 w-full rounded-xl border border-ink/15 bg-white/70 px-4 py-3 text-ink focus:border-sea focus:ring-2 focus:ring-sea/20 outline-none" /></label>
             <label class="block"><span class="text-sm font-medium text-ink/70" data-i18n="form.name">Seu nome</span><input id="qName" type="text" data-i18n-ph="form.name_ph" placeholder="Como te chamamos?" class="mt-1.5 w-full rounded-xl border border-ink/15 bg-white/70 px-4 py-3 text-ink focus:border-sea focus:ring-2 focus:ring-sea/20 outline-none" /></label>
           </div>
           <button class="mt-1 inline-flex items-center justify-center gap-2 bg-sun text-sea-deep font-semibold px-6 py-3.5 rounded-xl hover:bg-sun-light transition-colors">
@@ -386,8 +386,6 @@
         <ul class="space-y-2.5 text-sm">
           <li><a href="https://wa.me/5571991159858" target="_blank" rel="noopener" class="hover:text-sand-soft">WhatsApp</a></li>
           <li><a href="https://www.instagram.com/solvitoriamarinaflats" target="_blank" rel="noopener" class="hover:text-sand-soft">Instagram</a></li>
-          <li><a href="#" class="hover:text-sand-soft">Booking</a></li>
-          <li><a href="#" class="hover:text-sand-soft">Airbnb</a></li>
         </ul>
       </div>
     </div>
