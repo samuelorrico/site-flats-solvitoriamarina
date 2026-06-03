@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme {
+  /* Paleta do Vitória Marina Flats */
+  --color-sea: #0e3a44;
+  --color-sea-deep: #0a2b33;
+  --color-sea-light: #1d5c6b;
+  --color-bay: #2a7d8c;
+  --color-sun: #d6973f;
+  --color-sun-deep: #b9772f;
+  --color-sun-light: #e7b873;
+  --color-sand: #f3eadb;
+  --color-sand-soft: #faf6ee;
+  --color-sand-deep: #e6d7bf;
+  --color-ink: #15252a;
+
+  --tracking-tightest: -0.04em;
+}
+
+@theme inline {
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-hanken), system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-sand-soft);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display {
+  font-optical-sizing: auto;
+}
+
+/* Sublinhado que cresce no hover (links de navegação) */
+.underline-grow {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1.5px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.35s ease;
+}
+.underline-grow:hover {
+  background-size: 100% 1.5px;
+}
+
+/* Borda inferior diagonal da seção escura */
+.edge {
+  clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
+}
+
+.hero-img {
+  filter: saturate(1.05);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
