@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { isLocale } from '@/i18n-config';
+import { isLocale, locales, htmlLang, defaultLocale } from '@/i18n-config';
 import { getDictionary } from '@/dictionaries';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -41,7 +41,23 @@ export async function generateMetadata({
   const { lang } = await params;
   if (!isLocale(lang)) return {};
   const dict = getDictionary(lang);
-  return { title: dict['g.doc_title'], description: dict['g.meta_description'] };
+  const languages: Record<string, string> = Object.fromEntries(locales.map((l) => [htmlLang[l], `/${l}/galeria`]));
+  languages['x-default'] = `/${defaultLocale}/galeria`;
+  const img = '/images/pier-restaurante.jpg';
+  return {
+    title: dict['g.doc_title'],
+    description: dict['g.meta_description'],
+    alternates: { canonical: `/${lang}/galeria`, languages },
+    openGraph: {
+      type: 'website',
+      siteName: 'Vitória Marina Flats',
+      title: dict['g.doc_title'],
+      description: dict['g.meta_description'],
+      url: `/${lang}/galeria`,
+      images: [{ url: img, width: 1024, height: 683 }],
+    },
+    twitter: { card: 'summary_large_image', title: dict['g.doc_title'], description: dict['g.meta_description'], images: [img] },
+  };
 }
 
 export default async function Galeria({ params }: { params: Promise<{ lang: string }> }) {

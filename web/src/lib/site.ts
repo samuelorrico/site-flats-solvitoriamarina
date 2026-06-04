@@ -1,4 +1,7 @@
 // Dados fixos do site (trocar só aqui se mudar).
+// URL base para canonical/OG/sitemap. No go-live (domínio .com.br) basta definir
+// NEXT_PUBLIC_SITE_URL na Vercel — sem mexer no código.
+export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://site-flats-solvitoriamarina.vercel.app').replace(/\/$/, '');
 export const WA_PHONE = '5571991159858';
 export const WA_LINK = `https://wa.me/${WA_PHONE}`;
 export const INSTAGRAM = 'https://www.instagram.com/solvitoriamarinaflats';

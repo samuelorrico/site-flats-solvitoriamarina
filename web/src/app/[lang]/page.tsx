@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { isLocale } from '@/i18n-config';
 import { getDictionary } from '@/dictionaries';
-import { ADDRESS, MAPS_EMBED, MAPS_LINK } from '@/lib/site';
+import { ADDRESS, MAPS_EMBED, MAPS_LINK, SITE_URL, INSTAGRAM, WA_PHONE } from '@/lib/site';
 import { Rich } from '@/components/Rich';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -49,8 +49,33 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
     { img: '/images/quarto-triplo-avenida.jpg', badge: dict['rooms.badge_avenue'], badgeSea: false, title: dict['rooms.triple'] },
   ];
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'LodgingBusiness',
+    name: 'Vitória Marina Flats',
+    description: dict['meta.description'],
+    url: `${SITE_URL}/${lang}`,
+    image: [
+      `${SITE_URL}/images/vista-baia.jpg`,
+      `${SITE_URL}/images/piscina-mar.jpg`,
+      `${SITE_URL}/images/pier-restaurante.jpg`,
+    ],
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Av. Sete de Setembro, 2068',
+      addressLocality: 'Salvador',
+      addressRegion: 'BA',
+      addressCountry: 'BR',
+    },
+    geo: { '@type': 'GeoCoordinates', latitude: -12.998, longitude: -38.524 },
+    telephone: `+${WA_PHONE}`,
+    sameAs: [INSTAGRAM],
+    priceRange: '$$',
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Header lang={lang} dict={dict} />
 
       {/* HERO — tela cheia exata */}
