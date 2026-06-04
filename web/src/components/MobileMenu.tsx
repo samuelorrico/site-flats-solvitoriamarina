@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import type { Locale } from '@/i18n-config';
@@ -10,8 +11,11 @@ import { WA_LINK } from '@/lib/site';
 // Menu mobile (drawer). Só aparece abaixo de `md`, onde a nav do Header fica oculta.
 export default function MobileMenu({ lang, dict }: { lang: Locale; dict: Dict }) {
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const reduce = useReducedMotion();
   const base = `/${lang}`;
+
+  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     if (!open) return;
@@ -49,10 +53,11 @@ export default function MobileMenu({ lang, dict }: { lang: Locale; dict: Dict })
         </svg>
       </button>
 
+      {mounted && createPortal(
       <AnimatePresence>
         {open && (
           <motion.div
-            className="fixed inset-0 z-[60]"
+            className="fixed inset-0 z-[60] md:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -110,7 +115,9 @@ export default function MobileMenu({ lang, dict }: { lang: Locale; dict: Dict })
             </motion.nav>
           </motion.div>
         )}
-      </AnimatePresence>
+      </AnimatePresence>,
+        document.body,
+      )}
     </div>
   );
 }
