@@ -13,7 +13,6 @@ import HeroBackdrop from '@/components/HeroBackdrop';
 import ParallaxImage from '@/components/ParallaxImage';
 import RoomCard from '@/components/RoomCard';
 import RevealSection from '@/components/RevealSection';
-import ScrollFloat from '@/components/ScrollFloat';
 import InteractiveBackdrop from '@/components/InteractiveBackdrop';
 
 const amenityIcons: Record<string, React.ReactNode> = {
@@ -54,15 +53,15 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
     <>
       <Header lang={lang} dict={dict} />
 
-      {/* HERO — tela cheia */}
+      {/* HERO — tela cheia exata */}
       <section id="topo" className="relative">
-        <div className="relative h-[100svh] min-h-[600px] w-full overflow-hidden">
+        <div className="relative h-[100svh] w-full overflow-hidden">
           <HeroBackdrop alt={dict['alt.hero']} />
           <div className="absolute inset-0 bg-gradient-to-b from-sea-deep/55 via-sea-deep/25 to-sea-deep/80" />
           <div className="relative h-full mx-auto max-w-7xl px-5 sm:px-8 flex flex-col justify-end pb-16 sm:pb-20">
             <p className="text-sand/90 tracking-[0.25em] text-xs sm:text-sm uppercase mb-4">{dict['hero.tag']}</p>
-            <Rich as="h1" html={dict['hero.title']} className="font-display text-sand-soft leading-[0.98] tracking-tightest text-[clamp(2.6rem,7vw,5.5rem)] max-w-4xl" />
-            <p className="mt-6 text-sand/85 text-lg sm:text-xl max-w-xl font-light">{dict['hero.subtitle']}</p>
+            <Rich as="h1" html={dict['hero.title']} className="font-display text-sand-soft leading-[0.98] tracking-tightest text-[clamp(2.6rem,7vw,5.5rem)] max-w-4xl text-balance" />
+            <p className="mt-6 text-sand/85 text-lg sm:text-xl max-w-xl font-light text-balance">{dict['hero.subtitle']}</p>
             <div className="mt-9 flex flex-wrap items-center gap-4">
               <a href="#quartos" className="bg-sand-soft text-sea-deep font-semibold px-7 py-3.5 rounded-full hover:bg-white transition-colors">{dict['hero.cta1']}</a>
               <a href="#contato" className="inline-flex items-center gap-1.5 border border-sand-soft/50 text-sand-soft font-semibold px-6 py-3.5 rounded-full hover:bg-sand-soft/10 transition-colors">{dict['hero.cta2']}</a>
@@ -78,7 +77,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           <div className="grid md:grid-cols-12 gap-10 items-start">
             <div className="md:col-span-7">
               <p className="text-sun-deep font-medium tracking-widest text-xs uppercase mb-5">{dict['welcome.label']}</p>
-              <ScrollFloat className="font-display text-[clamp(1.9rem,4vw,3rem)] leading-tight tracking-tightest text-sea max-w-2xl">{dict['welcome.title']}</ScrollFloat>
+              <h2 className="font-display text-[clamp(1.9rem,4vw,3rem)] leading-tight tracking-tightest text-sea max-w-2xl text-balance">{dict['welcome.title']}</h2>
             </div>
             <div className="md:col-span-5 md:pt-4">
               <Rich as="p" html={dict['welcome.body']} className="text-ink/75 text-lg leading-relaxed font-light" />
@@ -99,7 +98,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="order-2 lg:order-1">
               <p className="text-sun-deep font-medium tracking-widest text-xs uppercase mb-5">{dict['loc.label']}</p>
-              <ScrollFloat className="font-display text-[clamp(1.9rem,4vw,3rem)] leading-tight tracking-tightest text-sea">{dict['loc.title']}</ScrollFloat>
+              <h2 className="font-display text-[clamp(1.9rem,4vw,3rem)] leading-tight tracking-tightest text-sea text-balance">{dict['loc.title']}</h2>
               <p className="mt-6 text-ink/75 text-lg leading-relaxed font-light max-w-xl">{dict['loc.body']}</p>
               <ul className="mt-8 grid sm:grid-cols-2 gap-x-8 gap-y-4 text-ink/80">
                 {[1, 2, 3, 4].map((n) => (
@@ -144,7 +143,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
               <div className="absolute inset-0 bg-gradient-to-t from-sea-deep/80 via-sea-deep/15 to-transparent" />
               <div className="relative h-full flex flex-col justify-end p-8 sm:p-10">
                 <p className="text-sand/90 tracking-[0.22em] text-xs uppercase mb-3">{dict['pier.label']}</p>
-                <ScrollFloat className="font-display text-sand-soft text-[clamp(2rem,4.2vw,3.2rem)] leading-[1.02] tracking-tightest max-w-md">{dict['pier.title']}</ScrollFloat>
+                <h2 className="font-display text-sand-soft text-[clamp(2rem,4.2vw,3.2rem)] leading-[1.02] tracking-tightest max-w-md text-balance">{dict['pier.title']}</h2>
                 <p className="mt-4 text-sand/85 font-light max-w-md">{dict['pier.subtitle']}</p>
               </div>
             </ParallaxImage>
@@ -176,7 +175,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           <div className="flex flex-wrap items-end justify-between gap-6 mb-12">
             <div className="max-w-xl">
               <p className="text-sun-deep font-medium tracking-widest text-xs uppercase mb-5">{dict['rooms.label']}</p>
-              <ScrollFloat className="font-display text-[clamp(1.9rem,4vw,3rem)] leading-tight tracking-tightest text-sea">{dict['rooms.title']}</ScrollFloat>
+              <h2 className="font-display text-[clamp(1.9rem,4vw,3rem)] leading-tight tracking-tightest text-sea text-balance">{dict['rooms.title']}</h2>
               <Rich as="p" html={dict['rooms.intro']} className="mt-4 text-ink/65 font-light" />
             </div>
             <Link href={`/${lang}/galeria`} className="text-sea font-semibold underline-grow">{dict['rooms.gallery_link']}</Link>
@@ -205,7 +204,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         <RevealSection className="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-28">
           <div className="max-w-2xl">
             <p className="text-sun-light font-medium tracking-widest text-xs uppercase mb-5">{dict['amen.label']}</p>
-            <ScrollFloat className="font-display text-[clamp(1.9rem,4vw,3rem)] leading-tight tracking-tightest">{dict['amen.title']}</ScrollFloat>
+            <h2 className="font-display text-[clamp(1.9rem,4vw,3rem)] leading-tight tracking-tightest text-balance">{dict['amen.title']}</h2>
           </div>
           <div className="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-10">
             <Amenity k="wifi" label={dict['amen.wifi']} />
@@ -227,7 +226,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         <RevealSection className="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-28">
           <div className="max-w-2xl mb-12">
             <p className="text-sun-deep font-medium tracking-widest text-xs uppercase mb-5">{dict['testi.label']}</p>
-            <ScrollFloat className="font-display text-[clamp(1.9rem,4vw,3rem)] leading-tight tracking-tightest text-sea">{dict['testi.title']}</ScrollFloat>
+            <h2 className="font-display text-[clamp(1.9rem,4vw,3rem)] leading-tight tracking-tightest text-sea text-balance">{dict['testi.title']}</h2>
             <p className="mt-4 text-ink/60 text-sm">{dict['testi.via']}</p>
           </div>
           <Testimonials dict={dict} />
@@ -241,7 +240,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div>
               <p className="text-sun-deep font-medium tracking-widest text-xs uppercase mb-5">{dict['contact.label']}</p>
-              <ScrollFloat className="font-display text-[clamp(2rem,4.4vw,3.2rem)] leading-tight tracking-tightest text-sea">{dict['contact.title']}</ScrollFloat>
+              <h2 className="font-display text-[clamp(2rem,4.4vw,3.2rem)] leading-tight tracking-tightest text-sea text-balance">{dict['contact.title']}</h2>
               <p className="mt-6 text-ink/75 text-lg font-light max-w-md">{dict['contact.body']}</p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <span className="text-sm text-ink/60 flex items-center gap-2 bg-sand-soft px-4 py-2 rounded-full">{dict['contact.chip1']}</span>

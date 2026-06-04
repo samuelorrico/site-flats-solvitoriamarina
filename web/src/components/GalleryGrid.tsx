@@ -47,7 +47,7 @@ export default function GalleryGrid({ photos }: { photos: Photo[] }) {
             type="button"
             onClick={() => setIndex(i)}
             aria-label={p.alt}
-            className="reveal mb-4 block w-full break-inside-avoid overflow-hidden rounded-2xl group cursor-zoom-in"
+            className="reveal mb-4 block w-full break-inside-avoid overflow-hidden rounded-2xl group cursor-zoom-in transition-shadow duration-300 hover:shadow-xl"
           >
             <Image
               src={p.src}
@@ -55,7 +55,7 @@ export default function GalleryGrid({ photos }: { photos: Photo[] }) {
               width={p.w}
               height={p.h}
               sizes="(min-width:768px) 33vw, 50vw"
-              className="w-full h-auto transition-transform duration-500 group-hover:scale-[1.05]"
+              className="w-full h-auto transition-transform duration-500 ease-out group-hover:scale-[1.09]"
             />
           </button>
         ))}
