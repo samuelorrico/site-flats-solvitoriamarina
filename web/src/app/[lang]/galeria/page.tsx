@@ -9,28 +9,29 @@ import RevealInit from '@/components/RevealInit';
 import GalleryGrid, { type Photo } from '@/components/GalleryGrid';
 import InteractiveBackdrop from '@/components/InteractiveBackdrop';
 
-const PHOTOS: Photo[] = [
-  { src: '/images/vista-baia.jpg', alt: 'Vista aérea da Baía de Todos os Santos', w: 1600, h: 1200 },
-  { src: '/images/mar-vegetacao.jpg', alt: 'O mar visto por entre a vegetação', w: 1200, h: 1600 },
-  { src: '/images/pier-panoramica.jpg', alt: 'Vista panorâmica do píer Mahi Mahi', w: 1600, h: 632 },
-  { src: '/images/pier-restaurante.jpg', alt: 'Mahi Mahi Bar e Restaurante no píer, com mesas e vista para o mar', w: 1024, h: 683 },
-  { src: '/images/bondinho.jpg', alt: 'Bondinho descendo até o píer', w: 1024, h: 683 },
-  { src: '/images/pier-por-do-sol.jpg', alt: 'Píer ao pôr do sol com tobogã', w: 1200, h: 1600 },
-  { src: '/images/pier-tobogan.jpg', alt: 'Tobogã do píer sobre o mar', w: 1014, h: 1600 },
-  { src: '/images/pier-predios.jpg', alt: 'O píer e os prédios do Corredor da Vitória vistos da baía', w: 1199, h: 1600 },
-  { src: '/images/mahi-mahi-letreiro.jpg', alt: 'Letreiro do Mahi Mahi no píer', w: 1200, h: 1600 },
-  { src: '/images/areas-comuns-aerea.jpg', alt: 'Áreas comuns: quadra e piscinas vistas de cima', w: 1120, h: 1600 },
-  { src: '/images/piscina-cobertura.jpg', alt: 'Piscina na cobertura com vista para o mar', w: 1600, h: 1574 },
-  { src: '/images/piscina-mar.jpg', alt: 'Piscina com os píeres e o mar ao fundo', w: 1200, h: 1600 },
-  { src: '/images/fachada.jpg', alt: 'Fachada do edifício Sol Vitória Marina', w: 683, h: 1024 },
-  { src: '/images/predios-encosta.jpg', alt: 'Os prédios do Corredor da Vitória na encosta', w: 1600, h: 1200 },
-  { src: '/images/quarto-quadruplo-mar.jpg', alt: 'Quarto de casal com vista para o mar', w: 1600, h: 1200 },
-  { src: '/images/quarto-quadruplo-avenida.jpg', alt: 'Quarto de casal com vista para a avenida', w: 1200, h: 1600 },
-  { src: '/images/quarto-triplo-mar.jpg', alt: 'Quarto triplo com vista para o mar', w: 960, h: 1280 },
-  { src: '/images/quarto-triplo-avenida.jpg', alt: 'Quarto triplo com vista para a avenida', w: 1200, h: 1600 },
-  { src: '/images/quarto-mar-entardecer.jpg', alt: 'Quarto com vista para o mar ao entardecer', w: 960, h: 1280 },
-  { src: '/images/quarto-avenida-cidade.jpg', alt: 'Quarto com vista para a avenida e a cidade', w: 1600, h: 1200 },
-  { src: '/images/banheiro-banheira.jpg', alt: 'Banheiro com banheira de hidromassagem', w: 1200, h: 1600 },
+// Fotos da galeria: `altKey` resolve para o `alt` localizado (galt.*) em tempo de render.
+const PHOTOS: { src: string; altKey: string; w: number; h: number }[] = [
+  { src: '/images/vista-baia.jpg', altKey: 'galt.baia', w: 1600, h: 1200 },
+  { src: '/images/mar-vegetacao.jpg', altKey: 'galt.mar_veg', w: 1200, h: 1600 },
+  { src: '/images/pier-panoramica.jpg', altKey: 'galt.pier_pano', w: 1600, h: 632 },
+  { src: '/images/pier-restaurante.jpg', altKey: 'galt.pier_rest', w: 1024, h: 683 },
+  { src: '/images/bondinho.jpg', altKey: 'galt.bondinho', w: 1024, h: 683 },
+  { src: '/images/pier-por-do-sol.jpg', altKey: 'galt.pier_sunset', w: 1200, h: 1600 },
+  { src: '/images/pier-tobogan.jpg', altKey: 'galt.tobogan', w: 1014, h: 1600 },
+  { src: '/images/pier-predios.jpg', altKey: 'galt.pier_predios', w: 1199, h: 1600 },
+  { src: '/images/mahi-mahi-letreiro.jpg', altKey: 'galt.letreiro', w: 1200, h: 1600 },
+  { src: '/images/areas-comuns-aerea.jpg', altKey: 'galt.areas', w: 1120, h: 1600 },
+  { src: '/images/piscina-cobertura.jpg', altKey: 'galt.piscina_cob', w: 1600, h: 1574 },
+  { src: '/images/piscina-mar.jpg', altKey: 'galt.piscina_mar', w: 1200, h: 1600 },
+  { src: '/images/fachada.jpg', altKey: 'galt.fachada', w: 683, h: 1024 },
+  { src: '/images/predios-encosta.jpg', altKey: 'galt.encosta', w: 1600, h: 1200 },
+  { src: '/images/quarto-quadruplo-mar.jpg', altKey: 'galt.casal_mar', w: 1600, h: 1200 },
+  { src: '/images/quarto-quadruplo-avenida.jpg', altKey: 'galt.casal_av', w: 1200, h: 1600 },
+  { src: '/images/quarto-triplo-mar.jpg', altKey: 'galt.triplo_mar', w: 960, h: 1280 },
+  { src: '/images/quarto-triplo-avenida.jpg', altKey: 'galt.triplo_av', w: 1200, h: 1600 },
+  { src: '/images/quarto-mar-entardecer.jpg', altKey: 'galt.quarto_entardecer', w: 960, h: 1280 },
+  { src: '/images/quarto-avenida-cidade.jpg', altKey: 'galt.quarto_cidade', w: 1600, h: 1200 },
+  { src: '/images/banheiro-banheira.jpg', altKey: 'galt.banheira', w: 1200, h: 1600 },
 ];
 
 export async function generateMetadata({
@@ -65,6 +66,7 @@ export default async function Galeria({ params }: { params: Promise<{ lang: stri
   if (!isLocale(lang)) notFound();
   const dict = getDictionary(lang);
 
+  const photos: Photo[] = PHOTOS.map((p) => ({ src: p.src, alt: dict[p.altKey], w: p.w, h: p.h }));
   const filters = ['g.f_all', 'g.f_sea', 'g.f_pier', 'g.f_rooms', 'g.f_common'];
 
   return (
@@ -97,7 +99,7 @@ export default async function Galeria({ params }: { params: Promise<{ lang: stri
         </div>
 
         {/* Grid masonry + lightbox */}
-        <GalleryGrid photos={PHOTOS} />
+        <GalleryGrid photos={photos} labels={{ close: dict['g.close'], prev: dict['g.prev'], next: dict['g.next'] }} />
 
         <div className="reveal mt-14 text-center">
           <p className="font-display text-2xl text-sea mb-5">{dict['g.cta_title']}</p>

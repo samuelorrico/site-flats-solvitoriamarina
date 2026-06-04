@@ -5,8 +5,9 @@ import Image from 'next/image';
 import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 
 export type Photo = { src: string; alt: string; w: number; h: number };
+type Labels = { close: string; prev: string; next: string };
 
-export default function GalleryGrid({ photos }: { photos: Photo[] }) {
+export default function GalleryGrid({ photos, labels }: { photos: Photo[]; labels: Labels }) {
   const [index, setIndex] = useState<number | null>(null);
   const reduce = useReducedMotion();
   const open = index !== null;
@@ -74,9 +75,9 @@ export default function GalleryGrid({ photos }: { photos: Photo[] }) {
             aria-modal="true"
             aria-label={current.alt}
           >
-            <button type="button" onClick={close} aria-label="Fechar" className="absolute top-4 right-4 text-sand-soft/80 hover:text-sand-soft text-3xl leading-none">×</button>
-            <button type="button" onClick={(e) => { e.stopPropagation(); prev(); }} aria-label="Anterior" className="absolute left-2 sm:left-6 text-sand-soft/70 hover:text-sand-soft p-3 text-2xl">‹</button>
-            <button type="button" onClick={(e) => { e.stopPropagation(); next(); }} aria-label="Próxima" className="absolute right-2 sm:right-6 text-sand-soft/70 hover:text-sand-soft p-3 text-2xl">›</button>
+            <button type="button" onClick={close} aria-label={labels.close} className="absolute top-4 right-4 text-sand-soft/80 hover:text-sand-soft text-3xl leading-none">×</button>
+            <button type="button" onClick={(e) => { e.stopPropagation(); prev(); }} aria-label={labels.prev} className="absolute left-2 sm:left-6 text-sand-soft/70 hover:text-sand-soft p-3 text-2xl">‹</button>
+            <button type="button" onClick={(e) => { e.stopPropagation(); next(); }} aria-label={labels.next} className="absolute right-2 sm:right-6 text-sand-soft/70 hover:text-sand-soft p-3 text-2xl">›</button>
             <motion.div
               key={current.src}
               onClick={(e) => e.stopPropagation()}
