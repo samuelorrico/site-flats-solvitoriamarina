@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next';
 import { SITE_URL } from '@/lib/site';
 import { locales, htmlLang } from '@/i18n-config';
 
-const paths = ['', '/galeria'];
+const paths = ['', '/galeria', '/privacidade'];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
@@ -17,7 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         url: `${SITE_URL}/${locale}${path}`,
         lastModified,
         changeFrequency: 'monthly',
-        priority: path === '' ? 1 : 0.8,
+        priority: path === '' ? 1 : path === '/privacidade' ? 0.3 : 0.8,
         alternates: { languages },
       });
     }

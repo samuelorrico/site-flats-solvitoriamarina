@@ -3,6 +3,7 @@ import type { Locale } from '@/i18n-config';
 import type { Dict } from '@/dictionaries';
 import { WA_LINK } from '@/lib/site';
 import LangSwitcher from './LangSwitcher';
+import MobileMenu from './MobileMenu';
 
 export default function Header({ lang, dict }: { lang: Locale; dict: Dict }) {
   const base = `/${lang}`;
@@ -36,6 +37,7 @@ export default function Header({ lang, dict }: { lang: Locale; dict: Dict }) {
             </svg>
             WhatsApp
           </a>
+          <MobileMenu lang={lang} dict={dict} />
         </div>
       </div>
     </header>

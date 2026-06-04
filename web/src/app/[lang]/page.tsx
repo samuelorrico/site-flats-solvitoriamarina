@@ -272,7 +272,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
                 <span className="text-sm text-ink/60 flex items-center gap-2 bg-sand-soft px-4 py-2 rounded-full">{dict['contact.chip2']}</span>
               </div>
             </div>
-            <QualForm dict={dict} />
+            <QualForm lang={lang} dict={dict} />
           </div>
         </RevealSection>
       </section>

@@ -1,12 +1,14 @@
 'use client';
 
+import Link from 'next/link';
 import type { Dict } from '@/dictionaries';
+import type { Locale } from '@/i18n-config';
 import { WA_PHONE } from '@/lib/site';
 
 const fieldClass =
   'mt-1.5 w-full rounded-xl border border-ink/15 bg-white/70 px-4 py-3 text-ink focus:border-sea focus:ring-2 focus:ring-sea/20 outline-none';
 
-export default function QualForm({ dict }: { dict: Dict }) {
+export default function QualForm({ lang, dict }: { lang: Locale; dict: Dict }) {
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
@@ -79,7 +81,10 @@ export default function QualForm({ dict }: { dict: Dict }) {
           </svg>
           <span>{dict['form.submit_label']}</span>
         </button>
-        <p className="text-xs text-ink/45 text-center">{dict['form.privacy']}</p>
+        <p className="text-xs text-ink/45 text-center">
+          {dict['form.privacy']}
+          <Link href={`/${lang}/privacidade`} className="underline hover:text-sea">{dict['form.privacy_link']}</Link>.
+        </p>
       </div>
     </form>
   );
