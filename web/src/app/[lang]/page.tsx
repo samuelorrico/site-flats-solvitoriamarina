@@ -57,7 +57,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         <div className="relative h-[88vh] min-h-[560px] w-full overflow-hidden">
           <HeroBackdrop alt={dict['alt.hero']} />
           <div className="absolute inset-0 bg-gradient-to-b from-sea-deep/55 via-sea-deep/25 to-sea-deep/80" />
-          <RevealSection y={28} className="relative h-full mx-auto max-w-7xl px-5 sm:px-8 flex flex-col justify-end pb-16 sm:pb-20">
+          <div className="relative h-full mx-auto max-w-7xl px-5 sm:px-8 flex flex-col justify-end pb-16 sm:pb-20">
             <p className="text-sand/90 tracking-[0.25em] text-xs sm:text-sm uppercase mb-4">{dict['hero.tag']}</p>
             <Rich as="h1" html={dict['hero.title']} className="font-display text-sand-soft leading-[0.98] tracking-tightest text-[clamp(2.6rem,7vw,5.5rem)] max-w-4xl" />
             <p className="mt-6 text-sand/85 text-lg sm:text-xl max-w-xl font-light">{dict['hero.subtitle']}</p>
@@ -65,7 +65,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
               <a href="#quartos" className="bg-sand-soft text-sea-deep font-semibold px-7 py-3.5 rounded-full hover:bg-white transition-colors">{dict['hero.cta1']}</a>
               <a href="#contato" className="inline-flex items-center gap-1.5 border border-sand-soft/50 text-sand-soft font-semibold px-6 py-3.5 rounded-full hover:bg-sand-soft/10 transition-colors">{dict['hero.cta2']}</a>
             </div>
-          </RevealSection>
+          </div>
         </div>
       </section>
 
@@ -229,17 +229,19 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
 
       {/* CONTATO */}
       <section id="contato" className="bg-sand-deep/60">
-        <RevealSection className="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-28 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <div>
-            <p className="text-sun-deep font-medium tracking-widest text-xs uppercase mb-5">{dict['contact.label']}</p>
-            <h2 className="font-display text-[clamp(2rem,4.4vw,3.2rem)] leading-tight tracking-tightest text-sea">{dict['contact.title']}</h2>
-            <p className="mt-6 text-ink/75 text-lg font-light max-w-md">{dict['contact.body']}</p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <span className="text-sm text-ink/60 flex items-center gap-2 bg-sand-soft px-4 py-2 rounded-full">{dict['contact.chip1']}</span>
-              <span className="text-sm text-ink/60 flex items-center gap-2 bg-sand-soft px-4 py-2 rounded-full">{dict['contact.chip2']}</span>
+        <RevealSection className="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-28">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div>
+              <p className="text-sun-deep font-medium tracking-widest text-xs uppercase mb-5">{dict['contact.label']}</p>
+              <h2 className="font-display text-[clamp(2rem,4.4vw,3.2rem)] leading-tight tracking-tightest text-sea">{dict['contact.title']}</h2>
+              <p className="mt-6 text-ink/75 text-lg font-light max-w-md">{dict['contact.body']}</p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <span className="text-sm text-ink/60 flex items-center gap-2 bg-sand-soft px-4 py-2 rounded-full">{dict['contact.chip1']}</span>
+                <span className="text-sm text-ink/60 flex items-center gap-2 bg-sand-soft px-4 py-2 rounded-full">{dict['contact.chip2']}</span>
+              </div>
             </div>
+            <QualForm dict={dict} />
           </div>
-          <QualForm dict={dict} />
         </RevealSection>
       </section>
 

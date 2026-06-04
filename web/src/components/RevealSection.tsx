@@ -1,30 +1,35 @@
 'use client';
 
-import type { ReactNode } from 'react';
-import { motion, useReducedMotion } from 'motion/react';
+import { useRef, type ReactNode } from 'react';
+import { motion, useScroll, useTransform, useReducedMotion } from 'motion/react';
 
-// Revela a seção inteira (fade + slide-up) quando entra na viewport, uma vez.
+// Reveal ligado ao scroll (contínuo): opacidade + deslocamento acompanham a
+// posição da rolagem conforme a seção entra na viewport.
+// Mede o scroll no wrapper externo (sem transform) e anima um filho interno
+// para evitar feedback loop (transformar o próprio elemento medido causa tremor).
 export default function RevealSection({
   children,
   className,
-  y = 40,
-  delay = 0,
+  y = 56,
 }: {
   children: ReactNode;
   className?: string;
   y?: number;
-  delay?: number;
 }) {
+  const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start 0.95', 'start 0.5'],
+  });
+  const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
+  const translateY = useTransform(scrollYProgress, [0, 1], [y, 0]);
+
   return (
-    <motion.div
-      className={className}
-      initial={reduce ? false : { opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay }}
-    >
-      {children}
-    </motion.div>
+    <div ref={ref} className={className}>
+      <motion.div style={reduce ? undefined : { opacity, y: translateY }}>
+        {children}
+      </motion.div>
+    </div>
   );
 }
