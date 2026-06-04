@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import '../globals.css';
 import { locales, htmlLang, isLocale, defaultLocale, type Locale } from '@/i18n-config';
 import { getDictionary } from '@/dictionaries';
-import { SITE_URL } from '@/lib/site';
+import { SITE_URL, INDEXABLE } from '@/lib/site';
 
 const OG_LOCALE: Record<Locale, string> = { pt: 'pt_BR', en: 'en_US', es: 'es_ES' };
 
@@ -39,6 +39,9 @@ export async function generateMetadata({
     metadataBase: new URL(SITE_URL),
     title: dict['doc.title'],
     description: dict['meta.description'],
+    // Enquanto o domínio final não está no ar, mantém o site provisório fora do índice
+    // (conteúdo placeholder — B-001). Vira indexável sozinho ao definir NEXT_PUBLIC_SITE_URL.
+    ...(INDEXABLE ? {} : { robots: { index: false, follow: false } }),
     alternates: { canonical: `/${lang}`, languages },
     openGraph: {
       type: 'website',
