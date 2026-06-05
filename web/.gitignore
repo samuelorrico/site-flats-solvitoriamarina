@@ -32,6 +32,8 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+# Exceção: URL pública do site (NEXT_PUBLIC_, build-time — não é segredo). Define o domínio oficial.
+!.env.production
 
 # vercel
 .vercel
