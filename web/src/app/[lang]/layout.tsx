@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Fraunces, Hanken_Grotesk } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import '../globals.css';
@@ -24,6 +24,9 @@ const hanken = Hanken_Grotesk({
 export function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
 }
+
+// Cor da barra do navegador no mobile (casa com o header claro/sticky).
+export const viewport: Viewport = { themeColor: '#faf6ee' };
 
 export async function generateMetadata({
   params,

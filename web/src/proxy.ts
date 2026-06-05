@@ -26,6 +26,9 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  // Pula _next, api e qualquer arquivo com extensão (imagens, favicon, etc.)
-  matcher: ['/((?!_next|api|.*\\..*).*)'],
+  // Pula _next, api, rotas de metadata SEM extensão (apple-icon, opengraph-image,
+  // twitter-image) e qualquer arquivo com extensão (icon.svg, manifest.webmanifest,
+  // robots.txt, sitemap.xml, imagens, etc.). Sem isso, o redirect de locale quebraria
+  // /apple-icon (vira /pt/apple-icon → 404).
+  matcher: ['/((?!_next|api|apple-icon|opengraph-image|twitter-image|.*\\..*).*)'],
 };
