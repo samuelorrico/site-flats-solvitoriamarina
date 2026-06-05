@@ -76,7 +76,7 @@ export default async function Galeria({ params }: { params: Promise<{ lang: stri
       <main className="relative isolate mx-auto max-w-7xl px-5 sm:px-8 py-12 sm:py-16">
         <InteractiveBackdrop />
         <div className="reveal max-w-2xl mb-10">
-          <p className="text-sun-deep font-medium tracking-widest text-xs uppercase mb-4">{dict['g.label']}</p>
+          <p className="text-sun-label font-medium tracking-widest text-xs uppercase mb-4">{dict['g.label']}</p>
           <h1 className="font-display text-[clamp(2rem,5vw,3.4rem)] leading-[1.02] tracking-tightest text-sea text-balance">{dict['g.title']}</h1>
           <p className="mt-4 text-ink/65 text-lg font-light">{dict['g.intro']}</p>
         </div>

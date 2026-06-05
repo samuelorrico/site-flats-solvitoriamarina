@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { motion, useMotionValue, useSpring, useTransform, useReducedMotion } from 'motion/react';
 
 const guestsIcon = (
-  <svg className="w-4 h-4 text-sun-deep" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+  <svg aria-hidden="true" className="w-4 h-4 text-sun-deep" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" d="M3 7v11M3 13h18v5M21 18v-5a3 3 0 00-3-3H10v3M7 11.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
   </svg>
 );
@@ -50,7 +50,7 @@ export default function RoomCard({
         <span className={`absolute top-3 left-3 z-10 text-xs font-semibold px-3 py-1.5 rounded-full ${badgeSea ? 'bg-sun text-sea-deep' : 'bg-sand-soft/95 text-sea'}`}>{badge}</span>
       </div>
       <h3 className="mt-4 font-display text-xl text-sea tracking-tight">{title}</h3>
-      <p className="text-ink/60 text-sm mt-1.5 flex items-center gap-2">{guestsIcon} <span>{guests}</span></p>
+      <p className="text-ink/70 text-sm mt-1.5 flex items-center gap-2">{guestsIcon} <span>{guests}</span></p>
       <a href="#contato" className="mt-4 inline-flex items-center gap-1.5 bg-sea text-sand-soft text-sm font-semibold px-4 py-2.5 rounded-full hover:bg-sea-light transition-colors">{cta}</a>
     </motion.article>
   );

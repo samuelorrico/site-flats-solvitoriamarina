@@ -18,7 +18,7 @@ const pt: Record<string, string> = {
   'loc.poi2t': 'Teatro Castro Alves', 'loc.poi2s': 'a poucos passos',
   'loc.poi3t': 'Pelourinho e Centro Histórico', 'loc.poi3s': '~3,5 km',
   'loc.poi4t': 'Mercado Modelo', 'loc.poi4s': '~3 km',
-  'loc.quote': '"A vista que vende a viagem sozinha."', 'loc.maps': 'Ver no Google Maps →',
+  'loc.quote': '"A vista que vende a viagem sozinha."', 'loc.maps': 'Ver no Google Maps →', 'loc.map_title': 'Mapa da localização',
   'pier.label': 'Píer Mahi Mahi · exclusivo', 'pier.title': 'Um píer só seu, sobre a baía',
   'pier.subtitle': 'Tobogã, atracadouro, jet ski e um restaurante com os pés quase na água.',
   'pier.bondinho': 'Descida de <span class="italic text-sun-light">bondinho</span> até o píer',

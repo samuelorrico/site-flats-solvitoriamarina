@@ -46,9 +46,9 @@ export default async function Privacidade({ params }: { params: Promise<{ lang: 
         <InteractiveBackdrop />
 
         <div className="max-w-2xl">
-          <p className="text-sun-deep font-medium tracking-widest text-xs uppercase mb-4">{dict['priv.label']}</p>
+          <p className="text-sun-label font-medium tracking-widest text-xs uppercase mb-4">{dict['priv.label']}</p>
           <h1 className="font-display text-[clamp(2rem,5vw,3.4rem)] leading-[1.02] tracking-tightest text-sea text-balance">{dict['priv.title']}</h1>
-          <p className="mt-3 text-ink/45 text-sm">{dict['priv.updated']}</p>
+          <p className="mt-3 text-ink/70 text-sm">{dict['priv.updated']}</p>
           <p className="mt-6 text-ink/75 text-lg font-light">{dict['priv.intro']}</p>
         </div>
 

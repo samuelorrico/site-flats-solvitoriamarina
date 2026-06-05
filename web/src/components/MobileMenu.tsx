@@ -81,7 +81,7 @@ export default function MobileMenu({ lang, dict }: { lang: Locale; dict: Dict })
                   type="button"
                   onClick={() => setOpen(false)}
                   aria-label={dict['nav.close']}
-                  className="w-10 h-10 -mr-2 inline-flex items-center justify-center text-ink/60 hover:text-sea text-3xl leading-none"
+                  className="w-10 h-10 -mr-2 inline-flex items-center justify-center text-ink/70 hover:text-sea text-3xl leading-none"
                 >
                   ×
                 </button>

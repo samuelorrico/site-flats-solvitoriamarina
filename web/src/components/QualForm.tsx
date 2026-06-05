@@ -81,7 +81,7 @@ export default function QualForm({ lang, dict }: { lang: Locale; dict: Dict }) {
           </svg>
           <span>{dict['form.submit_label']}</span>
         </button>
-        <p className="text-xs text-ink/45 text-center">
+        <p className="text-xs text-ink/70 text-center">
           {dict['form.privacy']}
           <Link href={`/${lang}/privacidade`} className="underline hover:text-sea">{dict['form.privacy_link']}</Link>.
         </p>

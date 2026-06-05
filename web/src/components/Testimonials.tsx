@@ -27,7 +27,7 @@ function Card({ review, offset }: { review: Review; offset?: boolean }) {
         <span className="text-xs font-medium text-sea bg-white/70 px-2.5 py-1 rounded-full">Booking · {review.score}</span>
       </div>
       <blockquote className="mt-4 font-display text-xl text-sea leading-snug">{review.quote}</blockquote>
-      <figcaption className="mt-5 text-sm text-ink/60">{review.author}</figcaption>
+      <figcaption className="mt-5 text-sm text-ink/70">{review.author}</figcaption>
     </figure>
   );
 }

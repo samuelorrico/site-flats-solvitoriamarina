@@ -33,7 +33,7 @@ export default function Footer({ lang, dict }: { lang: Locale; dict: Dict }) {
         </div>
       </div>
       <div className="border-t border-sand/10">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-sand/45">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-sand/70">
           <p>© 2026 Vitória Marina Flats</p>
           <div className="flex items-center gap-4">
             <Link href={`${base}/privacidade`} className="hover:text-sand-soft">{dict['footer.privacy']}</Link>

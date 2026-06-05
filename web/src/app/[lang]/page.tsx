@@ -29,7 +29,7 @@ const amenityIcons: Record<string, React.ReactNode> = {
 function Amenity({ k, label }: { k: string; label: string }) {
   return (
     <div className="flex flex-col gap-3">
-      <svg className="w-7 h-7 text-sun-light" fill="none" stroke="currentColor" strokeWidth={1.4} viewBox="0 0 24 24">
+      <svg aria-hidden="true" className="w-7 h-7 text-sun-light" fill="none" stroke="currentColor" strokeWidth={1.4} viewBox="0 0 24 24">
         {amenityIcons[k]}
       </svg>
       <span className="text-sand/85 text-sm">{label}</span>
@@ -101,7 +101,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         <RevealSection className="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-28">
           <div className="grid md:grid-cols-12 gap-10 items-start">
             <div className="md:col-span-7">
-              <p className="text-sun-deep font-medium tracking-widest text-xs uppercase mb-5">{dict['welcome.label']}</p>
+              <p className="text-sun-label font-medium tracking-widest text-xs uppercase mb-5">{dict['welcome.label']}</p>
               <h2 className="font-display text-[clamp(1.9rem,4vw,3rem)] leading-tight tracking-tightest text-sea max-w-2xl text-balance">{dict['welcome.title']}</h2>
             </div>
             <div className="md:col-span-5 md:pt-4">
@@ -122,14 +122,14 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         <RevealSection className="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-28">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="order-2 lg:order-1">
-              <p className="text-sun-deep font-medium tracking-widest text-xs uppercase mb-5">{dict['loc.label']}</p>
+              <p className="text-sun-label font-medium tracking-widest text-xs uppercase mb-5">{dict['loc.label']}</p>
               <h2 className="font-display text-[clamp(1.9rem,4vw,3rem)] leading-tight tracking-tightest text-sea text-balance">{dict['loc.title']}</h2>
               <p className="mt-6 text-ink/75 text-lg leading-relaxed font-light max-w-xl">{dict['loc.body']}</p>
               <ul className="mt-8 grid sm:grid-cols-2 gap-x-8 gap-y-4 text-ink/80">
                 {[1, 2, 3, 4].map((n) => (
                   <li key={n} className="flex items-start gap-3">
-                    <span className="mt-1 text-sun-deep">⟡</span>
-                    <span><strong className="font-medium">{dict[`loc.poi${n}t`]}</strong><br /><span className="text-sm text-ink/55">{dict[`loc.poi${n}s`]}</span></span>
+                    <span className="mt-1 text-sun-deep" aria-hidden="true">⟡</span>
+                    <span><strong className="font-medium">{dict[`loc.poi${n}t`]}</strong><br /><span className="text-sm text-ink/70">{dict[`loc.poi${n}s`]}</span></span>
                   </li>
                 ))}
               </ul>
@@ -145,7 +145,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           </div>
           <div className="mt-14 lg:mt-16">
             <div className="rounded-[2rem] overflow-hidden border border-ink/10 shadow-sm">
-              <iframe title="Mapa" src={MAPS_EMBED} width="100%" height={380} style={{ border: 0 }} loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen />
+              <iframe title={dict['loc.map_title']} src={MAPS_EMBED} width="100%" height={380} style={{ border: 0 }} loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen />
             </div>
             <div className="mt-4 flex flex-wrap items-center justify-between gap-3 text-sm">
               <p className="text-ink/70">{ADDRESS}</p>
@@ -199,7 +199,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         <RevealSection className="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-28">
           <div className="flex flex-wrap items-end justify-between gap-6 mb-12">
             <div className="max-w-xl">
-              <p className="text-sun-deep font-medium tracking-widest text-xs uppercase mb-5">{dict['rooms.label']}</p>
+              <p className="text-sun-label font-medium tracking-widest text-xs uppercase mb-5">{dict['rooms.label']}</p>
               <h2 className="font-display text-[clamp(1.9rem,4vw,3rem)] leading-tight tracking-tightest text-sea text-balance">{dict['rooms.title']}</h2>
               <Rich as="p" html={dict['rooms.intro']} className="mt-4 text-ink/65 font-light" />
             </div>
@@ -219,7 +219,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
               />
             ))}
           </div>
-          <p className="mt-8 text-sm text-ink/45">{dict['rooms.note']}</p>
+          <p className="mt-8 text-sm text-ink/70">{dict['rooms.note']}</p>
         </RevealSection>
       </section>
 
@@ -250,9 +250,9 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         <InteractiveBackdrop />
         <RevealSection className="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-28">
           <div className="max-w-2xl mb-12">
-            <p className="text-sun-deep font-medium tracking-widest text-xs uppercase mb-5">{dict['testi.label']}</p>
+            <p className="text-sun-label font-medium tracking-widest text-xs uppercase mb-5">{dict['testi.label']}</p>
             <h2 className="font-display text-[clamp(1.9rem,4vw,3rem)] leading-tight tracking-tightest text-sea text-balance">{dict['testi.title']}</h2>
-            <p className="mt-4 text-ink/60 text-sm">{dict['testi.via']}</p>
+            <p className="mt-4 text-ink/70 text-sm">{dict['testi.via']}</p>
           </div>
           <Testimonials dict={dict} />
         </RevealSection>
@@ -264,12 +264,12 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         <RevealSection className="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-28">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div>
-              <p className="text-sun-deep font-medium tracking-widest text-xs uppercase mb-5">{dict['contact.label']}</p>
+              <p className="text-sun-label font-medium tracking-widest text-xs uppercase mb-5">{dict['contact.label']}</p>
               <h2 className="font-display text-[clamp(2rem,4.4vw,3.2rem)] leading-tight tracking-tightest text-sea text-balance">{dict['contact.title']}</h2>
               <p className="mt-6 text-ink/75 text-lg font-light max-w-md">{dict['contact.body']}</p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <span className="text-sm text-ink/60 flex items-center gap-2 bg-sand-soft px-4 py-2 rounded-full">{dict['contact.chip1']}</span>
-                <span className="text-sm text-ink/60 flex items-center gap-2 bg-sand-soft px-4 py-2 rounded-full">{dict['contact.chip2']}</span>
+                <span className="text-sm text-ink/70 flex items-center gap-2 bg-sand-soft px-4 py-2 rounded-full">{dict['contact.chip1']}</span>
+                <span className="text-sm text-ink/70 flex items-center gap-2 bg-sand-soft px-4 py-2 rounded-full">{dict['contact.chip2']}</span>
               </div>
             </div>
             <QualForm lang={lang} dict={dict} />

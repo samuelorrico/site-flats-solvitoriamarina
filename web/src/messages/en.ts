@@ -18,7 +18,7 @@ const en: Record<string, string> = {
   'loc.poi2t': 'Castro Alves Theater', 'loc.poi2s': 'a short walk away',
   'loc.poi3t': 'Pelourinho and Historic Center', 'loc.poi3s': '~3.5 km',
   'loc.poi4t': 'Mercado Modelo', 'loc.poi4s': '~3 km',
-  'loc.quote': '"The view that sells the trip on its own."', 'loc.maps': 'View on Google Maps →',
+  'loc.quote': '"The view that sells the trip on its own."', 'loc.maps': 'View on Google Maps →', 'loc.map_title': 'Location map',
   'pier.label': 'Mahi Mahi Pier · exclusive', 'pier.title': 'A pier of your own, over the bay',
   'pier.subtitle': 'Water slide, boat dock, jet ski and a restaurant right by the water.',
   'pier.bondinho': 'A <span class="italic text-sun-light">funicular</span> ride down to the pier',

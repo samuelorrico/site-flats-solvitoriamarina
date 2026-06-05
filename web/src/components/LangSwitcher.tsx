@@ -17,7 +17,7 @@ export default function LangSwitcher({ current }: { current: Locale }) {
   }
 
   return (
-    <div className="flex items-center text-[13px] text-ink/60 border border-ink/15 rounded-full overflow-hidden">
+    <div className="flex items-center text-[13px] text-ink/70 border border-ink/15 rounded-full overflow-hidden">
       {locales.map((locale) => (
         <Link
           key={locale}

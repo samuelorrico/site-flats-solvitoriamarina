@@ -9,6 +9,7 @@
   --color-sun: #d6973f;
   --color-sun-deep: #b9772f;
   --color-sun-light: #e7b873;
+  --color-sun-label: #8f5d1e; /* dourado mais escuro só p/ rótulos de texto — passa WCAG AA (4.5:1) sobre sand/sand-soft */
   --color-sand: #f3eadb;
   --color-sand-soft: #faf6ee;
   --color-sand-deep: #e6d7bf;

@@ -18,7 +18,7 @@ const es: Record<string, string> = {
   'loc.poi2t': 'Teatro Castro Alves', 'loc.poi2s': 'a pocos pasos',
   'loc.poi3t': 'Pelourinho y Centro Histórico', 'loc.poi3s': '~3,5 km',
   'loc.poi4t': 'Mercado Modelo', 'loc.poi4s': '~3 km',
-  'loc.quote': '"La vista que vende el viaje por sí sola."', 'loc.maps': 'Ver en Google Maps →',
+  'loc.quote': '"La vista que vende el viaje por sí sola."', 'loc.maps': 'Ver en Google Maps →', 'loc.map_title': 'Mapa de la ubicación',
   'pier.label': 'Muelle Mahi Mahi · exclusivo', 'pier.title': 'Un muelle solo para ti, sobre la bahía',
   'pier.subtitle': 'Tobogán, atracadero, jet ski y un restaurante casi sobre el agua.',
   'pier.bondinho': 'Bajada en <span class="italic text-sun-light">funicular</span> hasta el muelle',
