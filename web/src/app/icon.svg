@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="Vitória Marina Flats">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0e3a44"/>
+      <stop offset="1" stop-color="#0a2b33"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#bg)"/>
+  <circle cx="32" cy="25" r="10" fill="#e7b873"/>
+  <path d="M9 41q5.75-6 11.5 0t11.5 0 11.5 0 11.5 0" fill="none" stroke="#f3eadb" stroke-width="3.2" stroke-linecap="round"/>
+  <path d="M9 49q5.75-6 11.5 0t11.5 0 11.5 0 11.5 0" fill="none" stroke="#d6973f" stroke-width="3.2" stroke-linecap="round"/>
+</svg>
