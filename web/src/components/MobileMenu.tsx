@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useSyncExternalStore } from 'react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
@@ -11,11 +11,11 @@ import { WA_LINK } from '@/lib/site';
 // Menu mobile (drawer). Só aparece abaixo de `md`, onde a nav do Header fica oculta.
 export default function MobileMenu({ lang, dict }: { lang: Locale; dict: Dict }) {
   const [open, setOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  // O portal só pode renderizar após a hidratação (document.body não existe no SSR/SSG).
+  // useSyncExternalStore detecta isso sem setState-em-effect e é seguro p/ hidratação.
+  const mounted = useSyncExternalStore(() => () => {}, () => true, () => false);
   const reduce = useReducedMotion();
   const base = `/${lang}`;
-
-  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     if (!open) return;
