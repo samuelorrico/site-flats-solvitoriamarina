@@ -22,7 +22,7 @@ export default function LangSwitcher({ current }: { current: Locale }) {
         <Link
           key={locale}
           href={pathFor(locale)}
-          aria-current={locale === current ? 'true' : undefined}
+          aria-current={locale === current ? 'page' : undefined}
           className={`px-2.5 py-1 uppercase transition-colors ${
             locale === current ? 'bg-sea text-sand-soft' : 'hover:bg-ink/5'
           }`}

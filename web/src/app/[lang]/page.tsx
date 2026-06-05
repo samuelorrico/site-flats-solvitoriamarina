@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { isLocale } from '@/i18n-config';
 import { getDictionary } from '@/dictionaries';
-import { ADDRESS, MAPS_EMBED, MAPS_LINK, SITE_URL, INSTAGRAM, WA_PHONE } from '@/lib/site';
+import { ADDRESS, MAPS_EMBED, MAPS_LINK, SITE_URL, INSTAGRAM, WA_PHONE, EMAIL, POSTAL_CODE } from '@/lib/site';
 import { Rich } from '@/components/Rich';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -43,10 +43,12 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
   const dict = getDictionary(lang);
 
   const rooms = [
-    { img: '/images/quarto-quadruplo-mar.jpg', badge: dict['rooms.badge_sea'], badgeSea: true, title: dict['rooms.quad'] },
-    { img: '/images/quarto-quadruplo-avenida.jpg', badge: dict['rooms.badge_avenue'], badgeSea: false, title: dict['rooms.quad'] },
+    { img: '/images/quarto-casal-mar.jpg', badge: dict['rooms.badge_sea'], badgeSea: true, title: dict['rooms.quad'] },
+    { img: '/images/quarto-casal-avenida.jpg', badge: dict['rooms.badge_avenue'], badgeSea: false, title: dict['rooms.quad'] },
     { img: '/images/quarto-triplo-mar.jpg', badge: dict['rooms.badge_sea'], badgeSea: true, title: dict['rooms.triple'] },
     { img: '/images/quarto-triplo-avenida.jpg', badge: dict['rooms.badge_avenue'], badgeSea: false, title: dict['rooms.triple'] },
+    { img: '/images/quarto-quadruplo-mar.jpg', badge: dict['rooms.badge_sea'], badgeSea: true, title: dict['rooms.quadruple'] },
+    { img: '/images/quarto-quadruplo-avenida.jpg', badge: dict['rooms.badge_avenue'], badgeSea: false, title: dict['rooms.quadruple'] },
   ];
 
   const jsonLd = {
@@ -65,10 +67,12 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
       streetAddress: 'Av. Sete de Setembro, 2068',
       addressLocality: 'Salvador',
       addressRegion: 'BA',
+      postalCode: POSTAL_CODE,
       addressCountry: 'BR',
     },
     geo: { '@type': 'GeoCoordinates', latitude: -12.998, longitude: -38.524 },
     telephone: `+${WA_PHONE}`,
+    email: EMAIL,
     sameAs: [INSTAGRAM],
     priceRange: '$$',
   };
@@ -205,7 +209,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
             </div>
             <Link href={`/${lang}/galeria`} className="text-sea font-semibold underline-grow">{dict['rooms.gallery_link']}</Link>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {rooms.map((r) => (
               <RoomCard
                 key={r.img}

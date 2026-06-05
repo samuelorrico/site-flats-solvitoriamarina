@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import type { Locale } from '@/i18n-config';
 import type { Dict } from '@/dictionaries';
-import { WA_LINK, INSTAGRAM } from '@/lib/site';
+import { WA_LINK, INSTAGRAM, EMAIL, EMAIL_LINK } from '@/lib/site';
 
 export default function Footer({ lang, dict }: { lang: Locale; dict: Dict }) {
   const base = `/${lang}`;
@@ -29,6 +29,7 @@ export default function Footer({ lang, dict }: { lang: Locale; dict: Dict }) {
           <ul className="space-y-2.5 text-sm">
             <li><a href={WA_LINK} target="_blank" rel="noopener" className="hover:text-sand-soft">WhatsApp</a></li>
             <li><a href={INSTAGRAM} target="_blank" rel="noopener" className="hover:text-sand-soft">Instagram</a></li>
+            <li><a href={EMAIL_LINK} className="hover:text-sand-soft break-all">{EMAIL}</a></li>
           </ul>
         </div>
       </div>

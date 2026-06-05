@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { isLocale, locales, htmlLang, defaultLocale } from '@/i18n-config';
 import { getDictionary } from '@/dictionaries';
-import { WA_LINK } from '@/lib/site';
+import { WA_LINK, EMAIL, EMAIL_LINK } from '@/lib/site';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import InteractiveBackdrop from '@/components/InteractiveBackdrop';
@@ -36,6 +36,7 @@ export default async function Privacidade({ params }: { params: Promise<{ lang: 
     { t: dict['priv.s3_title'], b: dict['priv.s3_body'] },
     { t: dict['priv.s4_title'], b: dict['priv.s4_body'] },
     { t: dict['priv.s5_title'], b: dict['priv.s5_body'] },
+    { t: dict['priv.s6_title'], b: dict['priv.s6_body'] },
   ];
 
   return (
@@ -73,6 +74,7 @@ export default async function Privacidade({ params }: { params: Promise<{ lang: 
             </svg>
             {dict['priv.contact_cta']}
           </a>
+          <a href={EMAIL_LINK} className="text-sea/80 hover:text-sea underline-grow break-all">{EMAIL}</a>
           <Link href={`/${lang}`} className="text-sea/80 hover:text-sea underline-grow">{dict['priv.back']}</Link>
         </div>
       </main>

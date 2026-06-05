@@ -46,6 +46,8 @@ export async function generateMetadata({
     // (conteúdo placeholder — B-001). Vira indexável sozinho ao definir NEXT_PUBLIC_SITE_URL.
     ...(INDEXABLE ? {} : { robots: { index: false, follow: false } }),
     alternates: { canonical: `/${lang}`, languages },
+    // og:image / twitter:image vêm da convenção de arquivo (app/[lang]/opengraph-image.tsx
+    // + twitter-image.tsx) — card 1200×630 gerado por next/og. Fonte única, sem duplicar.
     openGraph: {
       type: 'website',
       siteName: 'Vitória Marina Flats',
@@ -53,13 +55,11 @@ export async function generateMetadata({
       description: dict['meta.description'],
       url: `/${lang}`,
       locale: OG_LOCALE[lang],
-      images: [{ url: '/images/vista-baia.jpg', width: 1600, height: 1200, alt: dict['alt.hero'] }],
     },
     twitter: {
       card: 'summary_large_image',
       title: dict['doc.title'],
       description: dict['meta.description'],
-      images: ['/images/vista-baia.jpg'],
     },
   };
 }
