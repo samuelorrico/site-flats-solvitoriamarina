@@ -30,5 +30,7 @@ export const config = {
   // twitter-image) e qualquer arquivo com extensão (icon.svg, manifest.webmanifest,
   // robots.txt, sitemap.xml, imagens, etc.). Sem isso, o redirect de locale quebraria
   // /apple-icon (vira /pt/apple-icon → 404).
-  matcher: ['/((?!_next|api|apple-icon|opengraph-image|twitter-image|.*\\..*).*)'],
+  // Também pula pt|en|es: páginas já prefixadas não precisam do proxy — evita o
+  // cold-start do middleware no FCP. O proxy só roda em / e caminhos sem locale.
+  matcher: ['/((?!_next|api|apple-icon|opengraph-image|twitter-image|pt|en|es|.*\\..*).*)'],
 };
