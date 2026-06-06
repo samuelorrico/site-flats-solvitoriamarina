@@ -24,7 +24,7 @@ export default function QualForm({ lang, dict }: { lang: Locale; dict: Dict }) {
       '\n• ' + dict['wa.cout'] + ': ' + (val('checkout') || tbd) +
       '\n• ' + dict['wa.guests'] + ': ' + (val('guests') || tbd) +
       '\n• ' + dict['wa.name'] + ': ' + (val('name') || tbd);
-    window.open(`https://wa.me/${WA_PHONE}?text=${encodeURIComponent(msg)}`, '_blank');
+    window.open(`https://wa.me/${WA_PHONE}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener,noreferrer');
   }
 
   return (
