@@ -18,7 +18,7 @@ export default function HeroBackdrop({ alt }: { alt: string }) {
   return (
     <div ref={ref} className="absolute inset-0 overflow-hidden">
       <motion.div style={reduce ? undefined : { scale, y }} className="absolute inset-0 will-change-transform">
-        <Image src="/images/vista-baia.jpg" alt={alt} fill priority sizes="100vw" className="hero-img object-cover" />
+        <Image src="/images/vista-baia.jpg" alt={alt} fill priority quality={55} sizes="100vw" className="hero-img object-cover" />
       </motion.div>
     </div>
   );
