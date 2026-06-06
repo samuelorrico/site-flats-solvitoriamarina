@@ -51,6 +51,14 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
     { img: '/images/quarto-quadruplo-avenida.jpg', badge: dict['rooms.badge_avenue'], badgeSea: false, title: dict['rooms.quadruple'] },
   ];
 
+  const houseRules = [
+    { ok: true, text: dict['info.parking'] },
+    { ok: true, text: dict['info.pets'] },
+    { ok: true, text: dict['info.children'] },
+    { ok: false, text: dict['info.smoking'] },
+    { ok: false, text: dict['info.parties'] },
+  ];
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'LodgingBusiness',
@@ -246,6 +254,50 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
             <Amenity k="roomservice" label={dict['amen.roomservice']} />
           </div>
           <Rich as="p" html={dict['amen.note']} className="mt-10 text-sand/70 text-sm" />
+        </RevealSection>
+      </section>
+
+      {/* BOM SABER */}
+      <section id="info" className="relative isolate bg-sand">
+        <InteractiveBackdrop />
+        <RevealSection className="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-28">
+          <div className="max-w-2xl">
+            <p className="text-sun-label font-medium tracking-widest text-xs uppercase mb-5">{dict['info.label']}</p>
+            <h2 className="font-display text-[clamp(1.9rem,4vw,3rem)] leading-tight tracking-tightest text-sea text-balance">{dict['info.title']}</h2>
+          </div>
+          <div className="mt-12 grid lg:grid-cols-3 gap-6 lg:gap-10">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-1 gap-4">
+              {[
+                { label: dict['info.checkin'], time: dict['info.checkin_time'], note: dict['info.checkin_note'] },
+                { label: dict['info.checkout'], time: dict['info.checkout_time'], note: '' },
+              ].map((c) => (
+                <div key={c.label} className="bg-sand-soft rounded-2xl p-5 border border-ink/5">
+                  <svg aria-hidden="true" className="w-6 h-6 text-sun-deep" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 7v5l3 2M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <p className="mt-3 text-sm text-ink/70">{c.label}</p>
+                  <p className="font-display text-2xl text-sea tracking-tight">{c.time}</p>
+                  {c.note ? <p className="text-xs text-ink/70 mt-1">{c.note}</p> : null}
+                </div>
+              ))}
+            </div>
+            <ul className="lg:col-span-2 grid sm:grid-cols-2 gap-x-8 gap-y-5 self-center">
+              {houseRules.map((r) => (
+                <li key={r.text} className="flex items-start gap-3">
+                  <span className={`mt-0.5 shrink-0 ${r.ok ? 'text-sea' : 'text-ink/40'}`} aria-hidden="true">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={1.7} viewBox="0 0 24 24">
+                      {r.ok ? (
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      ) : (
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 6l12 12M18 6L6 18" />
+                      )}
+                    </svg>
+                  </span>
+                  <span className="text-ink/80">{r.text}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </RevealSection>
       </section>
 
