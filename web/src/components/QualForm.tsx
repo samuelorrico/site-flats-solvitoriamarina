@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useSyncExternalStore } from 'react';
 import Link from 'next/link';
 import type { Dict } from '@/dictionaries';
 import type { Locale } from '@/i18n-config';
@@ -9,8 +10,25 @@ const fieldClass =
   'mt-1.5 w-full rounded-xl border border-ink/15 bg-white/70 px-4 py-3 text-ink focus:border-sea focus:ring-2 focus:ring-sea/20 outline-none';
 
 export default function QualForm({ lang, dict }: { lang: Locale; dict: Dict }) {
+  // `today` só no cliente (evita mismatch de hidratação) sem setState-em-effect.
+  // Snapshot estável no mesmo dia → sem loop de render. Controla o mínimo das datas.
+  const today = useSyncExternalStore(
+    () => () => {},
+    () => new Date().toLocaleDateString('en-CA'), // YYYY-MM-DD no fuso local
+    () => '',
+  );
+  const [checkin, setCheckin] = useState('');
+  const [checkout, setCheckout] = useState('');
+  const [error, setError] = useState('');
+
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    // Datas: check-out tem que ser DEPOIS do check-in (comparação lexicográfica de YYYY-MM-DD).
+    if (checkin && checkout && checkout <= checkin) {
+      setError(dict['form.date_error']);
+      return;
+    }
+    setError('');
     const form = e.currentTarget;
     const val = (name: string) => {
       const el = form.elements.namedItem(name) as HTMLInputElement | HTMLSelectElement | null;
@@ -20,8 +38,8 @@ export default function QualForm({ lang, dict }: { lang: Locale; dict: Dict }) {
     const msg =
       dict['wa.intro'] +
       '\n• ' + dict['wa.type'] + ': ' + (val('unit') || tbd) +
-      '\n• ' + dict['wa.cin'] + ': ' + (val('checkin') || tbd) +
-      '\n• ' + dict['wa.cout'] + ': ' + (val('checkout') || tbd) +
+      '\n• ' + dict['wa.cin'] + ': ' + (checkin || tbd) +
+      '\n• ' + dict['wa.cout'] + ': ' + (checkout || tbd) +
       '\n• ' + dict['wa.guests'] + ': ' + (val('guests') || tbd) +
       '\n• ' + dict['wa.name'] + ': ' + (val('name') || tbd);
     window.open(`https://wa.me/${WA_PHONE}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener,noreferrer');
@@ -38,16 +56,41 @@ export default function QualForm({ lang, dict }: { lang: Locale; dict: Dict }) {
             <option>{dict['form.opt3']}</option>
             <option>{dict['form.opt4']}</option>
             <option>{dict['form.opt5']}</option>
+            <option>{dict['form.opt6']}</option>
+            <option>{dict['form.opt7']}</option>
           </select>
         </label>
         <div className="grid grid-cols-2 gap-4">
           <label className="block">
             <span className="text-sm font-medium text-ink/70">{dict['form.checkin']}</span>
-            <input name="checkin" type="date" className={fieldClass} />
+            <input
+              name="checkin"
+              type="date"
+              min={today || undefined}
+              value={checkin}
+              onChange={(e) => {
+                setCheckin(e.target.value);
+                // se o check-out ficou inválido, limpa o erro só ao corrigir
+                if (error) setError('');
+                // se check-out < novo check-in, zera o check-out
+                if (checkout && e.target.value && checkout <= e.target.value) setCheckout('');
+              }}
+              className={fieldClass}
+            />
           </label>
           <label className="block">
             <span className="text-sm font-medium text-ink/70">{dict['form.checkout']}</span>
-            <input name="checkout" type="date" className={fieldClass} />
+            <input
+              name="checkout"
+              type="date"
+              min={checkin || today || undefined}
+              value={checkout}
+              onChange={(e) => {
+                setCheckout(e.target.value);
+                if (error) setError('');
+              }}
+              className={fieldClass}
+            />
           </label>
         </div>
         <div className="grid grid-cols-2 gap-4">
@@ -72,6 +115,11 @@ export default function QualForm({ lang, dict }: { lang: Locale; dict: Dict }) {
             <input name="name" type="text" placeholder={dict['form.name_ph']} className={fieldClass} />
           </label>
         </div>
+        {error ? (
+          <p role="alert" className="-mt-2 text-sm text-red-700">
+            {error}
+          </p>
+        ) : null}
         <button
           type="submit"
           className="mt-1 inline-flex items-center justify-center gap-2 bg-sun text-sea-deep font-semibold px-6 py-3.5 rounded-xl hover:bg-sun-light transition-colors"
