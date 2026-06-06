@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
-import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
+import { m, AnimatePresence, useReducedMotion } from 'motion/react';
 
 export type Photo = { src: string; alt: string; w: number; h: number };
 type Labels = { close: string; prev: string; next: string };
@@ -64,7 +64,7 @@ export default function GalleryGrid({ photos, labels }: { photos: Photo[]; label
 
       <AnimatePresence>
         {open && current && (
-          <motion.div
+          <m.div
             className="fixed inset-0 z-[100] flex items-center justify-center bg-sea-deep/92 backdrop-blur-sm p-4 sm:p-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -78,7 +78,7 @@ export default function GalleryGrid({ photos, labels }: { photos: Photo[]; label
             <button type="button" onClick={close} aria-label={labels.close} className="absolute top-4 right-4 text-sand-soft/80 hover:text-sand-soft text-3xl leading-none">×</button>
             <button type="button" onClick={(e) => { e.stopPropagation(); prev(); }} aria-label={labels.prev} className="absolute left-2 sm:left-6 text-sand-soft/70 hover:text-sand-soft p-3 text-2xl">‹</button>
             <button type="button" onClick={(e) => { e.stopPropagation(); next(); }} aria-label={labels.next} className="absolute right-2 sm:right-6 text-sand-soft/70 hover:text-sand-soft p-3 text-2xl">›</button>
-            <motion.div
+            <m.div
               key={current.src}
               onClick={(e) => e.stopPropagation()}
               initial={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.96 }}
@@ -94,8 +94,8 @@ export default function GalleryGrid({ photos, labels }: { photos: Photo[]; label
                 className="max-h-[85vh] max-w-[92vw] w-auto h-auto object-contain rounded-xl shadow-2xl"
               />
               <p className="mt-3 text-center text-sm text-sand/70">{current.alt}</p>
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
         )}
       </AnimatePresence>
     </>

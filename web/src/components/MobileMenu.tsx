@@ -3,7 +3,7 @@
 import { useState, useEffect, useSyncExternalStore } from 'react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
-import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
+import { m, AnimatePresence, useReducedMotion } from 'motion/react';
 import type { Locale } from '@/i18n-config';
 import type { Dict } from '@/dictionaries';
 import { WA_LINK } from '@/lib/site';
@@ -56,7 +56,7 @@ export default function MobileMenu({ lang, dict }: { lang: Locale; dict: Dict })
       {mounted && createPortal(
       <AnimatePresence>
         {open && (
-          <motion.div
+          <m.div
             className="fixed inset-0 z-[60] md:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -64,7 +64,7 @@ export default function MobileMenu({ lang, dict }: { lang: Locale; dict: Dict })
             transition={{ duration: 0.2 }}
           >
             <div className="absolute inset-0 bg-sea-deep/40 backdrop-blur-sm" onClick={() => setOpen(false)} />
-            <motion.nav
+            <m.nav
               id="mobile-menu"
               aria-label={dict['nav.menu']}
               initial={reduce ? { opacity: 0 } : { x: '100%' }}
@@ -112,8 +112,8 @@ export default function MobileMenu({ lang, dict }: { lang: Locale; dict: Dict })
                 </svg>
                 WhatsApp
               </a>
-            </motion.nav>
-          </motion.div>
+            </m.nav>
+          </m.div>
         )}
       </AnimatePresence>,
         document.body,

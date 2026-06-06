@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { motion, useMotionValue, useSpring, useTransform, useReducedMotion } from 'motion/react';
+import { m, useMotionValue, useSpring, useTransform, useReducedMotion } from 'motion/react';
 
 const guestsIcon = (
   <svg aria-hidden="true" className="w-4 h-4 text-sun-deep" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
@@ -31,7 +31,7 @@ export default function RoomCard({
   }
 
   return (
-    <motion.article
+    <m.article
       className="group"
       onMouseMove={reduce ? undefined : handleMove}
       onMouseLeave={reduce ? undefined : handleLeave}
@@ -52,6 +52,6 @@ export default function RoomCard({
       <h3 className="mt-4 font-display text-xl text-sea tracking-tight">{title}</h3>
       <p className="text-ink/70 text-sm mt-1.5 flex items-center gap-2">{guestsIcon} <span>{guests}</span></p>
       <a href="#contato" className="mt-4 inline-flex items-center gap-1.5 bg-sea text-sand-soft text-sm font-semibold px-4 py-2.5 rounded-full hover:bg-sea-light transition-colors">{cta}</a>
-    </motion.article>
+    </m.article>
   );
 }

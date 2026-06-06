@@ -59,6 +59,26 @@ body {
   filter: saturate(1.05);
 }
 
+/* Ken burns do hero em CSS (sem JS) — zoom lento e sutil, em loop suave. */
+@keyframes hero-kenburns {
+  from {
+    transform: scale(1.02);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+.hero-kenburns {
+  animation: hero-kenburns 28s ease-in-out infinite alternate;
+  transform-origin: center;
+  will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-kenburns {
+    animation: none;
+  }
+}
+
 /* Reveal on scroll (ativado por JS via IntersectionObserver) */
 .reveal {
   opacity: 0;

@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, type ReactNode } from 'react';
-import { motion, useScroll, useTransform, useReducedMotion } from 'motion/react';
+import { m, useScroll, useTransform, useReducedMotion } from 'motion/react';
 
 // Reveal ligado ao scroll (contínuo): opacidade + deslocamento acompanham a
 // posição da rolagem conforme a seção entra na viewport.
@@ -27,9 +27,9 @@ export default function RevealSection({
 
   return (
     <div ref={ref} className={className}>
-      <motion.div style={reduce ? undefined : { opacity, y: translateY }}>
+      <m.div style={reduce ? undefined : { opacity, y: translateY }}>
         {children}
-      </motion.div>
+      </m.div>
     </div>
   );
 }
