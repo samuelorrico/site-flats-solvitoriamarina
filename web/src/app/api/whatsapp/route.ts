@@ -18,7 +18,7 @@ export async function GET(req: Request) {
   if (mode === 'subscribe' && challenge && token && token === cfg.verifyToken) {
     return new Response(challenge, { status: 200 });
   }
-  return new Response('Forbidden', { status: 403 });
+  return new Response('Forbidden', { status: 403, headers: { 'x-wa-build': 'v2' } });
 }
 
 export async function POST(req: Request) {

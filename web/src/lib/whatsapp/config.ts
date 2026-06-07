@@ -1,10 +1,11 @@
 // Configuração do bot de WhatsApp (server-only). Lê variáveis de ambiente.
 // Segredos ficam na Vercel / .env.local (gitignored). Ver .env.example.
 export const cfg = {
-  verifyToken: process.env.WHATSAPP_VERIFY_TOKEN ?? '',
-  whatsappToken: process.env.WHATSAPP_TOKEN ?? '',
-  phoneNumberId: process.env.WHATSAPP_PHONE_NUMBER_ID ?? '',
-  ownerNumber: process.env.WHATSAPP_OWNER_NUMBER ?? '',
+  // Aceita os nomes WHATSAPP_* e também os nomes "curtos" (compat. com o projeto Replit).
+  verifyToken: process.env.WHATSAPP_VERIFY_TOKEN || process.env.VERIFY_TOKEN || '',
+  whatsappToken: process.env.WHATSAPP_TOKEN || '',
+  phoneNumberId: process.env.WHATSAPP_PHONE_NUMBER_ID || process.env.PHONE_NUMBER_ID || '',
+  ownerNumber: process.env.WHATSAPP_OWNER_NUMBER || process.env.OWNER_NUMBER || '',
   // 'claude' (recomendado) ou 'groq'. Default: claude se houver chave Anthropic, senão groq.
   aiProvider: (process.env.AI_PROVIDER ?? (process.env.ANTHROPIC_API_KEY ? 'claude' : 'groq')) as 'claude' | 'groq',
   anthropicKey: process.env.ANTHROPIC_API_KEY ?? '',
