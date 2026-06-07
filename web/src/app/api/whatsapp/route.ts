@@ -12,6 +12,23 @@ export const maxDuration = 30; // tempo p/ o processamento pós-resposta (IA + e
 
 export async function GET(req: Request) {
   const url = new URL(req.url);
+
+  // Diagnóstico TEMPORÁRIO: diz quais env o servidor enxerga (só true/false, sem valores).
+  // Remover depois que a config estiver OK (T-setup).
+  if (url.searchParams.get('selfcheck') === '1') {
+    return Response.json({
+      verifyToken: !!cfg.verifyToken,
+      whatsappToken: !!cfg.whatsappToken,
+      phoneNumberId: !!cfg.phoneNumberId,
+      ownerNumber: !!cfg.ownerNumber,
+      aiProvider: cfg.aiProvider,
+      groqKey: !!cfg.groqKey,
+      anthropicKey: !!cfg.anthropicKey,
+      upstash: !!(cfg.upstashUrl && cfg.upstashToken),
+      build: 'v3',
+    });
+  }
+
   const mode = url.searchParams.get('hub.mode');
   const token = url.searchParams.get('hub.verify_token');
   const challenge = url.searchParams.get('hub.challenge');
