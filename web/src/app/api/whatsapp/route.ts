@@ -25,7 +25,7 @@ export async function GET(req: Request) {
       groqKey: !!cfg.groqKey,
       anthropicKey: !!cfg.anthropicKey,
       upstash: !!(cfg.upstashUrl && cfg.upstashToken),
-      build: 'v3',
+      build: 'v4',
     });
   }
 
