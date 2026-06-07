@@ -95,7 +95,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         <div className="relative h-[100svh] w-full overflow-hidden">
           <HeroBackdrop alt={dict['alt.hero']} />
           <div className="absolute inset-0 bg-gradient-to-b from-sea-deep/55 via-sea-deep/25 to-sea-deep/80" />
-          <div className="relative h-full mx-auto max-w-7xl px-5 sm:px-8 flex flex-col justify-end pb-16 sm:pb-20">
+          <div className="relative h-full mx-auto max-w-7xl px-5 sm:px-8 flex flex-col justify-center">
             <p className="text-sand/90 tracking-[0.25em] text-xs sm:text-sm uppercase mb-4">{dict['hero.tag']}</p>
             <Rich as="h1" html={dict['hero.title']} className="font-display text-sand-soft leading-[0.98] tracking-tightest text-[clamp(2.6rem,7vw,5.5rem)] max-w-4xl text-balance" />
             <p className="mt-6 text-sand/85 text-lg sm:text-xl max-w-xl font-light text-balance">{dict['hero.subtitle']}</p>
