@@ -10,7 +10,7 @@ import type { Locale } from '@/i18n-config';
 export const ogSize = { width: 1200, height: 630 };
 export const ogContentType = 'image/png';
 export const ogAlt =
-  'Vitória Marina Flats — vista da Baía de Todos os Santos, no Corredor da Vitória, Salvador';
+  'Vitória Marina Flats, vista da Baía de Todos os Santos, no Corredor da Vitória, Salvador';
 
 // Tagline curta por idioma (espelha a mensagem do hero, encurtada p/ caber no card).
 const TAGLINE: Record<Locale, string> = {

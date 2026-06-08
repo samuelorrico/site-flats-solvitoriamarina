@@ -45,7 +45,7 @@ const es: Record<string, string> = {
   'testi.via': 'Reseñas reales de huéspedes en Booking.com.',
   'testi.more': 'Ver más reseñas', 'testi.less': 'Ver menos',
   'contact.label': 'Reserva con nosotros', 'contact.title': 'Cuéntanos lo que buscas y seguimos por WhatsApp',
-  'contact.body': 'Solo dinos las fechas y cuántas personas. Al enviarlo, abrimos WhatsApp ya con todo completado, sin tener que repetir nada — hablas directamente con quien cuida los flats.',
+  'contact.body': 'Solo dinos las fechas y cuántas personas. Al enviarlo, abrimos WhatsApp ya con todo completado, sin tener que repetir nada. Hablas directamente con quien cuida los flats.',
   'contact.chip1': 'Respuesta rápida', 'contact.chip2': 'Atención PT · EN · ES',
   'form.unit': 'Habitación de interés',
   'form.opt1': 'Doble · vista al mar', 'form.opt2': 'Doble · vista a la avenida', 'form.opt3': 'Triple · vista al mar', 'form.opt4': 'Triple · vista a la avenida', 'form.opt5': 'Cuádruple · vista al mar', 'form.opt6': 'Cuádruple · vista a la avenida', 'form.opt7': 'Aún no lo sé, quiero ver las opciones',
