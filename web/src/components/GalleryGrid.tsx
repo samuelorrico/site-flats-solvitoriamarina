@@ -1,25 +1,55 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import Image from 'next/image';
 import { m, AnimatePresence, useReducedMotion } from 'motion/react';
 
-export type Photo = { src: string; alt: string; w: number; h: number };
+export type Photo = { src: string; alt: string; w: number; h: number; cat: string };
 type Labels = { close: string; prev: string; next: string };
+type Filter = { key: string; label: string };
 
-export default function GalleryGrid({ photos, labels }: { photos: Photo[]; labels: Labels }) {
+export default function GalleryGrid({
+  photos,
+  filters,
+  labels,
+}: {
+  photos: Photo[];
+  filters: Filter[];
+  labels: Labels;
+}) {
+  const [active, setActive] = useState('all');
   const [index, setIndex] = useState<number | null>(null);
   const reduce = useReducedMotion();
   const open = index !== null;
 
+  // Fotos visíveis no filtro atual. O lightbox navega DENTRO deste subconjunto.
+  const view = active === 'all' ? photos : photos.filter((p) => p.cat === active);
+
+  const gridRef = useRef<HTMLDivElement>(null);
+  const firstRender = useRef(true);
+  // O RevealInit global só observa os `.reveal` uma vez (no load). Ao trocar de filtro,
+  // novos cards entram sem observador e ficariam invisíveis — então os revelamos aqui.
+  useEffect(() => {
+    if (firstRender.current) {
+      firstRender.current = false;
+      return; // no load inicial, deixa o RevealInit fazer o stagger
+    }
+    gridRef.current?.querySelectorAll('.reveal').forEach((el) => el.classList.add('in'));
+  }, [active]);
+
+  function selectFilter(key: string) {
+    setIndex(null); // fecha o lightbox p/ não ficar com índice de outro subconjunto
+    setActive(key);
+  }
+
   const close = useCallback(() => setIndex(null), []);
   const prev = useCallback(
-    () => setIndex((i) => (i === null ? i : (i + photos.length - 1) % photos.length)),
-    [photos.length],
+    () => setIndex((i) => (i === null ? i : (i + view.length - 1) % view.length)),
+    [view.length],
   );
   const next = useCallback(
-    () => setIndex((i) => (i === null ? i : (i + 1) % photos.length)),
-    [photos.length],
+    () => setIndex((i) => (i === null ? i : (i + 1) % view.length)),
+    [view.length],
   );
 
   useEffect(() => {
@@ -37,12 +67,34 @@ export default function GalleryGrid({ photos, labels }: { photos: Photo[]; label
     };
   }, [open, close, prev, next]);
 
-  const current = index !== null ? photos[index] : null;
+  const current = index !== null ? view[index] : null;
 
   return (
     <>
-      <div className="columns-2 md:columns-3 gap-4">
-        {photos.map((p, i) => (
+      {/* Filtros */}
+      <div className="reveal flex flex-wrap gap-2.5 mb-10">
+        {filters.map((f) => {
+          const isActive = active === f.key;
+          return (
+            <button
+              key={f.key}
+              type="button"
+              onClick={() => selectFilter(f.key)}
+              aria-pressed={isActive}
+              className={
+                isActive
+                  ? 'px-4 py-2 rounded-full text-sm bg-sea text-sand-soft transition-colors'
+                  : 'px-4 py-2 rounded-full text-sm border border-ink/15 hover:border-sea text-ink/70 transition-colors'
+              }
+            >
+              {f.label}
+            </button>
+          );
+        })}
+      </div>
+
+      <div ref={gridRef} className="columns-2 md:columns-3 gap-4">
+        {view.map((p, i) => (
           <button
             key={p.src}
             type="button"

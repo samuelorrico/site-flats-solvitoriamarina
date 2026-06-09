@@ -25,6 +25,9 @@
 
 html {
   scroll-behavior: smooth;
+  /* Compensa o header fixo (h-16 = 4rem) ao saltar para âncoras (#quartos, #contato…),
+     para o título da seção não ficar escondido atrás dele. */
+  scroll-padding-top: 5rem;
 }
 
 body {

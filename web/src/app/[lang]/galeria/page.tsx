@@ -9,40 +9,43 @@ import RevealInit from '@/components/RevealInit';
 import GalleryGrid, { type Photo } from '@/components/GalleryGrid';
 import InteractiveBackdrop from '@/components/InteractiveBackdrop';
 
+// Categorias dos filtros da galeria (cada foto tem uma categoria primária).
+type Cat = 'sea' | 'pier' | 'rooms' | 'common';
+
 // Fotos da galeria: `altKey` resolve para o `alt` localizado (galt.*) em tempo de render.
-const PHOTOS: { src: string; altKey: string; w: number; h: number }[] = [
-  { src: '/images/vista-baia.jpg', altKey: 'galt.baia', w: 1600, h: 1200 },
-  { src: '/images/mar-vegetacao.jpg', altKey: 'galt.mar_veg', w: 1200, h: 1600 },
-  { src: '/images/pier-panoramica.jpg', altKey: 'galt.pier_pano', w: 1600, h: 632 },
-  { src: '/images/pier-restaurante.jpg', altKey: 'galt.pier_rest', w: 1024, h: 683 },
-  { src: '/images/bondinho.jpg', altKey: 'galt.bondinho', w: 1024, h: 683 },
-  { src: '/images/pier-por-do-sol.jpg', altKey: 'galt.pier_sunset', w: 1200, h: 1600 },
-  { src: '/images/pier-tobogan.jpg', altKey: 'galt.tobogan', w: 1014, h: 1600 },
-  { src: '/images/pier-predios.jpg', altKey: 'galt.pier_predios', w: 1199, h: 1600 },
-  { src: '/images/mahi-mahi-letreiro.jpg', altKey: 'galt.letreiro', w: 1200, h: 1600 },
-  { src: '/images/areas-comuns-aerea.jpg', altKey: 'galt.areas', w: 1120, h: 1600 },
-  { src: '/images/piscina-cobertura.jpg', altKey: 'galt.piscina_cob', w: 1600, h: 1574 },
-  { src: '/images/piscina-mar.jpg', altKey: 'galt.piscina_mar', w: 1200, h: 1600 },
-  { src: '/images/fachada.jpg', altKey: 'galt.fachada', w: 683, h: 1024 },
-  { src: '/images/predios-encosta.jpg', altKey: 'galt.encosta', w: 1600, h: 1200 },
-  { src: '/images/quarto-casal-mar.jpg', altKey: 'galt.casal_mar', w: 1600, h: 1200 },
-  { src: '/images/quarto-casal-avenida.jpg', altKey: 'galt.casal_av', w: 1200, h: 1600 },
-  { src: '/images/quarto-triplo-mar.jpg', altKey: 'galt.triplo_mar', w: 960, h: 1280 },
-  { src: '/images/quarto-triplo-avenida.jpg', altKey: 'galt.triplo_av', w: 1200, h: 1600 },
-  { src: '/images/quarto-mar-entardecer.jpg', altKey: 'galt.quarto_entardecer', w: 960, h: 1280 },
-  { src: '/images/quarto-avenida-cidade.jpg', altKey: 'galt.quarto_cidade', w: 1600, h: 1200 },
-  { src: '/images/banheiro-banheira.jpg', altKey: 'galt.banheira', w: 1200, h: 1600 },
-  { src: '/images/quarto-espelho.jpg', altKey: 'galt.q_espelho', w: 1125, h: 1600 },
-  { src: '/images/flat-studio.jpg', altKey: 'galt.flat_studio', w: 1600, h: 1200 },
-  { src: '/images/quarto-janela.jpg', altKey: 'galt.q_janela', w: 960, h: 1280 },
-  { src: '/images/quarto-tv.jpg', altKey: 'galt.q_tv', w: 960, h: 1280 },
-  { src: '/images/kitchenette-branca.jpg', altKey: 'galt.kit_branca', w: 960, h: 1280 },
-  { src: '/images/banheiro-cuba.jpg', altKey: 'galt.banho_cuba', w: 960, h: 1280 },
-  { src: '/images/sala-estar.jpg', altKey: 'galt.sala', w: 960, h: 1280 },
-  { src: '/images/kitchenette-pia.jpg', altKey: 'galt.kit_pia', w: 921, h: 1280 },
-  { src: '/images/kitchenette-verde.jpg', altKey: 'galt.kit_verde', w: 597, h: 1280 },
-  { src: '/images/vista-mar-janela.jpg', altKey: 'galt.vista_janela', w: 1280, h: 597 },
-  { src: '/images/banheiro-redondo.jpg', altKey: 'galt.banho_redondo', w: 867, h: 1156 },
+const PHOTOS: { src: string; altKey: string; w: number; h: number; cat: Cat }[] = [
+  { src: '/images/vista-baia.jpg', altKey: 'galt.baia', w: 1600, h: 1200, cat: 'sea' },
+  { src: '/images/mar-vegetacao.jpg', altKey: 'galt.mar_veg', w: 1200, h: 1600, cat: 'sea' },
+  { src: '/images/pier-panoramica.jpg', altKey: 'galt.pier_pano', w: 1600, h: 632, cat: 'pier' },
+  { src: '/images/pier-restaurante.jpg', altKey: 'galt.pier_rest', w: 1024, h: 683, cat: 'pier' },
+  { src: '/images/bondinho.jpg', altKey: 'galt.bondinho', w: 1024, h: 683, cat: 'pier' },
+  { src: '/images/pier-por-do-sol.jpg', altKey: 'galt.pier_sunset', w: 1200, h: 1600, cat: 'pier' },
+  { src: '/images/pier-tobogan.jpg', altKey: 'galt.tobogan', w: 1014, h: 1600, cat: 'pier' },
+  { src: '/images/pier-predios.jpg', altKey: 'galt.pier_predios', w: 1199, h: 1600, cat: 'pier' },
+  { src: '/images/mahi-mahi-letreiro.jpg', altKey: 'galt.letreiro', w: 1200, h: 1600, cat: 'pier' },
+  { src: '/images/areas-comuns-aerea.jpg', altKey: 'galt.areas', w: 1120, h: 1600, cat: 'common' },
+  { src: '/images/piscina-cobertura.jpg', altKey: 'galt.piscina_cob', w: 1600, h: 1574, cat: 'common' },
+  { src: '/images/piscina-mar.jpg', altKey: 'galt.piscina_mar', w: 1200, h: 1600, cat: 'common' },
+  { src: '/images/fachada.jpg', altKey: 'galt.fachada', w: 683, h: 1024, cat: 'common' },
+  { src: '/images/predios-encosta.jpg', altKey: 'galt.encosta', w: 1600, h: 1200, cat: 'common' },
+  { src: '/images/quarto-casal-mar.jpg', altKey: 'galt.casal_mar', w: 1600, h: 1200, cat: 'rooms' },
+  { src: '/images/quarto-casal-avenida.jpg', altKey: 'galt.casal_av', w: 1200, h: 1600, cat: 'rooms' },
+  { src: '/images/quarto-triplo-mar.jpg', altKey: 'galt.triplo_mar', w: 960, h: 1280, cat: 'rooms' },
+  { src: '/images/quarto-triplo-avenida.jpg', altKey: 'galt.triplo_av', w: 1200, h: 1600, cat: 'rooms' },
+  { src: '/images/quarto-mar-entardecer.jpg', altKey: 'galt.quarto_entardecer', w: 960, h: 1280, cat: 'rooms' },
+  { src: '/images/quarto-avenida-cidade.jpg', altKey: 'galt.quarto_cidade', w: 1600, h: 1200, cat: 'rooms' },
+  { src: '/images/banheiro-banheira.jpg', altKey: 'galt.banheira', w: 1200, h: 1600, cat: 'rooms' },
+  { src: '/images/quarto-espelho.jpg', altKey: 'galt.q_espelho', w: 1125, h: 1600, cat: 'rooms' },
+  { src: '/images/flat-studio.jpg', altKey: 'galt.flat_studio', w: 1600, h: 1200, cat: 'rooms' },
+  { src: '/images/quarto-janela.jpg', altKey: 'galt.q_janela', w: 960, h: 1280, cat: 'rooms' },
+  { src: '/images/quarto-tv.jpg', altKey: 'galt.q_tv', w: 960, h: 1280, cat: 'rooms' },
+  { src: '/images/kitchenette-branca.jpg', altKey: 'galt.kit_branca', w: 960, h: 1280, cat: 'rooms' },
+  { src: '/images/banheiro-cuba.jpg', altKey: 'galt.banho_cuba', w: 960, h: 1280, cat: 'rooms' },
+  { src: '/images/sala-estar.jpg', altKey: 'galt.sala', w: 960, h: 1280, cat: 'rooms' },
+  { src: '/images/kitchenette-pia.jpg', altKey: 'galt.kit_pia', w: 921, h: 1280, cat: 'rooms' },
+  { src: '/images/kitchenette-verde.jpg', altKey: 'galt.kit_verde', w: 597, h: 1280, cat: 'rooms' },
+  { src: '/images/vista-mar-janela.jpg', altKey: 'galt.vista_janela', w: 1280, h: 597, cat: 'sea' },
+  { src: '/images/banheiro-redondo.jpg', altKey: 'galt.banho_redondo', w: 867, h: 1156, cat: 'rooms' },
 ];
 
 export async function generateMetadata({
@@ -77,8 +80,14 @@ export default async function Galeria({ params }: { params: Promise<{ lang: stri
   if (!isLocale(lang)) notFound();
   const dict = getDictionary(lang);
 
-  const photos: Photo[] = PHOTOS.map((p) => ({ src: p.src, alt: dict[p.altKey], w: p.w, h: p.h }));
-  const filters = ['g.f_all', 'g.f_sea', 'g.f_pier', 'g.f_rooms', 'g.f_common'];
+  const photos: Photo[] = PHOTOS.map((p) => ({ src: p.src, alt: dict[p.altKey], w: p.w, h: p.h, cat: p.cat }));
+  const filters = [
+    { key: 'all', label: dict['g.f_all'] },
+    { key: 'sea', label: dict['g.f_sea'] },
+    { key: 'pier', label: dict['g.f_pier'] },
+    { key: 'rooms', label: dict['g.f_rooms'] },
+    { key: 'common', label: dict['g.f_common'] },
+  ];
 
   return (
     <>
@@ -92,25 +101,8 @@ export default async function Galeria({ params }: { params: Promise<{ lang: stri
           <p className="mt-4 text-ink/65 text-lg font-light">{dict['g.intro']}</p>
         </div>
 
-        {/* Filtros (visuais por enquanto) */}
-        <div className="reveal flex flex-wrap gap-2.5 mb-10">
-          {filters.map((f, i) => (
-            <button
-              key={f}
-              type="button"
-              className={
-                i === 0
-                  ? 'px-4 py-2 rounded-full text-sm bg-sea text-sand-soft'
-                  : 'px-4 py-2 rounded-full text-sm border border-ink/15 hover:border-sea text-ink/70'
-              }
-            >
-              {dict[f]}
-            </button>
-          ))}
-        </div>
-
-        {/* Grid masonry + lightbox */}
-        <GalleryGrid photos={photos} labels={{ close: dict['g.close'], prev: dict['g.prev'], next: dict['g.next'] }} />
+        {/* Filtros + grid masonry + lightbox (estado do filtro vive no client) */}
+        <GalleryGrid photos={photos} filters={filters} labels={{ close: dict['g.close'], prev: dict['g.prev'], next: dict['g.next'] }} />
 
         <div className="reveal mt-14 text-center">
           <p className="font-display text-2xl text-sea mb-5">{dict['g.cta_title']}</p>
