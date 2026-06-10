@@ -16,6 +16,7 @@ type Cat = 'sea' | 'pier' | 'rooms' | 'common';
 const PHOTOS: { src: string; altKey: string; w: number; h: number; cat: Cat }[] = [
   { src: '/images/vista-baia.jpg', altKey: 'galt.baia', w: 1600, h: 1200, cat: 'sea' },
   { src: '/images/mar-vegetacao.jpg', altKey: 'galt.mar_veg', w: 1200, h: 1600, cat: 'sea' },
+  { src: '/images/espumante-vista-mar.jpg', altKey: 'galt.espumante', w: 867, h: 1156, cat: 'sea' },
   { src: '/images/pier-panoramica.jpg', altKey: 'galt.pier_pano', w: 1600, h: 632, cat: 'pier' },
   { src: '/images/pier-restaurante.jpg', altKey: 'galt.pier_rest', w: 1024, h: 683, cat: 'pier' },
   { src: '/images/bondinho.jpg', altKey: 'galt.bondinho', w: 1024, h: 683, cat: 'pier' },
@@ -23,6 +24,7 @@ const PHOTOS: { src: string; altKey: string; w: number; h: number; cat: Cat }[] 
   { src: '/images/pier-tobogan.jpg', altKey: 'galt.tobogan', w: 1014, h: 1600, cat: 'pier' },
   { src: '/images/pier-predios.jpg', altKey: 'galt.pier_predios', w: 1199, h: 1600, cat: 'pier' },
   { src: '/images/mahi-mahi-letreiro.jpg', altKey: 'galt.letreiro', w: 1200, h: 1600, cat: 'pier' },
+  { src: '/images/pier-passarela.jpg', altKey: 'galt.pier_passarela', w: 575, h: 1280, cat: 'pier' },
   { src: '/images/areas-comuns-aerea.jpg', altKey: 'galt.areas', w: 1120, h: 1600, cat: 'common' },
   { src: '/images/piscina-cobertura.jpg', altKey: 'galt.piscina_cob', w: 1600, h: 1574, cat: 'common' },
   { src: '/images/piscina-mar.jpg', altKey: 'galt.piscina_mar', w: 1200, h: 1600, cat: 'common' },
@@ -42,10 +44,12 @@ const PHOTOS: { src: string; altKey: string; w: number; h: number; cat: Cat }[] 
   { src: '/images/kitchenette-branca.jpg', altKey: 'galt.kit_branca', w: 960, h: 1280, cat: 'rooms' },
   { src: '/images/banheiro-cuba.jpg', altKey: 'galt.banho_cuba', w: 960, h: 1280, cat: 'rooms' },
   { src: '/images/sala-estar.jpg', altKey: 'galt.sala', w: 960, h: 1280, cat: 'rooms' },
+  { src: '/images/sala-rede-noite.jpg', altKey: 'galt.sala_rede', w: 1280, h: 960, cat: 'rooms' },
   { src: '/images/kitchenette-pia.jpg', altKey: 'galt.kit_pia', w: 921, h: 1280, cat: 'rooms' },
   { src: '/images/kitchenette-verde.jpg', altKey: 'galt.kit_verde', w: 597, h: 1280, cat: 'rooms' },
   { src: '/images/vista-mar-janela.jpg', altKey: 'galt.vista_janela', w: 1280, h: 597, cat: 'sea' },
   { src: '/images/banheiro-redondo.jpg', altKey: 'galt.banho_redondo', w: 867, h: 1156, cat: 'rooms' },
+  { src: '/images/banheiro-box.jpg', altKey: 'galt.box', w: 960, h: 1280, cat: 'rooms' },
 ];
 
 export async function generateMetadata({

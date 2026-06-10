@@ -118,6 +118,10 @@ const en: Record<string, string> = {
   'galt.kit_verde': 'Compact kitchen with a cooktop and green cabinets',
   'galt.vista_janela': 'View of the Bay of All Saints at sunset from the flat window',
   'galt.banho_redondo': 'Bathroom with a vessel sink and a round mirror',
+  'galt.espumante': "Chilled sparkling wine and glasses by the window overlooking All Saints' Bay",
+  'galt.pier_passarela': 'Pier walkway with the Corredor da Vitória high-rises in the background',
+  'galt.sala_rede': 'Living room with a hammock and dining table in the evening',
+  'galt.box': 'Bathroom with a walk-in shower, rain head and handheld shower in porcelain tile',
   // WhatsApp prefilled message
   'wa.intro': 'Hi! I am interested in a flat at Vitória Marina Flats.', 'wa.type': 'Type', 'wa.cin': 'Check-in', 'wa.cout': 'Check-out', 'wa.guests': 'Guests', 'wa.name': 'Name', 'wa.tbd': 'to be confirmed',
 };

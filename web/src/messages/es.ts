@@ -118,6 +118,10 @@ const es: Record<string, string> = {
   'galt.kit_verde': 'Cocina compacta con vitrocerámica y armarios verdes',
   'galt.vista_janela': 'Vista de la Bahía de Todos los Santos al atardecer desde la ventana del flat',
   'galt.banho_redondo': 'Baño con lavabo sobre encimera y espejo redondo',
+  'galt.espumante': 'Espumante frío y copas en la ventana con vista a la Bahía de Todos los Santos',
+  'galt.pier_passarela': 'Pasarela del muelle con los edificios del Corredor da Vitória al fondo',
+  'galt.sala_rede': 'Sala de estar con hamaca y mesa de comedor al anochecer',
+  'galt.box': 'Baño con ducha tipo box, regadera de techo y ducha de mano en porcelanato',
   // WhatsApp (mensaje precompletado)
   'wa.intro': '¡Hola! Me interesa un flat en Vitória Marina Flats.', 'wa.type': 'Tipo', 'wa.cin': 'Entrada', 'wa.cout': 'Salida', 'wa.guests': 'Huéspedes', 'wa.name': 'Nombre', 'wa.tbd': 'a confirmar',
 };
