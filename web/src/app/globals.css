@@ -58,6 +58,23 @@ body {
   clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
 }
 
+/* Seções "empilhadas": cada uma sobe sobre a anterior com o topo arredondado +
+   sombra, deixando a divisão bem aparente na rolagem. É layout estático (também
+   vale p/ quem usa prefers-reduced-motion; o zoom do conteúdo é que respeita o motion). */
+.section-card {
+  border-top-left-radius: 2.25rem;
+  border-top-right-radius: 2.25rem;
+  margin-top: -2.25rem;
+  box-shadow: 0 -22px 50px -30px rgba(10, 43, 51, 0.22);
+}
+@media (min-width: 768px) {
+  .section-card {
+    border-top-left-radius: 2.75rem;
+    border-top-right-radius: 2.75rem;
+    margin-top: -2.75rem;
+  }
+}
+
 .hero-img {
   filter: saturate(1.05);
 }

@@ -108,7 +108,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
       </section>
 
       {/* BOAS-VINDAS */}
-      <section className="relative isolate">
+      <section className="section-card relative isolate bg-sand-soft">
         <InteractiveBackdrop />
         <RevealSection className="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-28">
           <div className="grid md:grid-cols-12 gap-10 items-start">
@@ -129,7 +129,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
       </section>
 
       {/* LOCALIZAÇÃO */}
-      <section id="localizacao" className="relative isolate bg-sand">
+      <section id="localizacao" className="section-card relative isolate bg-sand">
         <InteractiveBackdrop />
         <RevealSection className="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-28">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -168,7 +168,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
       </section>
 
       {/* PÍER & RESTAURANTE */}
-      <section id="pier">
+      <section id="pier" className="section-card relative isolate bg-sand-soft">
         <RevealSection className="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-28">
           <div className="grid lg:grid-cols-12 gap-6 items-stretch">
             <ParallaxImage
@@ -206,7 +206,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
       </section>
 
       {/* QUARTOS */}
-      <section id="quartos" className="relative isolate">
+      <section id="quartos" className="section-card relative isolate bg-sand">
         <InteractiveBackdrop />
         <RevealSection className="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-28">
           <div className="flex flex-wrap items-end justify-between gap-6 mb-12">
@@ -236,7 +236,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
       </section>
 
       {/* COMODIDADES */}
-      <section id="comodidades" className="relative isolate bg-sea text-sand-soft edge">
+      <section id="comodidades" className="section-card relative isolate bg-sea text-sand-soft">
         <InteractiveBackdrop color="rgba(231, 184, 115, 0.16)" />
         <RevealSection className="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-28">
           <div className="max-w-2xl">
@@ -258,7 +258,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
       </section>
 
       {/* BOM SABER */}
-      <section id="info" className="relative isolate bg-sand">
+      <section id="info" className="section-card relative isolate bg-sand">
         <InteractiveBackdrop />
         <RevealSection className="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-28">
           <div className="max-w-2xl">
@@ -302,7 +302,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
       </section>
 
       {/* DEPOIMENTOS */}
-      <section className="relative isolate">
+      <section className="section-card relative isolate bg-sand-soft">
         <InteractiveBackdrop />
         <RevealSection className="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-28">
           <div className="max-w-2xl mb-12">
@@ -315,7 +315,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
       </section>
 
       {/* CONTATO */}
-      <section id="contato" className="relative isolate bg-sand-deep/60">
+      <section id="contato" className="section-card relative isolate bg-sand-deep">
         <InteractiveBackdrop />
         <RevealSection className="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-28">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
