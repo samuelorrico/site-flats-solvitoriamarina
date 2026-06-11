@@ -315,7 +315,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
       </section>
 
       {/* CONTATO */}
-      <section id="contato" className="section-card relative isolate bg-sand-deep">
+      <section id="contato" className="section-card relative isolate bg-sand">
         <InteractiveBackdrop />
         <RevealSection className="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-28">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
