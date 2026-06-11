@@ -24,8 +24,8 @@ export default function RevealSection({
   });
   const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
   const translateY = useTransform(scrollYProgress, [0, 1], [y, 0]);
-  // Zoom sutil: o conteúdo entra um pouco "menor" e cresce até o tamanho real.
-  const scale = useTransform(scrollYProgress, [0, 1], [0.96, 1]);
+  // Zoom: o conteúdo entra "menor" e cresce até o tamanho real (mais perceptível).
+  const scale = useTransform(scrollYProgress, [0, 1], [0.9, 1]);
 
   return (
     <div ref={ref} className={className}>
