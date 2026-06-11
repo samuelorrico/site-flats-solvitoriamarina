@@ -64,14 +64,14 @@ body {
 .section-card {
   border-top-left-radius: 1.25rem;
   border-top-right-radius: 1.25rem;
-  margin-top: -3rem;
-  box-shadow: 0 -22px 50px -30px rgba(10, 43, 51, 0.22);
+  margin-top: -4rem;
+  box-shadow: 0 -24px 54px -26px rgba(10, 43, 51, 0.3);
 }
 @media (min-width: 768px) {
   .section-card {
     border-top-left-radius: 1.5rem;
     border-top-right-radius: 1.5rem;
-    margin-top: -4.5rem;
+    margin-top: -6rem;
   }
 }
 
