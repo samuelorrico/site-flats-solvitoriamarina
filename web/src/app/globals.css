@@ -58,17 +58,11 @@ body {
   clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
 }
 
-/* Seções "empilhadas": cada uma sobe sobre a anterior com uma sombra de divisão
-   sutil (sem cantos arredondados), deixando a separação aparente na rolagem. Layout
-   estático (vale p/ prefers-reduced-motion; o zoom do conteúdo é que respeita o motion). */
+/* Divisão entre seções: uma sombra sutil no topo de cada seção marca a separação na
+   rolagem (sem cantos arredondados e SEM sobreposição, p/ não comprimir o conteúdo nem
+   cobrir o hero). Layout estático (o zoom do conteúdo é que respeita o reduced-motion). */
 .section-card {
-  margin-top: -4rem;
   box-shadow: 0 -24px 54px -26px rgba(10, 43, 51, 0.3);
-}
-@media (min-width: 768px) {
-  .section-card {
-    margin-top: -6rem;
-  }
 }
 
 .hero-img {
