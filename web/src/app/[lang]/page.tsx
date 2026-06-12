@@ -108,7 +108,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
       </section>
 
       {/* BOAS-VINDAS */}
-      <section className="section-card relative isolate bg-sand-soft">
+      <section className="section-card no-seam-shadow relative isolate bg-sand-soft">
         <InteractiveBackdrop />
         <RevealSection className="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-28">
           <div className="grid md:grid-cols-12 gap-10 items-start">
@@ -236,7 +236,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
       </section>
 
       {/* COMODIDADES */}
-      <section id="comodidades" className="section-card relative isolate bg-sea text-sand-soft">
+      <section id="comodidades" className="section-card no-seam-shadow relative isolate bg-sea text-sand-soft">
         <InteractiveBackdrop color="rgba(231, 184, 115, 0.16)" />
         <RevealSection className="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-28">
           <div className="max-w-2xl">
@@ -258,7 +258,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
       </section>
 
       {/* BOM SABER */}
-      <section id="info" className="section-card relative isolate bg-sand">
+      <section id="info" className="section-card no-seam-shadow relative isolate bg-sand">
         <InteractiveBackdrop />
         <RevealSection className="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-28">
           <div className="max-w-2xl">

@@ -58,21 +58,22 @@ body {
   clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
 }
 
-/* Seções "empilhadas": cada uma sobe sobre a anterior com o topo arredondado +
-   sombra, deixando a divisão bem aparente na rolagem. É layout estático (também
-   vale p/ quem usa prefers-reduced-motion; o zoom do conteúdo é que respeita o motion). */
+/* Seções "empilhadas": cada uma sobe sobre a anterior com uma sombra de divisão
+   (sem cantos arredondados), deixando a separação aparente na rolagem. Layout
+   estático (vale p/ prefers-reduced-motion; o zoom do conteúdo é que respeita o motion). */
 .section-card {
-  border-top-left-radius: 1.25rem;
-  border-top-right-radius: 1.25rem;
   margin-top: -4rem;
-  box-shadow: 0 -24px 54px -26px rgba(10, 43, 51, 0.3);
+  box-shadow: 0 -26px 52px -18px rgba(10, 43, 51, 0.45);
 }
 @media (min-width: 768px) {
   .section-card {
-    border-top-left-radius: 1.5rem;
-    border-top-right-radius: 1.5rem;
     margin-top: -6rem;
   }
+}
+/* Seções cujo topo já tem contraste forte (a 1ª sobre o hero e as transições
+   claro↔escuro da seção do mar) dispensam a sombra de divisão. */
+.section-card.no-seam-shadow {
+  box-shadow: none;
 }
 
 .hero-img {
