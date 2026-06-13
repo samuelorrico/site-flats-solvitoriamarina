@@ -6,6 +6,7 @@ import { locales, htmlLang, isLocale, defaultLocale, type Locale } from '@/i18n-
 import { getDictionary } from '@/dictionaries';
 import { SITE_URL, INDEXABLE } from '@/lib/site';
 import MotionProvider from '@/components/MotionProvider';
+import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 
 const OG_LOCALE: Record<Locale, string> = { pt: 'pt_BR', en: 'en_US', es: 'es_ES' };
 
@@ -74,10 +75,14 @@ export default async function LangLayout({
 }) {
   const { lang } = await params;
   if (!isLocale(lang)) notFound();
+  const dict = getDictionary(lang);
 
   return (
     <html lang={htmlLang[lang]} className={`${fraunces.variable} ${hanken.variable} h-full`}>
-      <body className="min-h-full"><MotionProvider>{children}</MotionProvider></body>
+      <body className="min-h-full">
+        <MotionProvider>{children}</MotionProvider>
+        <FloatingWhatsApp label={dict['priv.contact_cta']} />
+      </body>
     </html>
   );
 }

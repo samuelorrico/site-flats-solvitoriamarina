@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { m, useMotionValue, useSpring, useTransform, useReducedMotion } from 'motion/react';
+import { blurProps } from '@/lib/blur-data';
 
 const guestsIcon = (
   <svg aria-hidden="true" className="w-4 h-4 text-sun-deep" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
@@ -44,6 +45,7 @@ export default function RoomCard({
           src={img}
           alt={alt}
           fill
+          {...blurProps(img)}
           sizes="(min-width:1024px) 25vw, (min-width:640px) 50vw, 100vw"
           className="object-cover transition-transform duration-700 group-hover:scale-[1.06]"
         />

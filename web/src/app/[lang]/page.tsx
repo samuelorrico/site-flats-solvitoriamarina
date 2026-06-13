@@ -14,6 +14,8 @@ import ParallaxImage from '@/components/ParallaxImage';
 import RoomCard from '@/components/RoomCard';
 import RevealSection from '@/components/RevealSection';
 import InteractiveBackdrop from '@/components/InteractiveBackdrop';
+import StatsBand from '@/components/StatsBand';
+import { blurProps } from '@/lib/blur-data';
 
 const amenityIcons: Record<string, React.ReactNode> = {
   wifi: <path strokeLinecap="round" strokeLinejoin="round" d="M5 13s2-2 7-2 7 2 7 2M2 9s4-3 10-3 10 3 10 3M8 17s1.5-1 4-1 4 1 4 1" />,
@@ -96,13 +98,18 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           <HeroBackdrop alt={dict['alt.hero']} />
           <div className="absolute inset-0 bg-gradient-to-b from-sea-deep/55 via-sea-deep/25 to-sea-deep/80" />
           <div className="relative h-full mx-auto max-w-7xl px-5 sm:px-8 flex flex-col justify-center">
-            <p className="text-sand/90 tracking-[0.25em] text-xs sm:text-sm uppercase mb-4">{dict['hero.tag']}</p>
-            <Rich as="h1" html={dict['hero.title']} className="font-display text-sand-soft leading-[0.98] tracking-tightest text-[clamp(2.6rem,7vw,5.5rem)] max-w-4xl text-balance" />
-            <p className="mt-6 text-sand/85 text-lg sm:text-xl max-w-xl font-light text-balance">{dict['hero.subtitle']}</p>
-            <div className="mt-9 flex flex-wrap items-center gap-4">
+            <p className="hero-rise d1 text-sand/90 tracking-[0.25em] text-xs sm:text-sm uppercase mb-4">{dict['hero.tag']}</p>
+            <Rich as="h1" html={dict['hero.title']} className="hero-rise d2 font-display text-sand-soft leading-[0.98] tracking-tightest text-[clamp(2.6rem,7vw,5.5rem)] max-w-4xl text-balance" />
+            <p className="hero-rise d3 mt-6 text-sand/85 text-lg sm:text-xl max-w-xl font-light text-balance">{dict['hero.subtitle']}</p>
+            <div className="hero-rise d4 mt-9 flex flex-wrap items-center gap-4">
               <a href="#quartos" className="bg-sand-soft text-sea-deep font-semibold px-7 py-3.5 rounded-full hover:bg-white transition-colors">{dict['hero.cta1']}</a>
               <a href="#contato" className="inline-flex items-center gap-1.5 border border-sand-soft/50 text-sand-soft font-semibold px-6 py-3.5 rounded-full hover:bg-sand-soft/10 transition-colors">{dict['hero.cta2']}</a>
             </div>
+          </div>
+          <div aria-hidden className="hero-rise d4 pointer-events-none absolute inset-x-0 bottom-7 flex justify-center">
+            <svg className="hero-cue h-6 w-6 text-sand-soft/70" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 9l6 6 6-6" />
+            </svg>
           </div>
         </div>
       </section>
@@ -124,6 +131,15 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
                 ))}
               </div>
             </div>
+          </div>
+          <div className="mt-14 sm:mt-16 border-t border-ink/10 pt-10 sm:pt-12">
+            <StatsBand
+              stats={[
+                { value: 24, suffix: 'h', label: dict['stats.l1'] },
+                { value: 3, label: dict['stats.l2'] },
+                { value: 5, suffix: ' min', label: dict['stats.l3'] },
+              ]}
+            />
           </div>
         </RevealSection>
       </section>
@@ -186,14 +202,14 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
             </ParallaxImage>
             <div className="lg:col-span-5 grid sm:grid-cols-2 lg:grid-cols-1 gap-6">
               <div className="relative overflow-hidden rounded-[2rem] min-h-[180px] group">
-                <Image src="/images/bondinho.jpg" alt={dict['alt.bondinho']} fill sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                <Image src="/images/bondinho.jpg" alt={dict['alt.bondinho']} fill {...blurProps('/images/bondinho.jpg')} sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-sea-deep/35" />
                 <div className="relative p-6 flex items-end h-full">
                   <Rich as="p" html={dict['pier.bondinho']} className="text-sand-soft font-display text-xl leading-snug" />
                 </div>
               </div>
               <div className="relative overflow-hidden rounded-[2rem] min-h-[180px] group">
-                <Image src="/images/pier-restaurante.jpg" alt={dict['pier.restaurant']} fill sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                <Image src="/images/pier-restaurante.jpg" alt={dict['pier.restaurant']} fill {...blurProps('/images/pier-restaurante.jpg')} sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-sea-deep/85 via-sea-deep/30 to-transparent" />
                 <div className="relative p-6 flex items-end h-full">
                   <Rich as="p" html={dict['pier.restaurant']} className="text-sand-soft font-display text-xl leading-snug" />

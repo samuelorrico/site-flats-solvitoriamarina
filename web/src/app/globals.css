@@ -65,6 +65,72 @@ body {
   box-shadow: 0 -24px 54px -26px rgba(10, 43, 51, 0.3);
 }
 
+/* Entrada encadeada do hero (CSS puro — o LCP é a imagem de fundo, não o texto). */
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.hero-rise {
+  animation: hero-rise 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.hero-rise.d1 {
+  animation-delay: 0.05s;
+}
+.hero-rise.d2 {
+  animation-delay: 0.18s;
+}
+.hero-rise.d3 {
+  animation-delay: 0.34s;
+}
+.hero-rise.d4 {
+  animation-delay: 0.5s;
+}
+
+/* Indicador de "role para baixo" no rodapé do hero. */
+@keyframes scroll-cue {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(7px);
+    opacity: 1;
+  }
+}
+.hero-cue {
+  animation: scroll-cue 1.9s ease-in-out infinite;
+}
+
+/* Pop-in do botão flutuante de WhatsApp. */
+@keyframes fab-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.fab-pop {
+  animation: fab-pop 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.6s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-rise,
+  .hero-cue,
+  .fab-pop {
+    animation: none;
+  }
+}
+
 .hero-img {
   filter: saturate(1.05);
 }

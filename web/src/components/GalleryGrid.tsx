@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Image from 'next/image';
 import { m, AnimatePresence, useReducedMotion } from 'motion/react';
+import { blurProps } from '@/lib/blur-data';
 
 export type Photo = { src: string; alt: string; w: number; h: number; cat: string };
 type Labels = { close: string; prev: string; next: string };
@@ -107,6 +108,7 @@ export default function GalleryGrid({
               alt={p.alt}
               width={p.w}
               height={p.h}
+              {...blurProps(p.src)}
               sizes="(min-width:768px) 33vw, 50vw"
               className="w-full h-auto transition-transform duration-500 ease-out group-hover:scale-[1.09]"
             />

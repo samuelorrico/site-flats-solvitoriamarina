@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import Image from 'next/image';
 import { m, useScroll, useTransform, useReducedMotion } from 'motion/react';
+import { blurProps } from '@/lib/blur-data';
 
 // Imagem que desloca levemente conforme a rolagem (parallax sutil).
 export default function ParallaxImage({
@@ -31,7 +32,7 @@ export default function ParallaxImage({
   return (
     <div ref={ref} className={`relative overflow-hidden ${className}`}>
       <m.div style={reduce ? undefined : { y }} className="absolute inset-[-8%] will-change-transform">
-        <Image src={src} alt={alt} fill sizes={sizes} className={`object-cover ${imgClassName}`} />
+        <Image src={src} alt={alt} fill {...blurProps(src)} sizes={sizes} className={`object-cover ${imgClassName}`} />
       </m.div>
       {children}
     </div>

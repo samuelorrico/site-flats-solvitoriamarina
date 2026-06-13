@@ -12,6 +12,7 @@ const en: Record<string, string> = {
   'welcome.title': 'A quiet little corner of Salvador, by the sea and close to everything.',
   'welcome.body': 'In the heart of Corredor da Vitória, <strong class="font-medium text-ink">Vitória Marina Flats</strong> brings together what really matters on a trip: bay views, safety, comfort and the city right next to you. Each flat is set up with care so you feel at home, whether you are here for leisure or work.',
   'welcome.chip1': 'Bay view', 'welcome.chip2': '24h reception', 'welcome.chip3': '5 min from Barra',
+  'stats.l1': 'Front desk & convenience', 'stats.l2': 'Languages we speak', 'stats.l3': 'From Porto da Barra beach',
   'loc.label': 'The location', 'loc.title': 'Where the city meets the sea',
   'loc.body': "Corredor da Vitória is one of Salvador's most upscale neighborhoods: leafy, safe and right above All Saints' Bay. You are close to the Barra Lighthouse, Bahia Marina, museums, restaurants and malls.",
   'loc.poi1t': 'Porto da Barra Beach', 'loc.poi1s': "~2 km · one of the city's best",

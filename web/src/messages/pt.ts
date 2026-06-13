@@ -12,6 +12,7 @@ const pt: Record<string, string> = {
   'welcome.title': 'Um cantinho tranquilo de Salvador, à beira-mar e perto de tudo.',
   'welcome.body': 'No coração do Corredor da Vitória, o <strong class="font-medium text-ink">Vitória Marina Flats</strong> reúne o que faz diferença numa viagem: vista para a baía, segurança, conforto e a cidade do seu lado. Cada flat é preparado com carinho para você se sentir em casa, seja a passeio ou a trabalho.',
   'welcome.chip1': 'Vista para a baía', 'welcome.chip2': 'Recepção 24h', 'welcome.chip3': 'A 5 min da Barra',
+  'stats.l1': 'Recepção e conveniência', 'stats.l2': 'Idiomas no atendimento', 'stats.l3': 'Da Praia do Porto da Barra',
   'loc.label': 'A localização', 'loc.title': 'Onde a cidade encontra o mar',
   'loc.body': 'O Corredor da Vitória é um dos endereços mais nobres de Salvador: arborizado, seguro e debruçado sobre a Baía de Todos os Santos. Você fica pertinho do Farol da Barra, da Bahia Marina, de museus, restaurantes e shoppings.',
   'loc.poi1t': 'Praia do Porto da Barra', 'loc.poi1s': '~2 km · uma das melhores da cidade',
