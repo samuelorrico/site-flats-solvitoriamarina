@@ -30,7 +30,7 @@ export default function PierStory({ steps }: { steps: PierStep[] }) {
   return (
     <div className="relative lg:grid lg:grid-cols-2 lg:gap-16">
       {/* Imagem fixa (sticky) com cross-fade: ao fundo no mobile, coluna esquerda no desktop */}
-      <div className="sticky top-16 z-0 -mb-[78svh] h-[78svh] overflow-hidden rounded-[1.5rem] shadow-sm lg:top-24 lg:mb-0 lg:h-[72vh] lg:rounded-[2rem]">
+      <div className="sticky top-16 z-0 -mb-[86svh] h-[86svh] overflow-hidden rounded-[1.5rem] shadow-sm lg:top-24 lg:mb-0 lg:h-[72vh] lg:rounded-[2rem]">
         {steps.map((s, i) => (
           <Image
             key={s.img}
@@ -40,7 +40,7 @@ export default function PierStory({ steps }: { steps: PierStep[] }) {
             priority={i === 0}
             {...blurProps(s.img)}
             sizes="(min-width: 1024px) 50vw, 100vw"
-            className={`object-cover transition-opacity duration-700 ${i === active ? 'opacity-100' : 'opacity-0'}`}
+            className={`object-cover transition-opacity duration-1000 ${i === active ? 'opacity-100' : 'opacity-0'}`}
           />
         ))}
         {/* Escurece a base no mobile p/ legibilidade da legenda; leve no desktop */}
@@ -64,7 +64,7 @@ export default function PierStory({ steps }: { steps: PierStep[] }) {
             ref={(el) => {
               refs.current[i] = el;
             }}
-            className="flex min-h-[78svh] flex-col justify-end pb-[11vh] lg:min-h-[80vh] lg:justify-center lg:pb-0"
+            className="flex min-h-[100svh] flex-col justify-end pb-[14vh] lg:min-h-[80vh] lg:justify-center lg:pb-0"
           >
             <div className="rounded-2xl bg-sea-deep/45 p-5 backdrop-blur-md lg:rounded-none lg:bg-transparent lg:p-0 lg:backdrop-blur-none">
               <p className="font-display text-5xl leading-none text-sun-light lg:text-sun-deep/80">{String(i + 1).padStart(2, '0')}</p>
