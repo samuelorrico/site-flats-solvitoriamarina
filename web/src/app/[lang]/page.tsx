@@ -210,13 +210,10 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
       <section id="quartos" className="section-card relative isolate bg-sand">
         <InteractiveBackdrop />
         <RevealSection className="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-28">
-          <div className="flex flex-wrap items-end justify-between gap-6 mb-12">
-            <div className="max-w-xl">
-              <p className="text-sun-label font-medium tracking-widest text-xs uppercase mb-5">{dict['rooms.label']}</p>
-              <h2 className="font-display text-[clamp(1.9rem,4vw,3rem)] leading-tight tracking-tightest text-sea text-balance">{dict['rooms.title']}</h2>
-              <Rich as="p" html={dict['rooms.intro']} className="mt-4 text-ink/65 font-light" />
-            </div>
-            <Link href={`/${lang}/galeria`} className="text-sea font-semibold underline-grow">{dict['rooms.gallery_link']}</Link>
+          <div className="max-w-xl mb-12">
+            <p className="text-sun-label font-medium tracking-widest text-xs uppercase mb-5">{dict['rooms.label']}</p>
+            <h2 className="font-display text-[clamp(1.9rem,4vw,3rem)] leading-tight tracking-tightest text-sea text-balance">{dict['rooms.title']}</h2>
+            <Rich as="p" html={dict['rooms.intro']} className="mt-4 text-ink/65 font-light" />
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {rooms.map((r) => (
@@ -233,6 +230,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
             ))}
           </div>
           <p className="mt-8 text-sm text-ink/70">{dict['rooms.note']}</p>
+          <Link href={`/${lang}/galeria`} className="mt-2 inline-block text-sea font-semibold underline-grow">{dict['rooms.gallery_link']}</Link>
         </RevealSection>
       </section>
 
