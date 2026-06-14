@@ -46,12 +46,12 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
   const dict = getDictionary(lang);
 
   const rooms = [
-    { img: '/images/quarto-casal-mar.jpg', badge: dict['rooms.badge_sea'], badgeSea: true, title: dict['rooms.quad'] },
-    { img: '/images/quarto-casal-avenida.jpg', badge: dict['rooms.badge_avenue'], badgeSea: false, title: dict['rooms.quad'] },
-    { img: '/images/quarto-triplo-mar.jpg', badge: dict['rooms.badge_sea'], badgeSea: true, title: dict['rooms.triple'] },
-    { img: '/images/quarto-triplo-avenida.jpg', badge: dict['rooms.badge_avenue'], badgeSea: false, title: dict['rooms.triple'] },
-    { img: '/images/quarto-quadruplo-mar.jpg', badge: dict['rooms.badge_sea'], badgeSea: true, title: dict['rooms.quadruple'] },
-    { img: '/images/quarto-quadruplo-avenida.jpg', badge: dict['rooms.badge_avenue'], badgeSea: false, title: dict['rooms.quadruple'] },
+    { img: '/images/quarto-casal-mar.jpg', badge: dict['rooms.badge_sea'], badgeSea: true, title: dict['rooms.quad'], unit: dict['form.opt1'] },
+    { img: '/images/quarto-casal-avenida.jpg', badge: dict['rooms.badge_avenue'], badgeSea: false, title: dict['rooms.quad'], unit: dict['form.opt2'] },
+    { img: '/images/quarto-triplo-mar.jpg', badge: dict['rooms.badge_sea'], badgeSea: true, title: dict['rooms.triple'], unit: dict['form.opt3'] },
+    { img: '/images/quarto-triplo-avenida.jpg', badge: dict['rooms.badge_avenue'], badgeSea: false, title: dict['rooms.triple'], unit: dict['form.opt4'] },
+    { img: '/images/quarto-quadruplo-mar.jpg', badge: dict['rooms.badge_sea'], badgeSea: true, title: dict['rooms.quadruple'], unit: dict['form.opt5'] },
+    { img: '/images/quarto-quadruplo-avenida.jpg', badge: dict['rooms.badge_avenue'], badgeSea: false, title: dict['rooms.quadruple'], unit: dict['form.opt6'] },
   ];
 
   const houseRules = [
@@ -226,6 +226,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
                 title={r.title}
                 guests={dict['rooms.guests']}
                 cta={dict['rooms.cta']}
+                unit={r.unit}
               />
             ))}
           </div>

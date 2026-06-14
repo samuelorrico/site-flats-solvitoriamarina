@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useSyncExternalStore } from 'react';
+import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import Link from 'next/link';
 import type { Dict } from '@/dictionaries';
 import type { Locale } from '@/i18n-config';
@@ -20,6 +20,27 @@ export default function QualForm({ lang, dict }: { lang: Locale; dict: Dict }) {
   const [checkin, setCheckin] = useState('');
   const [checkout, setCheckout] = useState('');
   const [error, setError] = useState('');
+  // Unidade de interesse: controlada para que os cards de quarto possam pré-selecioná-la.
+  const [unit, setUnit] = useState(dict['form.opt1']);
+  const [flash, setFlash] = useState(false); // realce breve quando vem de um card
+  const flashTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Cada RoomCard dispara 'vmf:select-unit' com o rótulo da opção ao ser clicado.
+  useEffect(() => {
+    const onSelectUnit = (e: Event) => {
+      const detail = (e as CustomEvent<string>).detail;
+      if (!detail) return;
+      setUnit(detail);
+      setFlash(true);
+      if (flashTimer.current) clearTimeout(flashTimer.current);
+      flashTimer.current = setTimeout(() => setFlash(false), 1400);
+    };
+    window.addEventListener('vmf:select-unit', onSelectUnit as EventListener);
+    return () => {
+      window.removeEventListener('vmf:select-unit', onSelectUnit as EventListener);
+      if (flashTimer.current) clearTimeout(flashTimer.current);
+    };
+  }, []);
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -50,7 +71,12 @@ export default function QualForm({ lang, dict }: { lang: Locale; dict: Dict }) {
       <div className="grid gap-5">
         <label className="block">
           <span className="text-sm font-medium text-ink/70">{dict['form.unit']}</span>
-          <select name="unit" className={fieldClass}>
+          <select
+            name="unit"
+            value={unit}
+            onChange={(e) => setUnit(e.target.value)}
+            className={`${fieldClass} transition-shadow ${flash ? 'border-sun ring-2 ring-sun/60' : ''}`}
+          >
             <option>{dict['form.opt1']}</option>
             <option>{dict['form.opt2']}</option>
             <option>{dict['form.opt3']}</option>

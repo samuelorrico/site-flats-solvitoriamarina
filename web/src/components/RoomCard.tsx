@@ -11,9 +11,9 @@ const guestsIcon = (
 );
 
 export default function RoomCard({
-  img, alt, badge, badgeSea, title, guests, cta,
+  img, alt, badge, badgeSea, title, guests, cta, unit,
 }: {
-  img: string; alt: string; badge: string; badgeSea: boolean; title: string; guests: string; cta: string;
+  img: string; alt: string; badge: string; badgeSea: boolean; title: string; guests: string; cta: string; unit: string;
 }) {
   const reduce = useReducedMotion();
   const mx = useMotionValue(0);
@@ -56,7 +56,8 @@ export default function RoomCard({
       {/* CTA discreto: link de texto que torna o card inteiro clicável (stretched link) */}
       <a
         href="#contato"
-        aria-label={`${cta}: ${title} · ${guests}`}
+        onClick={() => window.dispatchEvent(new CustomEvent('vmf:select-unit', { detail: unit }))}
+        aria-label={`${title} · ${badge}: ${cta}`}
         className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-sea rounded-sm transition-colors group-hover:text-sea-deep after:absolute after:inset-0 after:rounded-3xl after:content-[''] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sea"
       >
         <span>{cta}</span>
