@@ -33,7 +33,7 @@ export default function RoomCard({
 
   return (
     <m.article
-      className="group"
+      className="group relative"
       onMouseMove={reduce ? undefined : handleMove}
       onMouseLeave={reduce ? undefined : handleLeave}
       style={reduce ? undefined : { rotateX, rotateY, transformPerspective: 900 }}
@@ -53,7 +53,17 @@ export default function RoomCard({
       </div>
       <h3 className="mt-4 font-display text-xl text-sea tracking-tight">{title}</h3>
       <p className="text-ink/70 text-sm mt-1.5 flex items-center gap-2">{guestsIcon} <span>{guests}</span></p>
-      <a href="#contato" className="mt-4 inline-flex items-center gap-1.5 bg-sea text-sand-soft text-sm font-semibold px-4 py-2.5 rounded-full hover:bg-sea-light transition-colors">{cta}</a>
+      {/* CTA discreto: link de texto que torna o card inteiro clicável (stretched link) */}
+      <a
+        href="#contato"
+        aria-label={`${cta}: ${title} · ${guests}`}
+        className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-sea rounded-sm transition-colors group-hover:text-sea-deep after:absolute after:inset-0 after:rounded-3xl after:content-[''] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sea"
+      >
+        <span>{cta}</span>
+        <svg aria-hidden="true" className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M13 6l6 6-6 6" />
+        </svg>
+      </a>
     </m.article>
   );
 }
