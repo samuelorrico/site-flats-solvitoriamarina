@@ -110,7 +110,7 @@ export default async function Galeria({ params }: { params: Promise<{ lang: stri
 
         <div className="reveal mt-14 text-center">
           <p className="font-display text-2xl text-sea mb-5">{dict['g.cta_title']}</p>
-          <Link href={`/${lang}#contato`} className="inline-flex items-center gap-2 bg-sun text-sea-deep font-semibold px-6 py-3.5 rounded-full hover:bg-sun-light transition-colors">
+          <Link href={`/${lang}#contato`} className="btn-shine inline-flex items-center gap-2 bg-sun text-sea-deep font-semibold px-6 py-3.5 rounded-full hover:bg-sun-light transition-colors">
             {dict['g.cta']}
           </Link>
         </div>

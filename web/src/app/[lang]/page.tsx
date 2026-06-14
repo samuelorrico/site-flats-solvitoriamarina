@@ -1,6 +1,5 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import Image from 'next/image';
 import { isLocale } from '@/i18n-config';
 import { getDictionary } from '@/dictionaries';
 import { ADDRESS, MAPS_EMBED, MAPS_LINK, SITE_URL, INSTAGRAM, WA_PHONE, EMAIL, POSTAL_CODE } from '@/lib/site';
@@ -15,7 +14,9 @@ import RoomCard from '@/components/RoomCard';
 import RevealSection from '@/components/RevealSection';
 import InteractiveBackdrop from '@/components/InteractiveBackdrop';
 import StatsBand from '@/components/StatsBand';
-import { blurProps } from '@/lib/blur-data';
+import Magnetic from '@/components/Magnetic';
+import BookingBar from '@/components/BookingBar';
+import PierStory from '@/components/PierStory';
 
 const amenityIcons: Record<string, React.ReactNode> = {
   wifi: <path strokeLinecap="round" strokeLinejoin="round" d="M5 13s2-2 7-2 7 2 7 2M2 9s4-3 10-3 10 3 10 3M8 17s1.5-1 4-1 4 1 4 1" />,
@@ -102,8 +103,12 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
             <Rich as="h1" html={dict['hero.title']} className="hero-rise d2 font-display text-sand-soft leading-[0.98] tracking-tightest text-[clamp(2.6rem,7vw,5.5rem)] max-w-4xl text-balance" />
             <p className="hero-rise d3 mt-6 text-sand/85 text-lg sm:text-xl max-w-xl font-light text-balance">{dict['hero.subtitle']}</p>
             <div className="hero-rise d4 mt-9 flex flex-wrap items-center gap-4">
-              <a href="#quartos" className="bg-sand-soft text-sea-deep font-semibold px-7 py-3.5 rounded-full hover:bg-white transition-colors">{dict['hero.cta1']}</a>
-              <a href="#contato" className="inline-flex items-center gap-1.5 border border-sand-soft/50 text-sand-soft font-semibold px-6 py-3.5 rounded-full hover:bg-sand-soft/10 transition-colors">{dict['hero.cta2']}</a>
+              <Magnetic>
+                <a href="#quartos" className="btn-shine bg-sand-soft text-sea-deep font-semibold px-7 py-3.5 rounded-full hover:bg-white transition-colors">{dict['hero.cta1']}</a>
+              </Magnetic>
+              <Magnetic>
+                <a href="#contato" className="inline-flex items-center gap-1.5 border border-sand-soft/50 text-sand-soft font-semibold px-6 py-3.5 rounded-full hover:bg-sand-soft/10 transition-colors">{dict['hero.cta2']}</a>
+              </Magnetic>
             </div>
           </div>
           <div aria-hidden className="hero-rise d4 pointer-events-none absolute inset-x-0 bottom-7 flex justify-center">
@@ -183,42 +188,22 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         </RevealSection>
       </section>
 
-      {/* PÍER & RESTAURANTE */}
+      {/* PÍER & RESTAURANTE — scrollytelling */}
       <section id="pier" className="section-card relative isolate bg-sand-soft">
-        <RevealSection className="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-28">
-          <div className="grid lg:grid-cols-12 gap-6 items-stretch">
-            <ParallaxImage
-              src="/images/pier-panoramica.jpg"
-              alt={dict['alt.pier']}
-              sizes="(min-width:1024px) 58vw, 100vw"
-              className="lg:col-span-7 rounded-[2rem] min-h-[360px]"
-            >
-              <div className="absolute inset-0 bg-gradient-to-t from-sea-deep/80 via-sea-deep/15 to-transparent" />
-              <div className="relative h-full flex flex-col justify-end p-8 sm:p-10">
-                <p className="text-sand/90 tracking-[0.22em] text-xs uppercase mb-3">{dict['pier.label']}</p>
-                <h2 className="font-display text-sand-soft text-[clamp(2rem,4.2vw,3.2rem)] leading-[1.02] tracking-tightest max-w-md text-balance">{dict['pier.title']}</h2>
-                <p className="mt-4 text-sand/85 font-light max-w-md">{dict['pier.subtitle']}</p>
-              </div>
-            </ParallaxImage>
-            <div className="lg:col-span-5 grid sm:grid-cols-2 lg:grid-cols-1 gap-6">
-              <div className="relative overflow-hidden rounded-[2rem] min-h-[180px] group">
-                <Image src="/images/bondinho.jpg" alt={dict['alt.bondinho']} fill {...blurProps('/images/bondinho.jpg')} sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-sea-deep/35" />
-                <div className="relative p-6 flex items-end h-full">
-                  <Rich as="p" html={dict['pier.bondinho']} className="text-sand-soft font-display text-xl leading-snug" />
-                </div>
-              </div>
-              <div className="relative overflow-hidden rounded-[2rem] min-h-[180px] group">
-                <Image src="/images/pier-restaurante.jpg" alt={dict['pier.restaurant']} fill {...blurProps('/images/pier-restaurante.jpg')} sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-sea-deep/85 via-sea-deep/30 to-transparent" />
-                <div className="relative p-6 flex items-end h-full">
-                  <Rich as="p" html={dict['pier.restaurant']} className="text-sand-soft font-display text-xl leading-snug" />
-                </div>
-              </div>
-            </div>
+        <div className="mx-auto max-w-7xl px-5 sm:px-8 py-20 sm:py-28">
+          <div className="max-w-2xl mb-10 sm:mb-16">
+            <p className="text-sun-label font-medium tracking-widest text-xs uppercase mb-5">{dict['pier.label']}</p>
+            <h2 className="font-display text-[clamp(1.9rem,4vw,3rem)] leading-tight tracking-tightest text-sea text-balance">{dict['pier.title']}</h2>
+            <Rich as="p" html={dict['pier.body']} className="mt-4 text-ink/70 text-lg font-light max-w-xl" />
           </div>
-          <Rich as="p" html={dict['pier.body']} className="mt-7 text-ink/70 text-lg font-light max-w-3xl" />
-        </RevealSection>
+          <PierStory
+            steps={[
+              { t: dict['pier.step1_t'], b: dict['pier.step1_b'], img: '/images/bondinho.jpg', alt: dict['alt.bondinho'] },
+              { t: dict['pier.step2_t'], b: dict['pier.step2_b'], img: '/images/pier-tobogan.jpg', alt: dict['galt.tobogan'] },
+              { t: dict['pier.step3_t'], b: dict['pier.step3_b'], img: '/images/pier-restaurante.jpg', alt: dict['galt.pier_rest'] },
+            ]}
+          />
+        </div>
       </section>
 
       {/* QUARTOS */}
@@ -349,6 +334,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         </RevealSection>
       </section>
 
+      <BookingBar cta={dict['rooms.cta']} note={dict['contact.chip1']} />
       <Footer lang={lang} dict={dict} />
     </>
   );
