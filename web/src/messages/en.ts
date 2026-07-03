@@ -95,7 +95,6 @@ const en: Record<string, string> = {
   'galt.pier_pano': 'Panoramic view of the Mahi Mahi pier',
   'galt.bondinho_trilho': 'Funicular track descending the hillside to the Mahi Mahi Pier, with All Saints Bay in the background',
   'galt.pier_cristalina': 'Crystal-clear water at the Mahi Mahi Pier, with a jet ski and swimmers and the Corredor da Vitória towers behind',
-  'galt.mahi_entardecer': 'Deck of the Mahi Mahi Bar & Restaurant at dusk, with tables facing the bay',
   'galt.pier_rest': 'Mahi Mahi Bar & Restaurant on the pier, with tables and a sea view',
   'galt.bondinho': 'Funicular going down to the pier',
   'galt.pier_sunset': 'The pier at sunset with the water slide',

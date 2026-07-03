@@ -13,7 +13,6 @@ export const BLUR: Record<string, string> = {
   "/images/kitchenette-branca.jpg": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAACQAQCdASoMABAAA8BgJQBOgAtA/YAA/ooJ7eBWs9ZtdtD6D+t/OzhRcOroHiv/7jTmrD6xJxrQqUDMBAA=",
   "/images/kitchenette-pia.jpg": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADQAQCdASoMABAAA8BgJYgCdAB8dDsxgAD2J3Pb4lkwwmkVwzGO15DEpDXybIUBup06f3qYP/egAA==",
   "/images/kitchenette-verde.jpg": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAACwAQCdASoHABAAA8BgJQBOgCPtYSj4AMyIhpvagWFhSt00/27AfBQK9B9QfFm6kQAAAA==",
-  "/images/mahi-mahi-entardecer.jpg": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADwAQCdASoQAAsAA8BgJYwCdAENdgZtggAA/uYLuxjZtvKgpZJFC3LPNKOByT5zJnlz67zCIsSnagAA",
   "/images/mahi-mahi-letreiro.jpg": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAAAwAgCdASoMABAAA8BgJaACdAEVvIzc3shZAAD6mOXumN2EED9tHHlmTttCkmhQvTts1QAA",
   "/images/mar-vegetacao.jpg": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAADQAQCdASoMABAAA8BgJYwCdAD0kOkmcAD+8Rr0R2KMB0kLa8HryLkuIpoYNQUeJnPhpAAA",
   "/images/pier-agua-cristalina.jpg": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADQAQCdASoMABAAA8BgJbACdADaP6K7EgD9Kl/eZvp7MlJYaOqaLnc1aHoE7jefOm4RrKCw7ij7MQIugAA=",

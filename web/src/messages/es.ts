@@ -95,7 +95,6 @@ const es: Record<string, string> = {
   'galt.pier_pano': 'Vista panorámica del muelle Mahi Mahi',
   'galt.bondinho_trilho': 'Vía del funicular bajando la ladera hasta el Muelle Mahi Mahi, con la Bahía de Todos los Santos al fondo',
   'galt.pier_cristalina': 'Agua cristalina en el Muelle Mahi Mahi, con jet ski y bañistas y los edificios del Corredor da Vitória detrás',
-  'galt.mahi_entardecer': 'Terraza del Mahi Mahi Bar y Restaurante al atardecer, con mesas frente a la bahía',
   'galt.pier_rest': 'Mahi Mahi Bar y Restaurante en el muelle, con mesas y vista al mar',
   'galt.bondinho': 'Funicular bajando hasta el muelle',
   'galt.pier_sunset': 'El muelle al atardecer con el tobogán',

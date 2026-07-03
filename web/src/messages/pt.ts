@@ -95,7 +95,6 @@ const pt: Record<string, string> = {
   'galt.pier_pano': 'Vista panorâmica do píer Mahi Mahi',
   'galt.bondinho_trilho': 'Trilho do bondinho descendo a encosta até o Píer Mahi Mahi, com a Baía de Todos os Santos ao fundo',
   'galt.pier_cristalina': 'Água cristalina no Píer Mahi Mahi, com jet ski e banhistas e os prédios do Corredor da Vitória ao fundo',
-  'galt.mahi_entardecer': 'Deck do Mahi Mahi Bar e Restaurante ao entardecer, com mesas de frente para a baía',
   'galt.pier_rest': 'Mahi Mahi Bar e Restaurante no píer, com mesas e vista para o mar',
   'galt.bondinho': 'Bondinho descendo até o píer',
   'galt.pier_sunset': 'Píer ao pôr do sol com tobogã',
