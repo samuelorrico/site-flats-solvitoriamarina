@@ -198,9 +198,9 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           </div>
           <PierStory
             steps={[
-              { t: dict['pier.step1_t'], b: dict['pier.step1_b'], img: '/images/bondinho.jpg', alt: dict['alt.bondinho'] },
-              { t: dict['pier.step2_t'], b: dict['pier.step2_b'], img: '/images/pier-tobogan.jpg', alt: dict['galt.tobogan'] },
-              { t: dict['pier.step3_t'], b: dict['pier.step3_b'], img: '/images/pier-restaurante.jpg', alt: dict['galt.pier_rest'] },
+              { t: dict['pier.step1_t'], b: dict['pier.step1_b'], img: '/images/pier-bondinho-trilho.jpg', alt: dict['galt.bondinho_trilho'] },
+              { t: dict['pier.step2_t'], b: dict['pier.step2_b'], img: '/images/pier-agua-cristalina.jpg', alt: dict['galt.pier_cristalina'] },
+              { t: dict['pier.step3_t'], b: dict['pier.step3_b'], img: '/images/mahi-mahi-entardecer.jpg', alt: dict['galt.mahi_entardecer'] },
             ]}
           />
         </div>
