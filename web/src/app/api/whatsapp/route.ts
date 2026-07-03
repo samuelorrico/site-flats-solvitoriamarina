@@ -2,9 +2,21 @@
 // GET  = verificação do webhook pela Meta.
 // POST = recebe mensagens; responde 200 NA HORA e processa em after() (Meta não re-tenta).
 import { after } from 'next/server';
+import crypto from 'node:crypto';
 import { cfg } from '@/lib/whatsapp/config';
 import { parseIncoming } from '@/lib/whatsapp/meta';
 import { processMessage } from '@/lib/whatsapp/conversation';
+
+// Valida a assinatura HMAC-SHA256 da Meta (X-Hub-Signature-256 = 'sha256=' + hmac(appSecret, corpo)).
+// Se META_APP_SECRET não estiver setado, não bloqueia (mantém a base inerte até configurar).
+function validSignature(raw: string, header: string | null): boolean {
+  if (!cfg.appSecret) return true;
+  if (!header) return false;
+  const expected = 'sha256=' + crypto.createHmac('sha256', cfg.appSecret).update(raw).digest('hex');
+  const a = Buffer.from(header);
+  const b = Buffer.from(expected);
+  return a.length === b.length && crypto.timingSafeEqual(a, b);
+}
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -25,7 +37,8 @@ export async function GET(req: Request) {
       groqKey: !!cfg.groqKey,
       anthropicKey: !!cfg.anthropicKey,
       upstash: !!(cfg.upstashUrl && cfg.upstashToken),
-      build: 'v4',
+      appSecret: !!cfg.appSecret,
+      build: 'v5',
     });
   }
 
@@ -39,9 +52,16 @@ export async function GET(req: Request) {
 }
 
 export async function POST(req: Request) {
+  const raw = await req.text().catch(() => '');
+
+  // T-03: rejeita corpos não assinados pela Meta (forjados). Requisição legítima nunca cai aqui.
+  if (!validSignature(raw, req.headers.get('x-hub-signature-256'))) {
+    return new Response('Invalid signature', { status: 401 });
+  }
+
   let body: unknown = null;
   try {
-    body = await req.json();
+    body = JSON.parse(raw);
   } catch {
     // corpo inválido — ignora, mas ainda responde 200
   }
