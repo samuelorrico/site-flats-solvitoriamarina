@@ -6,7 +6,7 @@ import { askAI } from './ai';
 import { systemPrompt } from './knowledge';
 import { parseLead, leadContext } from './lead';
 import { sendText } from './meta';
-import { shouldEscalate, notifyOwner } from './escalation';
+import { shouldEscalate, notifyOwner, parseEscalation } from './escalation';
 
 // Instruções extras só da 1ª mensagem: apresentação + aviso LGPD (T-06), no idioma do hóspede.
 const FIRST_TURN =
@@ -29,21 +29,28 @@ export async function processMessage(from: string, text: string, name?: string):
       if (lead) system += `\n\n${leadContext(lead)}`;
     }
 
-    let reply: string;
+    let raw: string;
     try {
-      reply = await askAI(system, messages);
+      raw = await askAI(system, messages);
     } catch (e) {
       console.error('[wa] IA falhou:', e);
-      reply = 'Oi! Recebi sua mensagem 😊 Já te respondo.'; // fallback gracioso
+      raw = 'Oi! Recebi sua mensagem 😊 Já te respondo.'; // fallback gracioso
     }
+
+    // A IA decide o escalonamento pelo marcador [[ESCALAR: ...]] (T-04). Remove-o antes de enviar.
+    const { clean, reason } = parseEscalation(raw);
+    const reply = clean || 'Vou confirmar isso com a proprietária e já te retorno. 🙏';
 
     if (reply) {
       await sendText(from, reply);
       await store.save(from, [...messages, { role: 'assistant', content: reply }]);
     }
 
-    if (shouldEscalate(text)) {
-      await notifyOwner(from, name, text).catch((e) => console.error('[wa] escalonamento falhou:', e));
+    // Escala se a IA pediu (marcador) OU, como rede de segurança, se a heurística bater.
+    if (reason !== null || shouldEscalate(text)) {
+      await notifyOwner(from, name, text, reason ?? undefined).catch((e) =>
+        console.error('[wa] escalonamento falhou:', e),
+      );
     }
   } catch (e) {
     console.error('[wa] processMessage erro:', e);
