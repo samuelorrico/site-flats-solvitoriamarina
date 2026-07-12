@@ -2,7 +2,10 @@
 // Placeholders LQIP (blur-up) p/ o next/image: a foto surge de um desfoque em vez de "pular".
 export const BLUR: Record<string, string> = {
   "/images/areas-comuns-aerea.jpg": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAADwAQCdASoLABAAA8BgJagCdADyg4oOtIAAzdWDVJra9Q0ZVunQJ9JNqk7eazyGaWtSdBsAAAA=",
+  "/images/banheiro-bancada-dupla.jpg": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAACwAQCdASoNABAAA8BgJaQAAo1ij0BAAP6a5te8eRsbQIQXF25EirhsZdK/EHwwOmGUFcsrhAA=",
   "/images/banheiro-banheira.jpg": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAACQAQCdASoMABAAA8BgJZQCdABpyuAA/FMpnPGbn3s9wHKUV21eSzyZEmmxgbzGHcQAAA==",
+  "/images/banheiro-box-azul.jpg": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADQAQCdASoMABAAA8BgJbAAAp1DwNfGAAD+yXLlgz1eit9uCGBPLzwM8wDE/vO//Mlcj8Ec08ppDhtOsCAAAA==",
+  "/images/banheiro-box-verde.jpg": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAADQAQCdASoMABAAA8BgJYgCdADFWTwfIAD+4EJXJUEzwhEKm2GIkbEwITUdGqqNAAA=",
   "/images/banheiro-box.jpg": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAADwAQCdASoMABAAA8BgJZQCdADg/f62ZgAA/SpjBKAMj9FodoIkoM5fuUfyhN/m2AAAAA==",
   "/images/banheiro-cuba.jpg": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAADwAQCdASoMABAAA8BgJQBOgCKEzWdK+wAA92L4wT6MOKjvarR4j3ZW30KEnANoeRGGgJC/QAA=",
   "/images/banheiro-redondo.jpg": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAAAQAgCdASoMABAAA8BgJZQCdAEPDBQOnkgAAP7n6GFRkkjMjIIdH2FpgzprjdK0369NOU4AAAA=",
@@ -11,6 +14,7 @@ export const BLUR: Record<string, string> = {
   "/images/fachada.jpg": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAAAQAgCdASoLABAAA8BgJQBdgB6Rbhb7oecAAP7wh04S3tPtxRhjJJCEqJR4Tc3rMBcPj8hQBPUK0QAA",
   "/images/flat-studio.jpg": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAADwAQCdASoQAAwAA8BgJQBdgCGac85iVaAA/lvtEL2CjxfWsbkQAzWussqEfKmvw13JIAAA",
   "/images/kitchenette-branca.jpg": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAACQAQCdASoMABAAA8BgJQBOgAtA/YAA/ooJ7eBWs9ZtdtD6D+t/OzhRcOroHiv/7jTmrD6xJxrQqUDMBAA=",
+  "/images/kitchenette-cooktop.jpg": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADwAQCdASoMABAAA8BgJYwCdAEO4xqdsgAA/t7PlZXsWkogSjvBK3AnAfKikIu7f7HALtoEznfKgAAA",
   "/images/kitchenette-pia.jpg": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADQAQCdASoMABAAA8BgJYgCdAB8dDsxgAD2J3Pb4lkwwmkVwzGO15DEpDXybIUBup06f3qYP/egAA==",
   "/images/kitchenette-verde.jpg": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAACwAQCdASoHABAAA8BgJQBOgCPtYSj4AMyIhpvagWFhSt00/27AfBQK9B9QfFm6kQAAAA==",
   "/images/mahi-mahi-letreiro.jpg": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAAAwAgCdASoMABAAA8BgJaACdAEVvIzc3shZAAD6mOXumN2EED9tHHlmTttCkmhQvTts1QAA",
@@ -26,6 +30,8 @@ export const BLUR: Record<string, string> = {
   "/images/piscina-cobertura.jpg": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADwAQCdASoQABAAA8BgJbACdAEDfFVTbEAA/f9YnOs9/uSnyKJZ2p7KEuLBWoWzDWG+6+L5m/Lx2mvzkTnW2nu7NDXTAAAA",
   "/images/piscina-mar.jpg": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAAAwAgCdASoMABAAA8BgJbACdAEPEDW4/heeAADJ2PLJdkUwxlxST9baeHqlLahdAWzf0xq9jgzWuGAA",
   "/images/predios-encosta.jpg": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADwAQCdASoQAAwAA8BgJZgCdAEO41CYJgAA/kCXw4+5HnYmo0mnsgvBo9vGNTvNfDJRsJNnpygb6aLf64AAAA==",
+  "/images/quarto-abajur.jpg": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAACwAQCdASoNABAAA8BgJZwAAudLZTEAAP7KOGU4yoiAUGeXcGG6sZD9R/DIx4eD8+UQAA==",
+  "/images/quarto-arara.jpg": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAAAwAgCdASoMABAAA8BgJYgCdAELZNsY4uEYAAD+0zMiMrUEgPYjPZcmla8rjtachZgSdnfGGRJ8Gfxvzz8AAA==",
   "/images/quarto-avenida-cidade.jpg": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAADQAQCdASoQAAwAA8BgJZwAAsSgX/jCIAD5vLHYK5Kfc40NeeehF5rhM8gts+5C/l7EolwA",
   "/images/quarto-casal-avenida.jpg": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAAAQAgCdASoMABAAA8BgJYwC7AD6Ko5upf5gAPzV1GDR69wk41ekOxzkoGkKxd/SXfFWAAAA",
   "/images/quarto-casal-mar.jpg": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAAAQAgCdASoQAAwAA8BgJQBWABxq5cllmq2AAMqDrK0W174WVtq8DUX3MyS7/UGULzX55LRYAAA=",
@@ -39,6 +45,9 @@ export const BLUR: Record<string, string> = {
   "/images/quarto-tv.jpg": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADQAQCdASoMABAAA8BgJYwCdADcJvJkAADNuI0CTcy8Ke6G0RYc/lhq35JQdU4rSh9jXdRYHY9rgAAA",
   "/images/sala-estar.jpg": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAABQAQCdASoMABAAA8BgJZwAALyQAP4hsIzvvOqNgCL3pG590C5tK3HL3DPY80AA",
   "/images/sala-rede-noite.jpg": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADwAQCdASoQAAwAA8BgJQBOgBuuKyMwdgAA/eJFj/py8zCqU6bbsAuMKs7PjhdlkOFsOb6aqIKAAA==",
+  "/images/sala-sofa.jpg": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAADwAQCdASoQAAwAA8BgJYwAAudM3i+SfIAA/uuLANpQKXv3nbgAxJpLocBuY+SOYB8uFniAAAA=",
+  "/images/varanda-vista-mar.jpg": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADQAQCdASoQAAwAA8BgJbACdACv9yuQMAD+LVrPk7rB99cJGgtimHvt6DkZBcm/zvaBLDhqZPyb2G+OCdAAAA==",
+  "/images/vista-baia-pier.jpg": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAAAQAgCdASoQAAwAA8BgJZACdAEPCFKSwhWkAPk77hgpW21E/0xQow7lEo9NrV+re7j0A/ogRkYlwAAA",
   "/images/vista-baia.jpg": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAACwAQCdASoQAAwAA8BgJbACdAEOqPoAAP3jQ9h6ncXBbUl7esVKqSlL61eVDsP0teRgzycTAAA=",
   "/images/vista-mar-janela.jpg": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACwAQCdASoQAAcAA8BgJZwAAtd/dYcAAOHaGC84+pgX4Cr8HsfNmmT4AAA="
 };

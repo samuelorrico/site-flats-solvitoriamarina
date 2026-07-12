@@ -17,6 +17,8 @@ const PHOTOS: { src: string; altKey: string; w: number; h: number; cat: Cat }[] 
   { src: '/images/vista-baia.jpg', altKey: 'galt.baia', w: 1600, h: 1200, cat: 'sea' },
   { src: '/images/mar-vegetacao.jpg', altKey: 'galt.mar_veg', w: 1200, h: 1600, cat: 'sea' },
   { src: '/images/espumante-vista-mar.jpg', altKey: 'galt.espumante', w: 867, h: 1156, cat: 'sea' },
+  { src: '/images/vista-baia-pier.jpg', altKey: 'galt.vista_baia_pier', w: 1600, h: 1200, cat: 'sea' },
+  { src: '/images/varanda-vista-mar.jpg', altKey: 'galt.varanda_mar', w: 1600, h: 1200, cat: 'sea' },
   { src: '/images/pier-bondinho-trilho.jpg', altKey: 'galt.bondinho_trilho', w: 720, h: 959, cat: 'pier' },
   { src: '/images/pier-agua-cristalina.jpg', altKey: 'galt.pier_cristalina', w: 600, h: 800, cat: 'pier' },
   { src: '/images/pier-panoramica.jpg', altKey: 'galt.pier_pano', w: 1600, h: 632, cat: 'pier' },
@@ -52,6 +54,13 @@ const PHOTOS: { src: string; altKey: string; w: number; h: number; cat: Cat }[] 
   { src: '/images/vista-mar-janela.jpg', altKey: 'galt.vista_janela', w: 1280, h: 597, cat: 'sea' },
   { src: '/images/banheiro-redondo.jpg', altKey: 'galt.banho_redondo', w: 867, h: 1156, cat: 'rooms' },
   { src: '/images/banheiro-box.jpg', altKey: 'galt.box', w: 960, h: 1280, cat: 'rooms' },
+  { src: '/images/quarto-arara.jpg', altKey: 'galt.quarto_arara', w: 1200, h: 1600, cat: 'rooms' },
+  { src: '/images/quarto-abajur.jpg', altKey: 'galt.quarto_abajur', w: 1004, h: 1280, cat: 'rooms' },
+  { src: '/images/sala-sofa.jpg', altKey: 'galt.sala_sofa', w: 1080, h: 833, cat: 'rooms' },
+  { src: '/images/kitchenette-cooktop.jpg', altKey: 'galt.kit_cooktop', w: 1200, h: 1600, cat: 'rooms' },
+  { src: '/images/banheiro-bancada-dupla.jpg', altKey: 'galt.banho_dupla', w: 1008, h: 1280, cat: 'rooms' },
+  { src: '/images/banheiro-box-verde.jpg', altKey: 'galt.banho_box_verde', w: 1200, h: 1600, cat: 'rooms' },
+  { src: '/images/banheiro-box-azul.jpg', altKey: 'galt.banho_box_azul', w: 983, h: 1280, cat: 'rooms' },
 ];
 
 export async function generateMetadata({

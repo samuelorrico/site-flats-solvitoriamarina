@@ -128,6 +128,15 @@ const pt: Record<string, string> = {
   'galt.pier_passarela': 'Passarela do píer com os prédios do Corredor da Vitória ao fundo',
   'galt.sala_rede': 'Sala de estar com rede e mesa de jantar ao anoitecer',
   'galt.box': 'Banheiro com box, chuveiro de teto e ducha manual em porcelanato',
+  'galt.vista_baia_pier': 'Vista do alto para a Baía de Todos os Santos e o píer, da janela do flat',
+  'galt.varanda_mar': 'Janela aberta do flat com vista para o mar e a varanda',
+  'galt.kit_cooktop': 'Kitchenette com bancada de granito, cooktop e micro-ondas',
+  'galt.quarto_arara': 'Quarto com cama de casal, arara de roupas e ar-condicionado',
+  'galt.banho_dupla': 'Banheiro com bancada de duas cubas, espelho amplo e quadros',
+  'galt.banho_box_verde': 'Banheiro com box de vidro verde',
+  'galt.quarto_abajur': 'Quarto com cama arrumada, colcha clara e abajur de leitura',
+  'galt.banho_box_azul': 'Banheiro com box iluminado em azul',
+  'galt.sala_sofa': 'Sala de estar com sofá, TV e mesa de centro',
   // WhatsApp (mensagem pré-preenchida)
   'wa.intro': 'Olá! Tenho interesse em um flat no Vitória Marina Flats.', 'wa.type': 'Tipo', 'wa.cin': 'Check-in', 'wa.cout': 'Check-out', 'wa.guests': 'Hóspedes', 'wa.name': 'Nome', 'wa.tbd': 'a confirmar',
 };
