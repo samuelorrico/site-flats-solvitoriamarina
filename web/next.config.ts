@@ -5,14 +5,24 @@ import type { NextConfig } from "next";
 // superfície de XSS é mínima. 'unsafe-inline' em script/style é necessário porque
 // o Next 16 hidrata via scripts inline e não usamos nonce (exigiria middleware em
 // toda rota, regredindo a perf). frame-src libera só o mapa do Google.
+// Domínios do Google tag (gtag.js) + conversão do Google Ads. Só são efetivamente
+// contatados APÓS o consentimento do visitante (ver components/ConsentBanner.tsx);
+// liberá-los no CSP não carrega nada por si só.
+const GTAG = "https://www.googletagmanager.com";
+const GADS = "https://www.googleadservices.com";
+const GA = "https://www.google-analytics.com";
+const DCLK = "https://googleads.g.doubleclick.net";
+const TD = "https://td.doubleclick.net";
+
 const csp = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline'",
+  `script-src 'self' 'unsafe-inline' ${GTAG} ${GADS} ${GA}`,
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data:",
+  // pixels de conversão do Ads (google.com/ads/ga-audiences, doubleclick)
+  `img-src 'self' data: https://www.google.com https://www.google.com.br ${GADS} ${GA} ${DCLK}`,
   "font-src 'self'",
-  "frame-src 'self' https://*.google.com",
-  "connect-src 'self'",
+  `frame-src 'self' https://*.google.com ${TD}`,
+  `connect-src 'self' ${GTAG} ${GA} ${GADS} ${DCLK}`,
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",

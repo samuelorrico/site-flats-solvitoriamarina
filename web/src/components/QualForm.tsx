@@ -5,6 +5,7 @@ import Link from 'next/link';
 import type { Dict } from '@/dictionaries';
 import type { Locale } from '@/i18n-config';
 import { WA_PHONE } from '@/lib/site';
+import { trackWhatsAppClick } from '@/lib/analytics';
 
 const fieldClass =
   'mt-1.5 w-full rounded-xl border border-ink/15 bg-white/70 px-4 py-3 text-ink focus:border-sea focus:ring-2 focus:ring-sea/20 outline-none';
@@ -63,6 +64,9 @@ export default function QualForm({ lang, dict }: { lang: Locale; dict: Dict }) {
       '\n• ' + dict['wa.cout'] + ': ' + (checkout || tbd) +
       '\n• ' + dict['wa.guests'] + ': ' + (val('guests') || tbd) +
       '\n• ' + dict['wa.name'] + ': ' + (val('name') || tbd);
+    // Conversão do Google Ads (no-op sem tag/consentimento). O listener global só pega
+    // <a href="wa.me">, e aqui abrimos por window.open — por isso a chamada explícita.
+    trackWhatsAppClick();
     window.open(`https://wa.me/${WA_PHONE}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener,noreferrer');
   }
 

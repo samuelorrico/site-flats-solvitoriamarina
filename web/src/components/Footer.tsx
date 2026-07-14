@@ -2,6 +2,7 @@ import Link from 'next/link';
 import type { Locale } from '@/i18n-config';
 import type { Dict } from '@/dictionaries';
 import { WA_LINK, INSTAGRAM, EMAIL, EMAIL_LINK } from '@/lib/site';
+import CookieSettings from '@/components/CookieSettings';
 
 export default function Footer({ lang, dict }: { lang: Locale; dict: Dict }) {
   const base = `/${lang}`;
@@ -38,6 +39,7 @@ export default function Footer({ lang, dict }: { lang: Locale; dict: Dict }) {
           <p>© 2026 Vitória Marina Flats</p>
           <div className="flex items-center gap-4">
             <Link href={`${base}/privacidade`} className="hover:text-sand-soft">{dict['footer.privacy']}</Link>
+            <CookieSettings label={dict['cookie.settings']} />
             <span>Corredor da Vitória · Salvador-BA</span>
           </div>
         </div>

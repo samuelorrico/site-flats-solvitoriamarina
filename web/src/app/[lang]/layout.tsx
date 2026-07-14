@@ -7,6 +7,7 @@ import { getDictionary } from '@/dictionaries';
 import { SITE_URL, INDEXABLE } from '@/lib/site';
 import MotionProvider from '@/components/MotionProvider';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
+import ConsentBanner from '@/components/ConsentBanner';
 
 const OG_LOCALE: Record<Locale, string> = { pt: 'pt_BR', en: 'en_US', es: 'es_ES' };
 
@@ -82,6 +83,15 @@ export default async function LangLayout({
       <body className="min-h-full">
         <MotionProvider>{children}</MotionProvider>
         <FloatingWhatsApp label={dict['priv.contact_cta']} />
+        <ConsentBanner
+          lang={lang}
+          labels={{
+            text: dict['cookie.text'],
+            accept: dict['cookie.accept'],
+            reject: dict['cookie.reject'],
+            privacy: dict['cookie.privacy'],
+          }}
+        />
       </body>
     </html>
   );
